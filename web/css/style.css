@@ -1,5 +1,16 @@
-#barra-nav {
-    background: #EEE;
+body {
+    padding-top: 85px;
+}
+
+.cabecera-titulo {
+    font-family: "Open Sans";
+    background-color: #FBEDB5;
+}
+
+.cabecera-titulo h2 {
+    margin: 28px 5px 28px 120px;
+    font-weight: 300;
+    color: #72611B;
 }
 
 .row-aligned {
@@ -15,6 +26,7 @@
 
 .navbar-home {
     height: 85px;
+    box-shadow: 2px 2px 4px #AFAFAF;
 }
 
 .navbar-home li > a:hover {
