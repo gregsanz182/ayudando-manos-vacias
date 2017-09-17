@@ -1,0 +1,11 @@
+#barra-nav {
+    background: #EEE;
+}
+
+.navbar-home li:hover{
+    background-color: #E7E7E7;
+}
+
+.nav-custom {
+    margin-right: 1px;
+}
