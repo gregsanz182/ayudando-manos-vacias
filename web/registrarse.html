@@ -3,6 +3,7 @@
 <head>
     <title>Ayudando Manos Vacias - Registrarse</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -11,17 +12,106 @@
             <div class="form-row">
                 <div class="form-group col-md-9">
                     <label for="nombre" class="col-form-label">Usuario</label>
-                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-9">
+                    <label for="nombre" class="col-form-label">Correo electronico</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                        <input type="text" class="form-control">
+                    </div>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Confirmar Contraseña</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                        <input type="password" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <hr class="separator">
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <label for="nombre" class="col-form-label">Nombre</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" placeholder="Primer nombre">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="nombre" class="col-form-label">Apellido</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" placeholder="Primer apellido">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Cédula de identidad</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                        <input type="text" class="form-control" placeholder="Documento de identidad">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Fecha de nacimiento</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                        <input type="text" class="form-control" placeholder="DD/MM/YYYY">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Teléfono</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                        <input type="text" class="form-control" placeholder="Teléfono">
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nombre" class="col-form-label">Dirección</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                        <input type="text" class="form-control" placeholder="Dirección actual">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="estado" class="col-form-label">Estado</label>
+                    <select name="estado" class="custom-select">
+                        <option selected>Selecciona un estado</option>
+                        <option value="1">Amazonas</option>
+                        <option value="2">Apure</option>
+                        <option value="3">Carabobo</option>
+                        <option value="4">Lara</option>
+                        <option value="5">Mérida</option>
+                        <option value="6">Táchira</option>
+                        <option value="7">Zulia</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="municipio" class="col-form-label">Municipio</label>
+                    <select name="municipio" class="custom-select">
+                        <option selected>Selecciona un municipio</option>
+                        <option value="1">Andrés Bello</option>
+                        <option value="2">Ayacucho</option>
+                        <option value="3">Cárdenas</option>
+                        <option value="4">Guásimos</option>
+                        <option value="5">Indepencia</option>
+                        <option value="6">Libertad</option>
+                        <option value="7">San Cristóbal</option>
+                    </select>
                 </div>
             </div>
         </form>
