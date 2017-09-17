@@ -1,5 +1,5 @@
-#barra-nav {
-    background: #EEE;
+body {
+    padding-top: 85px;
 }
 
 .row-aligned {
@@ -15,6 +15,7 @@
 
 .navbar-home {
     height: 85px;
+    box-shadow: 2px 2px 4px #AFAFAF;
 }
 
 .navbar-home li > a:hover {
