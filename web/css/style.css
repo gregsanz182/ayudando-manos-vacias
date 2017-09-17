@@ -1,0 +1,55 @@
+#barra-nav {
+    background: #EEE;
+}
+
+.row-aligned {
+    display: table;
+    height: 100%;
+}
+
+.row-aligned > .row-align-bottom {
+    display: table-cell;
+    vertical-align: bottom;
+    float: none;
+}
+
+.navbar-home {
+    height: 85px;
+}
+
+.navbar-home li > a:hover {
+    color: #777;
+}
+
+.navbar-home li > a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    background-color: #F3D352;
+    height: 4px;
+    width: 0;
+    -webkit-transition: width 500ms, left 500ms;
+    -moz-transition: width 500ms, left 500ms;
+    transition: width 500ms, left 500ms;
+}
+
+.navbar-home li > a.active:after {
+    width: 100%;
+    left: 0%;
+    background-color: #DDDDDD;
+}
+
+.navbar-home li > a:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.navbar-home li:hover li:before{
+    
+}
+
+.nav-custom {
+    margin-right: 1px;
+}
