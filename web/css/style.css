@@ -101,6 +101,19 @@ h4 {
     border-left: #DDD solid 1px;
 }
 
+.list-group-card p{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.list-group-card a, 
+.list-group-card a:first-child, 
+.list-group-card a:last-child {
+    margin-bottom: 6px;
+    border-radius: 10px;
+    border-color: #CCC;
+}
+
 #footer {
     margin-top: 150px;
     background-color: #8EC63F;
