@@ -1,5 +1,6 @@
 body {
     padding-top: 85px;
+    font-family: "Open Sans";
 }
 
 .row-aligned {
@@ -52,7 +53,6 @@ body {
 }
 
 .cabecera-titulo {
-    font-family: "Open Sans";
     background-color: #FBEDB5;
 }
 
@@ -60,6 +60,29 @@ body {
     margin: 28px 5px 28px 120px;
     font-weight: 300;
     color: #72611B;
+}
+
+#cuerpo {
+    margin-top: 15px;
+}
+
+#cuerpo h3 {
+    font-weight: 400;
+    color: #72611B;
+    margin-bottom: 25px;
+}
+
+#cuerpo h4 {
+    font-weight: 400;
+    color: #72611B;
+}
+
+#cuerpo p {
+    margin-left: 25px;
+}
+
+.form-custom{
+    border-left: #DDD solid 1px;
 }
 
 #footer {
