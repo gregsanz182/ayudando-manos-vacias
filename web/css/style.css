@@ -2,17 +2,6 @@ body {
     padding-top: 85px;
 }
 
-.cabecera-titulo {
-    font-family: "Open Sans";
-    background-color: #FBEDB5;
-}
-
-.cabecera-titulo h2 {
-    margin: 28px 5px 28px 120px;
-    font-weight: 300;
-    color: #72611B;
-}
-
 .row-aligned {
     display: table;
     height: 100%;
@@ -58,10 +47,29 @@ body {
     left: 0%;
 }
 
-.navbar-home li:hover li:before{
-    
-}
-
 .nav-custom {
     margin-right: 1px;
+}
+
+.cabecera-titulo {
+    font-family: "Open Sans";
+    background-color: #FBEDB5;
+}
+
+.cabecera-titulo h2 {
+    margin: 28px 5px 28px 120px;
+    font-weight: 300;
+    color: #72611B;
+}
+
+#footer {
+    margin-top: 150px;
+    background-color: #8EC63F;
+    position: relative;
+    bottom: 0;
+}
+
+.kids-footer-img {
+    position: relative;
+    top: -119px;
 }
