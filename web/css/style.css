@@ -62,6 +62,10 @@ body {
     color: #72611B;
 }
 
+#cuerpo {
+    margin-top: 20px;
+}
+
 #footer {
     margin-top: 150px;
     background-color: #8EC63F;

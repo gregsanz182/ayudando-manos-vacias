@@ -35,122 +35,126 @@
     <div class="cabecera-titulo">
         <div class="container">
             <div class="row">
-                <h2>Resgitro de representante</h2>
+                <h2>Registro de representante</h2>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <form>
-            <h5>Información de usuario</h5>
-            <div class="form-row">
-                <div class="form-group col-md-9">
-                    <label for="usuario" class="col-form-label">Usuario</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                        <input type="text" name="usuario" class="form-control">
+    <div class="container" id="cuerpo">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <form class="col-md-6">
+                <h4>Información de usuario</h4>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="usuario">Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                            <input type="text" name="usuario" class="form-control">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-9">
-                    <label for="correo" class="col-form-label">Correo electronico</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                        <input type="text" name="correo" class="form-control">
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="correo">Correo electronico</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                            <input type="text" name="correo" class="form-control">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="contrasena" class="col-form-label">Contraseña</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" name="contrasena" class="form-control">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="contrasena">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" name="contrasena" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="confirmar_contrasena">Confirmar Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                            <input type="password" name="confirmar_contrasena" class="form-control">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="confirmar_contrasena" class="col-form-label">Confirmar Contraseña</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                        <input type="password" name="confirmar_contrasena" class="form-control">
+                <hr>
+                <h4>Información Personal</h4>
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" class="form-control" placeholder="Primer nombre">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" class="form-control" placeholder="Primer apellido">
                     </div>
                 </div>
-            </div>
-            <hr class="separator">
-            <h5>Información Personal</h5>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="nombre" class="col-form-label">Nombre</label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Primer nombre">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="apellido" class="col-form-label">Apellido</label>
-                    <input type="text" name="apellido" class="form-control" placeholder="Primer apellido">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="cedula" class="col-form-label">Cédula de identidad</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                        <input type="text" name="cedula" class="form-control" placeholder="Documento de identidad">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="cedula">Cédula de identidad</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                            <input type="text" name="cedula" class="form-control" placeholder="Documento de identidad">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                            <input type="text" name="fecha_nacimiento" class="form-control" placeholder="DD/MM/YYYY">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="fecha_nacimiento" class="col-form-label">Fecha de nacimiento</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
-                        <input type="text" name="fecha_nacimiento" class="form-control" placeholder="DD/MM/YYYY">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="telefono">Teléfono</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="direccion">Dirección</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                            <input type="text" name="direccion" class="form-control" placeholder="Dirección actual">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="telefono" class="col-form-label">Teléfono</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                        <input type="text" name="telefono" class="form-control" placeholder="Teléfono">
+                <div class="row form-group">
+                    <div class="col-md-6">
+                        <label for="estado">Estado</label>
+                        <select name="estado" class="form-control">
+                            <option selected>Selecciona un estado</option>
+                            <option value="1">Amazonas</option>
+                            <option value="2">Apure</option>
+                            <option value="3">Carabobo</option>
+                            <option value="4">Lara</option>
+                            <option value="5">Mérida</option>
+                            <option value="6">Táchira</option>
+                            <option value="7">Zulia</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="municipio">Municipio</label>
+                        <select name="municipio" class="form-control">
+                            <option selected>Selecciona un municipio</option>
+                            <option value="1">Andrés Bello</option>
+                            <option value="2">Ayacucho</option>
+                            <option value="3">Cárdenas</option>
+                            <option value="4">Guásimos</option>
+                            <option value="5">Indepencia</option>
+                            <option value="6">Libertad</option>
+                            <option value="7">San Cristóbal</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="direccion" class="col-form-label">Dirección</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                        <input type="text" name="direccion" class="form-control" placeholder="Dirección actual">
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="estado" class="col-form-label">Estado</label>
-                    <select name="estado" class="custom-select col">
-                        <option selected>Selecciona un estado</option>
-                        <option value="1">Amazonas</option>
-                        <option value="2">Apure</option>
-                        <option value="3">Carabobo</option>
-                        <option value="4">Lara</option>
-                        <option value="5">Mérida</option>
-                        <option value="6">Táchira</option>
-                        <option value="7">Zulia</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="municipio" class="col-form-label">Municipio</label>
-                    <select name="municipio" class="custom-select col">
-                        <option selected>Selecciona un municipio</option>
-                        <option value="1">Andrés Bello</option>
-                        <option value="2">Ayacucho</option>
-                        <option value="3">Cárdenas</option>
-                        <option value="4">Guásimos</option>
-                        <option value="5">Indepencia</option>
-                        <option value="6">Libertad</option>
-                        <option value="7">San Cristóbal</option>
-                    </select>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
+
 
     <!-- Footer -->
     <footer id="footer">
