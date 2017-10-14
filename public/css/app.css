@@ -68,6 +68,23 @@ body {
           box-shadow: 2px 2px 4px #AFAFAF;
   border: 0;
 }
+.navbar-home .container,
+.navbar-home .row {
+  height: 100%;
+}
+.navbar-home .logo-img {
+  position: absolute;
+  margin-top: 11px;
+}
+.navbar-home .header-right {
+  height: 100%;
+  padding-left: 315px;
+  display: table;
+}
+.navbar-home .header-right .header-row {
+  display: table-cell;
+  vertical-align: bottom;
+}
 .navbar-home li > a:hover {
   color: #777;
 }
@@ -95,12 +112,10 @@ body {
 .row-aligned {
   display: table;
   height: 100%;
-  position: absolute;
 }
 .row-aligned > .row-align-bottom {
-  display: table-cell;
-  vertical-align: bottom;
-  float: none;
+  bottom: 0;
+  position: relative;
 }
 .button-reg {
   background-color: #8EC63F;

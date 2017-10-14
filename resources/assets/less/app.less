@@ -10,6 +10,26 @@ body {
     box-shadow: 2px 2px 4px #AFAFAF;
     border: 0;
 
+    .container, .row {
+        height: 100%;
+    }
+
+    .logo-img {
+        position: absolute;
+        margin-top: 11px;
+    }
+
+    .header-right {
+        height: 100%;
+        padding-left: 315px;
+        display: table;
+
+        .header-row {
+            display: table-cell;
+            vertical-align: bottom;
+        }
+    }
+    
     li {
         > a {
             &:hover {
@@ -47,12 +67,10 @@ body {
 .row-aligned {
     display: table;
     height: 100%;
-    position: absolute;
 
     & > .row-align-bottom {
-        display: table-cell;
-        vertical-align: bottom;
-        float: none;
+        bottom: 0;
+        position: relative;
     }
 }
 
