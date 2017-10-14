@@ -9,9 +9,9 @@
     </div>
 </div>
 <div class="container" id="cuerpo">
-    <div class="col-sm-12 col-md-10 col-md-offset-1">
-        <div class="row form-group">
-            <div class="col-xs-12">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <div class="row form-group">
                 <label for="tipo">Tipo de Cáncer</label>
                 <input id="tipo" type="text" class="form-control" placeholder="Ingrese el tipo de cáncer aquí">
             </div>
