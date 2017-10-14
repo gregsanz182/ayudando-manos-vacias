@@ -57,7 +57,7 @@ body {
 
 .button-reg:hover {
     background-color: #8EC63F;
-    box-shadow: 0px 0px 12px #317421;
+    box-shadow: 0px 0px 7px #317421;
     color: #FFF;
 }
 
@@ -125,4 +125,9 @@ h4 {
 .kids-footer-img {
     position: relative;
     top: -119px;
+}
+
+.abajo {
+    position: relative;
+    margin-top: 24px;
 }
