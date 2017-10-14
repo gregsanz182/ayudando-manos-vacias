@@ -1,40 +1,6 @@
-﻿<html>
+﻿@extends('layouts.master')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Ayudando Manos Vacias - Registrar representado</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="bootstrap-select-1.12.4/dist/css/bootstrap-select.min.css">
-</head>
-
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-home">
-        <div class="container">
-            <div class="row row-aligned">
-                <div class="col-md-2">
-                    <a href="#" class="navbar-brand"><img src="img/logo.png" alt="Inicio"></a>
-                </div>
-                <div class="col-md-9 row-align-bottom">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html" class="active">Inicio</a></li>
-                        <li><a href="buscar_nino.html">Buscar</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-1 row-align-bottom">
-                    <button class="btn btn-deafult navbar-btn button-reg" action="registrar_nino.html">
-                            Registrarse
-                        </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Cuerpo -->
+@section('contenido')
     <div class="cabecera-titulo">
         <div class="container">
             <div class="row">
@@ -220,21 +186,4 @@
             </form>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <img src="img/footerImg.png" class="kids-footer-img">
-            </div>
-        </div>
-    </footer>
-
-    <script src="jquery/jquery-3.2.1.slim.min.js"></script>
-    <script src="popper.js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="bootstrap-select-1.12.4/dist/js/i18n/bootstrap-select.min.js"></script>
-</body>
-
-</html>
+@endsection
