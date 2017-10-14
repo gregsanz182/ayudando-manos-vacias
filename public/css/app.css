@@ -62,15 +62,6 @@ body {
   padding-top: 85px;
   font-family: "Open Sans";
 }
-.row-aligned {
-  display: table;
-  height: 100%;
-}
-.row-aligned > .row-align-bottom {
-  display: table-cell;
-  vertical-align: bottom;
-  float: none;
-}
 .navbar-home {
   height: 85px;
   -webkit-box-shadow: 2px 2px 4px #AFAFAF;
@@ -99,6 +90,16 @@ body {
 .navbar-home li > a:hover:after {
   width: 100%;
   left: 0%;
+}
+.row-aligned {
+  display: table;
+  height: 100%;
+  position: absolute;
+}
+.row-aligned > .row-align-bottom {
+  display: table-cell;
+  vertical-align: bottom;
+  float: none;
 }
 .button-reg {
   background-color: #8EC63F;
