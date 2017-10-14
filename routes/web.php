@@ -38,3 +38,7 @@ Route::get('/registrar_rep', function () {
 Route::get('/actualizar_datos', function () {
     return view('actualizar_datos');
 });
+
+Route::get('/agregar_cancer', function () {
+    return view('agg_cancer');
+});
