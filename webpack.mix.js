@@ -11,4 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
- mix.less('resources/assets/less/app.less', 'public/css');
+ mix.less('resources/assets/less/app.less', 'public/css')
+    .options({
+        processCssUrls: false
+     });
+ mix.browserSync('localhost:80');
