@@ -66,6 +66,7 @@ body {
   height: 85px;
   -webkit-box-shadow: 2px 2px 4px #AFAFAF;
           box-shadow: 2px 2px 4px #AFAFAF;
+  border: 0;
 }
 .navbar-home li > a:hover {
   color: #777;
