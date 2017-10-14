@@ -1,23 +1,35 @@
+@import "fonts.less";
+
 body {
     padding-top: 85px;
     font-family: "Open Sans";
 }
 
-.row-aligned {
-    display: table;
-    height: 100%;
-
-    & > .row-align-bottom {
-        display: table-cell;
-        vertical-align: bottom;
-        float: none;
-    }
-}
-
 .navbar-home {
     height: 85px;
     box-shadow: 2px 2px 4px #AFAFAF;
+    border: 0;
 
+    .container, .row {
+        height: 100%;
+    }
+
+    .logo-img {
+        position: absolute;
+        margin-top: 11px;
+    }
+
+    .header-right {
+        height: 100%;
+        padding-left: 315px;
+        display: table;
+
+        .header-row {
+            display: table-cell;
+            vertical-align: bottom;
+        }
+    }
+    
     li {
         > a {
             &:hover {
@@ -47,6 +59,67 @@ body {
             &:hover:after {
                 width: 100%;
                 left: 0%;
+            }
+        }
+    }
+}
+
+#login-dp {
+    min-width: 275px;
+    padding: 0;
+    overflow: hidden;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    h4 {
+        font-size: 2.0rem;
+        font-weight: 300;
+        color: #000;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-form {
+        padding: 5px 33px 15px 33px;
+
+        .boton-login {
+            margin-top: 25px;
+            background-color: #8BC34A;
+            width: 100%;
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 400;
+            border-color: #8BC34A;
+
+            &:hover {
+                background-color: #7CB342;
+            }
+        }
+    }
+
+    .link {
+        color: #2D80BF;
+        font-size: 1.4rem;
+
+        &:hover {
+            text-decoration: none;
+            color: rgb(18, 125, 248);
+        }
+    }
+
+    .foot {
+        background-color: #FBEDB5;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        span {
+            font-weight: 300;
+            font-size: 1.3rem;
+
+            a {
+                .link;
+                font-weight: 600;
             }
         }
     }
