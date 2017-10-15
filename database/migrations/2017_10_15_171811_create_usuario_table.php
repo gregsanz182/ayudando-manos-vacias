@@ -20,6 +20,7 @@ class CreateUsuarioTable extends Migration
             $table->string('correo')->unique();
             $table->string('rol');
             $table->integer('rol_id')->unsigned();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
