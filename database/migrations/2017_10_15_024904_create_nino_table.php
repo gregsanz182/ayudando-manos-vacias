@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableRepresentante extends Migration
+class CreateNinoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,21 @@ class CreateTableRepresentante extends Migration
      */
     public function up()
     {
-        Schema::create('representante', function(Blueprint $table) {
-            $table->string('ci', 20);
+        Schema::create('nino', function(Blueprint $table) {
+            $table->increments('id');
             $table->string('nombre');
             $table->string('apellido');
             $table->string('sexo');
             $table->date('fecha_nacimiento');
-            $table->string('telefono');
-            $table->string('direccion');
-            $table->integer('localidad_id')->unsigned();
+            $table->string('situacion_actual');
+            $table->string('relacion_repr');
+            $table->string('identificacion')->nullable();
+            $table->string('representante_ci', 20);
             $table->timestamps();
         });
 
-        Schema::table('representante', function(Blueprint $table) {
-            $table->primary('ci');
-            $table->foreign('localidad_id')->references('id')->on('localidad');
+        Schema::table('nino', function(Blueprint $table) {
+            $table->foreign('representante_ci')->references('ci')->on('representante');
         });
     }
 
@@ -38,6 +38,6 @@ class CreateTableRepresentante extends Migration
      */
     public function down()
     {
-        Schema::drop('representante');
+        Schema::drop('nino');
     }
 }

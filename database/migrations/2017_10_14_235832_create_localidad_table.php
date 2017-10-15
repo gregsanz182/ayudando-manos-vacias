@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableMedicamento extends Migration
+class CreateLocalidadTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateTableMedicamento extends Migration
      */
     public function up()
     {
-        Schema::create('medicamento', function(Blueprint $table) {
+        Schema::create('localidad', function(Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 45);
-            $table->string('descripcion');
+            $table->integer('localidad_id')->nullable()->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('localidad', function(Blueprint $table) {
+            $table->foreign('localidad_id')->references('id')->on('localidad');
         });
     }
 
@@ -28,6 +32,6 @@ class CreateTableMedicamento extends Migration
      */
     public function down()
     {
-        Schema::drop('medicamento');
+        Schema::drop('localidad');
     }
 }
