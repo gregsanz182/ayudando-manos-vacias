@@ -14,7 +14,8 @@ class CreateRepresentanteTable extends Migration
     public function up()
     {
         Schema::create('representante', function(Blueprint $table) {
-            $table->string('ci', 20);
+            $table->increments('id');
+            $table->string('cedula')->unique();
             $table->string('nombre');
             $table->string('apellido');
             $table->string('sexo');
@@ -26,7 +27,6 @@ class CreateRepresentanteTable extends Migration
         });
 
         Schema::table('representante', function(Blueprint $table) {
-            $table->primary('ci');
             $table->foreign('localidad_id')->references('id')->on('localidad');
         });
     }

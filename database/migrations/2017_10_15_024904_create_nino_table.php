@@ -22,12 +22,12 @@ class CreateNinoTable extends Migration
             $table->string('situacion_actual');
             $table->string('relacion_repr');
             $table->string('identificacion')->nullable();
-            $table->string('representante_ci', 20);
+            $table->integer('representante_id')->unsigned();
             $table->timestamps();
         });
 
         Schema::table('nino', function(Blueprint $table) {
-            $table->foreign('representante_ci')->references('ci')->on('representante');
+            $table->foreign('representante_id')->references('id')->on('representante');
         });
     }
 
