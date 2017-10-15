@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CancerTableSeeder::class);
         $this->call(LocalidadTableSeeder::class);
         $this->call(MedicamentoTableSeeder::class);
+        $this->call(Categoria_InsumoTableSeeder::class);
     }
 }
