@@ -38,6 +38,6 @@ class CreateTableRepresentante extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('representante');
     }
 }

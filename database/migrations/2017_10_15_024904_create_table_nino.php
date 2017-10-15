@@ -38,6 +38,6 @@ class CreateTableNino extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('nino');
     }
 }
