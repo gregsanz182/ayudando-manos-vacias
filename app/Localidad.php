@@ -17,6 +17,6 @@ class Localidad extends Model
     }
 
     public function representantes() {
-        return $this->hasMany('App\Representante', 'localidad_id', 'id');
+        return $this->hasMany('App\Representante');
     }
 }

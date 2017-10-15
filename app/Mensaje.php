@@ -9,6 +9,6 @@ class Mensaje extends Model
     protected $table = 'mensaje';
 
     public function nino() {
-        return $this->belongsTo('App\Nino', 'nino_id', 'id');
+        return $this->belongsTo('App\Nino');
     }
 }
