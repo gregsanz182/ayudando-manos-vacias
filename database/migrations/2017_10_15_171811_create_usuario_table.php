@@ -18,7 +18,7 @@ class CreateUsuarioTable extends Migration
             $table->string('usuario');
             $table->string('contrasena');
             $table->string('correo')->unique();
-            $table->string('rol');
+            $table->string('rol_type');
             $table->integer('rol_id')->unsigned();
             $table->rememberToken();
             $table->timestamps();

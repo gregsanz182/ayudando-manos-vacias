@@ -38,3 +38,9 @@ Route::get('/registrar_rep', function () {
 Route::get('/actualizar_datos', function () {
     return view('actualizar_datos');
 });
+
+Route::get('/sss', function () {
+    return view('index');
+});
+
+Route::get('/probar', 'Prueba@test');
