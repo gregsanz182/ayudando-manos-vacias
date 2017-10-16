@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use App\Nino;
 
 class NinoTableSeeder extends Seeder
 {
@@ -34,14 +35,14 @@ class NinoTableSeeder extends Seeder
         for ($i=0; $i<=60; $i++)
         {
             $genderRand = rand(0, 1);
-            Representante::create(array(
+            Nino::create(array(
                 'nombre' => $faker->firstName($gender = ($genderRand==1?'female':'male')),
                 'apellido' => $faker->lastName,
                 'genero' => ( $genderRand==1 ? 'F' : 'M'),
-                'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = '2004-01-01'),
-                'situacion_actual' => array_rand($situacion),
-                'relacion_repr' => array_rand($relacion),
-                'identificacion' => $faker->unique()-optional()->numberBetween($min = 23000000, $max=26000000),
+                'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                'situacion_actual' => $situacion[array_rand($situacion)],
+                'relacion_repr' => $relacion[array_rand($relacion)],
+                'identificacion' => $faker->optional()->numberBetween($min = 23000000, $max=26000000),
                 'representante_id' => $faker->numberBetween($min = 1, $max=25)
             ));
         }

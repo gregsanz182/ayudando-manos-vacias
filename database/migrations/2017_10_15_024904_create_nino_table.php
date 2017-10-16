@@ -17,7 +17,7 @@ class CreateNinoTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('sexo');
+            $table->string('genero');
             $table->date('fecha_nacimiento');
             $table->string('situacion_actual');
             $table->string('relacion_repr');
