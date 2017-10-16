@@ -10,13 +10,13 @@
                 <div class="row header-row">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="index.html" class="active">Inicio</a>
+                            <a href="index" class="active">Inicio</a>
                         </li>
                         <li>
-                            <a href="buscar_nino.html">Buscar</a>
+                            <a href="buscar">Buscar</a>
                         </li>
                         <li>
-                            <a href="ayuda.html">Ayuda</a>
+                            <a href="ayuda">Ayuda</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
