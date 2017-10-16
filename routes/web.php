@@ -39,6 +39,6 @@ Route::get('/actualizar_datos', function () {
     return view('actualizar_datos');
 });
 
-Route::get('/agregar_cancer', function () {
-    return view('agg_cancer');
+Route::get('/admin', function () {
+    return view('admin');
 });
