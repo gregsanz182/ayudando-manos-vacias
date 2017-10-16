@@ -6,9 +6,9 @@
             </div>
             <div class="col-md-9 row-align-bottom">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="buscar_nino.html">Buscar</a></li>
-                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li><a href="" class="active">Inicio</a></li>
+                    <li><a href="buscar">Buscar</a></li>
+                    <li><a href="ayuda">Ayuda</a></li>
                 </ul>
             </div>
             <div class="col-md-1 row-align-bottom">
