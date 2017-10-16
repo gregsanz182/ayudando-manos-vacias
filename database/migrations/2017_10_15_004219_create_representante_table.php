@@ -18,7 +18,7 @@ class CreateRepresentanteTable extends Migration
             $table->string('cedula')->unique();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('sexo');
+            $table->string('genero');
             $table->date('fecha_nacimiento');
             $table->string('telefono');
             $table->string('direccion');
