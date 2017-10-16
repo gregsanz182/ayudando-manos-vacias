@@ -18,7 +18,7 @@ class RepresentanteTableSeeder extends Seeder
         {
             $genderRand = rand(0, 1);
             Representante::create(array(
-                'cedula' => $faker->numberBetween($min = 9000000, $max=24000000),
+                'cedula' => $faker->unique()->numberBetween($min = 9000000, $max=24000000),
                 'nombre' => $faker->firstName($gender = ($genderRand==1?'female':'male')),
                 'apellido' => $faker->lastName,
                 'genero' => ( $genderRand==1 ? 'F' : 'M'),
