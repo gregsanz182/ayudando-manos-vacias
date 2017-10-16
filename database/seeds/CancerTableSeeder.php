@@ -24,7 +24,8 @@ class CancerTableSeeder extends Seeder
             ['Linfoma no Hodgkin', 'Cáncer en las celulas linfáticas'],
             ['Riñón', 'Cáncer renal'],
             ['Páncreas', 'Cáncer en el páncreas'],
-            ['Melanoma', 'Cáncer en la piel']
+            ['Melanoma', 'Cáncer en la piel'],
+            ['Otro', 'Otro tipo de cáncer']
         ];
 
         foreach ($inserts as $insert){

@@ -32,7 +32,7 @@ class NinoTableSeeder extends Seeder
             "Padrino(a)", 
             "Padrastro/Madrastra"
         ];
-        for ($i=0; $i<=60; $i++)
+        for ($i=0; $i<60; $i++)
         {
             $genderRand = rand(0, 1);
             Nino::create(array(
