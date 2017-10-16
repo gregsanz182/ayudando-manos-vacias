@@ -16,7 +16,6 @@ class MensajeTableSeeder extends Seeder
         $faker = Faker::create('es_ES');
         for ($i=0; $i<=25; $i++)
         {
-            $genderRand = rand(0, 1);
             Mensaje::create(array(
                 'mensaje' => $faker->text($maxNbChars = 280),
                 'fecha' => $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
