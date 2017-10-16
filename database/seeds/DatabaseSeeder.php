@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Categoria_InsumoTableSeeder::class);
         $this->call(RepresentanteTableSeeder::class);
         $this->call(NinoTableSeeder::class);
+        $this->call(MensajeTableSeeder::class);
     }
 }
