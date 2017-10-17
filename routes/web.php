@@ -20,7 +20,13 @@ Route::middleware(['es_admin'])->group(function(){
         return view('admin');
     })->name('admin');
 
-    Route::post('/admin/guardar-tipo-cancer', 'CancerController@insertar')->name('guardar-tipo-cancer');
+    Route::post('/admin/guardar-tipo-cancer', 'AdminController@guardar_tipo_cancer')->name('guardar-tipo-cancer');
+
+    Route::post('/admin/guardar-categoria-insumo', 'AdminController@guardar_categoria_insumo')->name('guardar-categoria-insumo');
+
+    Route::post('/admin/guardar-medicamento', 'AdminController@guardar_medicamento')->name('guardar-medicamento');
+
+    Route::post('/admin/guardar-localidad', 'AdminController@guardar_localidad')->name('guardar-localidad');
 
 });
 
