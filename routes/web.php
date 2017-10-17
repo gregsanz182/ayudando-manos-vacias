@@ -36,7 +36,7 @@ Route::middleware(['es_invitado'])->group(function(){
         return view('registrarse');
     })->name('registro');
 
-    Route::post('/registrar', '')
+    Route::post('/registrar', '');
 });
 
 Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
