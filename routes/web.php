@@ -35,6 +35,8 @@ Route::middleware(['es_invitado'])->group(function(){
     Route::get('/registro_rep', function () {
         return view('registrarse');
     })->name('registro');
+
+    Route::post('/registrar', '')
 });
 
 Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');

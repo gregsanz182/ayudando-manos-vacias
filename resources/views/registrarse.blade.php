@@ -131,7 +131,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <button class="btn btn-default button-reg btn-block btn-md" action="registrarse.html">Registrarse</button>
+                        <button class="btn btn-default button-reg btn-block btn-md" action="{{ route('') }}">Registrarse</button>
                     </div>
                 </div>
             </form>
