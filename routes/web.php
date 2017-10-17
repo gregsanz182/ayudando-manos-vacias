@@ -21,7 +21,7 @@ Route::middleware(['es_admin'])->group(function(){
     });
 });
 
-Route::middleware(['web', 'es_representante'])->group(function(){
+Route::middleware(['es_representante'])->group(function(){
     Route::get('/registrar_nino', function () {
         return view('registrar_nino');
     });
