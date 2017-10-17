@@ -10,7 +10,7 @@
                 <div class="row header-row">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="index" class="active">Inicio</a>
+                            <a href="{{ route('inicio') }}" class="active">Inicio</a>
                         </li>
                         <li>
                             <a href="buscar">Buscar</a>
