@@ -54,7 +54,7 @@
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form action="admin/guardar-tipo-cancer" method="post" class="row">
+                    <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4">
                             <label for="tipo_c">Tipo</label>

@@ -20,7 +20,7 @@ Route::middleware(['es_admin'])->group(function(){
         return view('admin');
     });
 
-    Route::post('/admin/guardar-tipo-cancer', 'CancerController@insertar');
+    Route::post('/admin/guardar-tipo-cancer', 'CancerController@insertar')->name('guardar-tipo-cancer');
 
 });
 
