@@ -54,11 +54,11 @@
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form form action="{{ action('AdminController@tipocancernuevo') }}" method="get" class="row">
+                    <form form action="{{ action('AdminController@tipocancernuevo') }}" method="post" class="row">
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4">
                             <label for="tipo_c">Tipo</label>
-                            <input name="tipo_c" type="text" class="form-control" requerid placeholder="Ingrese tipo de cáncer">
+                            <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
                         </div>
                         <div class="col-xs-4">
                             <label for="desc_c">Descripción</label>

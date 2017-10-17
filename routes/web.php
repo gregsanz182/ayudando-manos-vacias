@@ -19,6 +19,9 @@ Route::middleware(['es_admin'])->group(function(){
     Route::get('/admin', function () {
         return view('admin');
     });
+
+    Route::post('/admin/guardar-tipo-cancer', 'AdminController@tipocancernuevo');
+
 });
 
 Route::middleware(['es_representante'])->group(function(){
