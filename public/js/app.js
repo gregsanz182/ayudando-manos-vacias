@@ -6,4 +6,23 @@ $(document).ready(function (){
     if (footerTop < docHeight) {
      $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
     }
+
+});
+
+$('#estado_select').on('change', function() {
+    $.ajax({
+        method: 'POST',
+        url: cityUrl,
+        data: {
+            estado_id: this.value,
+            _token: token
+        },
+        success: function (data) {
+            $('#ciudad_select').empty();
+            $('#ciudad_select').append('<option selected>Selecciona un municipio</option>');
+            for (var i=0; i<data.length; i++){
+                $('#ciudad_select').append("<option value='"+data[i].id+"'>"+data[i].nombre+"</option>");
+            }
+        }
+    });
 });

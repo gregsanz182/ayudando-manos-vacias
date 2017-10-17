@@ -31,12 +31,10 @@ Route::middleware(['es_representante'])->group(function(){
     });
 });
 
-Route::middleware(['es_invitado'])->group(function(){
-    Route::get('/registro_rep', function () {
-        return view('registrarse');
-    })->name('registro');
+Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
 
-    Route::post('/registrar', '');
+Route::middleware(['es_invitado'])->group(function(){
+    Route::get('/registro_rep', 'RegistroController@formulario')->name('registro');
 });
 
 Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');

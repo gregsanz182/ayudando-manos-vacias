@@ -105,19 +105,16 @@
                 <div class="row form-group">
                     <div class="col-xs-6">
                         <label for="estado">Estado</label>
-                        <select name="estado" class="form-control">
+                        <select name="estado" class="form-control" id="estado_select">
                             <option selected>Selecciona un Estado</option>
-                            <option value="2">Apure</option>
-                            <option value="3">Carabobo</option>
-                            <option value="4">Lara</option>
-                            <option value="5">Mérida</option>
-                            <option value="6">Táchira</option>
-                            <option value="7">Zulia</option>
+                            @foreach($estados as $estado)
+                                <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <label for="municipio">Municipio</label>
-                        <select name="municipio" class="form-control">
+                        <select name="municipio" class="form-control" id="ciudad_select">
                             <option selected>Selecciona un municipio</option>
                             <option value="1">Andrés Bello</option>
                             <option value="2">Ayacucho</option>
@@ -131,10 +128,13 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <button class="btn btn-default button-reg btn-block btn-md" action="{{ route('') }}">Registrarse</button>
+                        <button class="btn btn-default button-reg btn-block btn-md" action="">Registrarse</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <script>
+        var cityUrl = "{{ route('obtener_ciudades') }}";
+    </script>
 @endsection
