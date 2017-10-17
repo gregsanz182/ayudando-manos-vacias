@@ -28,8 +28,9 @@
                                 <input name="nombre" type="text" class="form-control" value="José Sánchez">
                             </div>
                             <div class="col-xs-3">
+                                <label for="usuario">Usuario</label>
                                 <div class="input-group">
-                                    <label for="usuario">Usuario</label><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
                                     <input name="usuario" type="text" class="form-control" value="js_123">
                                 </div>
                             </div>
@@ -48,7 +49,7 @@
                                 <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
                             </div>
                             <div class="col-xs-4">
-                                <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</buttom>
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
                         </div>
                     </form>
@@ -65,8 +66,9 @@
                             <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
                 <div id="menu2" class="tab-pane fade">
@@ -81,7 +83,7 @@
                             <input name="descrip" type="text" class="form-control" placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
                     </form>
                 </div>
@@ -93,7 +95,7 @@
                             <input name="categoria" type="text" class="form-control" placeholder="Ingrese categoria">
                         </div>
                         <div class="col-xs-3">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
                     </form>
                 </div>
@@ -118,7 +120,7 @@
                             <input name="estado" type="text" class="form-control" placeholder="Ingrese nombre">
                         </div>
                         <div class="col-xs-3">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
                     </form>
                 </div>

@@ -17,6 +17,6 @@ class CancerController extends Controller
 
         $cancer->save();
         
-        return redirect('/admin');
+        return redirect()->route('admin');
     }
 }

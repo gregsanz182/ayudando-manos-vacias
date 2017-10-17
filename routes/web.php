@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::middleware(['es_admin'])->group(function(){
     Route::get('/admin', function () {
         return view('admin');
-    });
+    })->name('admin');
 
     Route::post('/admin/guardar-tipo-cancer', 'CancerController@insertar')->name('guardar-tipo-cancer');
 
