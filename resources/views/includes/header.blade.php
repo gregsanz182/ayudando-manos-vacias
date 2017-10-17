@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="#">
+                <a href="{{ route('inicio') }}">
                     <img src="img/logo.png" alt="Inicio" class="logo-img">
                 </a>
             </div>
@@ -10,7 +10,7 @@
                 <div class="row header-row">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="index" class="active">Inicio</a>
+                            <a href="{{ route('inicio') }}" class="active">Inicio</a>
                         </li>
                         <li>
                             <a href="buscar">Buscar</a>
@@ -53,7 +53,7 @@
                                             </form>
                                         </div>
                                         <div class="row foot">
-                                            <span>¿No tienes cuenta? <a href="#">Registrate</a></span>
+                                            <span>¿No tienes cuenta? <a href="{{ route('registro') }}">Registrate</a></span>
                                         </div>
                                     </li>
                                 </ul>

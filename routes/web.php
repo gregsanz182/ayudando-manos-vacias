@@ -31,6 +31,12 @@ Route::middleware(['es_representante'])->group(function(){
     });
 });
 
+Route::middleware(['es_invitado'])->group(function(){
+    Route::get('/registro_rep', function () {
+        return view('registrarse');
+    })->name('registro');
+});
+
 Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
 
 Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
@@ -45,10 +51,6 @@ Route::get('/buscar', function () {
 
 Route::get('/perfil_rep', function () {
     return view('perfil_representante');
-});
-
-Route::get('/registrar_rep', function () {
-    return view('registrarse');
 });
 
 Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
