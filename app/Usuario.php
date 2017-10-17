@@ -14,4 +14,8 @@ class Usuario extends Model implements Authenticatable
     public function rol() {
         return $this->morphTo();
     }
+
+    public function getAuthPassword() {
+        return $this->contrasena;
+    }
 }

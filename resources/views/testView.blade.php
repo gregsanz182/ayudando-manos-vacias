@@ -1,7 +1,12 @@
 @foreach($usuario as $user)
-    {{$user->rol->nombre;}}
-
+    {{$user->rol->nombre}}
  @endforeach
+
+ @if (Auth::check())
+ verdadero
+ @else
+ falso
+ @endif
 @foreach($mensajes as $mensaje)
     <ul>
         <li>{{ $mensaje->mensaje }}</li>

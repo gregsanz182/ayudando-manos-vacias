@@ -13,6 +13,7 @@ class Prueba extends Controller
     {
         $mensajes = Mensaje::all();
         $usuario = Usuario::all();
-        return view('testView', ['mensajes' => $mensajes, 'usuario' => $usuario]);
+        $value = false;
+        return view('testView', ['mensajes' => $mensajes, 'usuario' => $usuario, 'value' => $value]);
     }
 }
