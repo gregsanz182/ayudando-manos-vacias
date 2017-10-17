@@ -22,7 +22,7 @@
                     tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui,
                     eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
             </div>
-            <form class="col-xs-7 col-xs-offset-1 form-custom">
+            <form class="col-xs-7 col-xs-offset-1 form-custom" method='post'>
                 <h4>Información de usuario</h4>
                 <div class="row form-group">
                     <div class="col-xs-12">
