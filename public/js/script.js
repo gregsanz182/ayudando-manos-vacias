@@ -6,4 +6,12 @@ $(document).ready(function (){
     if (footerTop < docHeight) {
      $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
     }
+
+    $('.datepicker').datepicker();
+
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        startDate: '-15y'
+    });
+
 });

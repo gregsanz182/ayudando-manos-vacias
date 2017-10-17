@@ -105,8 +105,7 @@
                 <div class="row form-group">
                     <div class="col-xs-6">
                         <label for="estado">Estado</label>
-                        <select name="estado" class="form-control">
-                            <option selected>Selecciona un Estado</option>
+                        <select name="estado" class="form-control selectpicker" data-live-search="true" title="Estado">
                             <option value="2">Apure</option>
                             <option value="3">Carabobo</option>
                             <option value="4">Lara</option>
@@ -117,8 +116,7 @@
                     </div>
                     <div class="col-xs-6">
                         <label for="municipio">Municipio</label>
-                        <select name="municipio" class="form-control">
-                            <option selected>Selecciona un municipio</option>
+                        <select name="municipio" class="form-control selectpicker" data-live-search="true" title="Municipio">
                             <option value="1">Andrés Bello</option>
                             <option value="2">Ayacucho</option>
                             <option value="3">Cárdenas</option>

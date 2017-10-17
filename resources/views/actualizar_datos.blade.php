@@ -25,10 +25,9 @@
                     <div class="col-xs-4">
                         <label for="nombre">Fecha de Nacimiento</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
-                            <input type="text" class="form-control" value="14/09/2010">
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                            <input type="date" class="form-control" value="14/09/2010">
+
                         </div>
                     </div>
                 </div>
@@ -52,17 +51,14 @@
                     <div class="col-xs-4">
                         <label for="nombre">Fecha de diagnóstico</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
-                            <input type="text" class="form-control" value="20/01/2016">
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                            <input type="date" class="form-control" value="20/01/2016">
                         </div>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-4">
-                        <select name="tipo" class="form-control">
-                            <option selected>Seleccione un tipo</option>
+                        <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
                             <option value="1">Pulmon</option>
                             <option value="2">Leucemia</option>
                             <option value="3">Pancreas</option>
@@ -77,9 +73,7 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
                             <input type="date" class="form-control">
                         </div>
                     </div>
@@ -88,8 +82,7 @@
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="TNM_T">Tumor primario (T)</label>
-                        <select name="TNM_T" class="form-control">
-                            <option selected>Seleccione un estado</option>
+                        <select name="TNM_T" class="form-control selectpicker" data-live-search="true" title="TNM_Tx">
                             <option value="1">TX</option>
                             <option value="2">T0</option>
                             <option value="3">Tis</option>
@@ -101,8 +94,7 @@
                     </div>
                     <div class="col-xs-4">
                         <label for="TNM_N">Ganglios linfáticos (N)</label>
-                        <select name="TNM_N" class="form-control">
-                            <option selected>Seleccione un estado</option>
+                        <select name="TNM_N" class="form-control selectpicker" data-live-search="true" title="TNM_Nx">
                             <option value="1">NX</option>
                             <option value="2">N0</option>
                             <option value="3">N1</option>
@@ -112,8 +104,7 @@
                     </div>
                     <div class="col-xs-4">
                         <label for="TNM_M">Metástasis distante (M)</label>
-                        <select name="TNM_M" class="form-control">
-                            <option selected>Seleccione un estado</option>
+                        <select name="TNM_M" class="form-control selectpicker" data-live-search="true" title="TNM_Mx">
                             <option value="1">MX</option>
                             <option value="2">M0</option>
                             <option value="3">M1</option>
@@ -134,17 +125,14 @@
                     <div class="col-xs-4">
                         <label for="nombre">Fecha de donación</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
                             <input type="date" class="form-control">
                         </div>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-4">
-                        <select name="tipo" class="form-control">
-                            <option selected>Seleccione un tipo</option>
+                    <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Medicamento">
                             <option value="1">Pulmon</option>
                             <option value="2">Leucemia</option>
                             <option value="3">Pancreas</option>
@@ -159,10 +147,8 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
-                            <input type="date" class="form-control">
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                            <input type="date" class="form-control datapicker">
                         </div>
                     </div>
                 </div>
@@ -181,9 +167,7 @@
                     <div class="col-xs-3">
                         <label for="nombre">Fecha de donación</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
                             <input type="date" class="form-control">
                         </div>
                     </div>
@@ -194,8 +178,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-3">
-                        <select name="tipo" class="form-control">
-                            <option selected>Seleccione un tipo</option>
+                    <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Categoria de insumo">
                             <option value="1">Pulmon</option>
                             <option value="2">Leucemia</option>
                             <option value="3">Pancreas</option>
@@ -210,10 +193,8 @@
                     </div>
                     <div class="col-xs-3">
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-calendar-plus-o"></i>
-                            </span>
-                            <input type="date" class="form-control" placeholder="DD/MM/YYYY">
+                            <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
+                            <input type="date" class="form-control">
                         </div>
                     </div>
                     <div class="col-xs-3">
@@ -223,7 +204,7 @@
                 <hr>
                 <div class="row form-group">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <buttom class="btn btn-deafult btn-block btn-md button-reg">Registrar</buttom>
+                        <buttom class="btn btn-deafult btn-block btn-md button-reg">Actualizar</buttom>
                     </div>
                 </div>
             </form>

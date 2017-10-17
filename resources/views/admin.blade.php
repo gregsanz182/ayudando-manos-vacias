@@ -28,8 +28,10 @@
                                 <input name="nombre" type="text" class="form-control" value="José Sánchez">
                             </div>
                             <div class="col-xs-3">
-                                <label for="usuario">Usuario</label>
-                                <input name="usuario" type="text" class="form-control" value="js_123">
+                                <div class="input-group">
+                                    <label for="usuario">Usuario</label><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <input name="usuario" type="text" class="form-control" value="js_123">
+                                </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
@@ -52,15 +54,15 @@
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form action="#" class="row">
+                    <form form action="{{ action('AdminController@tipocancernuevo') }}" method="get" class="row">
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4">
-                            <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre de cáncer">
+                            <label for="tipo_c">Tipo</label>
+                            <input name="tipo_c" type="text" class="form-control" requerid placeholder="Ingrese tipo de cáncer">
                         </div>
                         <div class="col-xs-4">
-                            <label for="nombre">Descripción</label>
-                            <input name="descrip" type="text" class="form-control" placeholder="Ingrese una descripción">
+                            <label for="desc_c">Descripción</label>
+                            <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
                             <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
