@@ -16,7 +16,9 @@ Route::get('/', function () {
 })->name('inicio');
 
 Route::middleware(['es_admin'])->group(function(){
-
+    Route::get('/admin', function () {
+        return view('admin');
+    });
 });
 
 Route::middleware(['web', 'es_representante'])->group(function(){
@@ -51,6 +53,4 @@ Route::get('/registrar_rep', function () {
 
 Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+
