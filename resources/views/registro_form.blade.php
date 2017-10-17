@@ -116,13 +116,6 @@
                         <label for="municipio">Municipio</label>
                         <select name="municipio" class="form-control" id="ciudad_select">
                             <option selected>Selecciona un municipio</option>
-                            <option value="1">Andrés Bello</option>
-                            <option value="2">Ayacucho</option>
-                            <option value="3">Cárdenas</option>
-                            <option value="4">Guásimos</option>
-                            <option value="5">Indepencia</option>
-                            <option value="6">Libertad</option>
-                            <option value="7">San Cristóbal</option>
                         </select>
                     </div>
                 </div>
