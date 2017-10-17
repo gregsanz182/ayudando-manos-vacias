@@ -15,4 +15,8 @@ class representante extends Model
     public function ninos() {
         return $this->hasMany('App\Nino', 'representante_id', 'id');
     }
+
+    public function usuario() {
+        return $this->morphMany('App\Usuario', 'propietario');
+    }
 }

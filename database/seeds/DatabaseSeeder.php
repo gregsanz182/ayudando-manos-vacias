@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NinoTableSeeder::class);
         $this->call(MensajeTableSeeder::class);
         $this->call(Nino_CancerTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
+        $this->call(UsuarioTableSeeder::class);
     }
 }

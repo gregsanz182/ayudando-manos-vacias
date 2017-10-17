@@ -9,11 +9,11 @@ class Localidad extends Model
     protected $table = 'localidad';
 
     public function ciudades() {
-        return $this->hasMany('Localidad', 'localidad_id', 'id');
+        return $this->hasMany('App\Localidad', 'localidad_id', 'id');
     }
 
     public function estado() {
-        return $this->belongsTo('Localidad', 'localidad_id', 'id');
+        return $this->belongsTo('App\Localidad', 'localidad_id', 'id');
     }
 
     public function representantes() {

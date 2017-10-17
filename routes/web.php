@@ -13,7 +13,27 @@
 
 Route::get('/', function () {
     return view('index');
+})->name('inicio');
+
+Route::middleware(['es_admin'])->group(function(){
+    Route::get('/admin', function () {
+        return view('admin');
+    });
 });
+
+Route::middleware(['es_representante'])->group(function(){
+    Route::get('/registrar_nino', function () {
+        return view('registrar_nino');
+    });
+
+    Route::get('/actualizar_datos', function () {
+        return view('actualizar_datos');
+    });
+});
+
+Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
+
+Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
 
 Route::get('/ayuda', function () {
     return view('ayuda');
@@ -27,18 +47,10 @@ Route::get('/perfil_rep', function () {
     return view('perfil_representante');
 });
 
-Route::get('/registrar_nino', function () {
-    return view('registrar_nino');
-});
-
 Route::get('/registrar_rep', function () {
     return view('registrarse');
 });
 
-Route::get('/actualizar_datos', function () {
-    return view('actualizar_datos');
-});
+Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+
