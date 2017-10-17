@@ -35,6 +35,7 @@ Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obten
 
 Route::middleware(['es_invitado'])->group(function(){
     Route::get('/registro_rep', 'RegistroController@formulario')->name('registro');
+    Route::get('/registrar_rep', 'RegistroController@registrar')->name('registrar');
 });
 
 Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
