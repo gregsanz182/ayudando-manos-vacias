@@ -128,6 +128,7 @@
             </form>
         </div>
     </div>
+    {{ var_dump($errors) }}
     <script>
         var cityUrl = "{{ route('obtener_ciudades') }}";
     </script>

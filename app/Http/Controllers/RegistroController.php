@@ -17,6 +17,20 @@ class RegistroController extends Controller
 
     public function registrar(Request $request)
     {
-        
+        $this->validate($request, [
+            'usuario' => 'required|unique:usuario',
+            'correo' => 'required|email',
+            'contrasena' => 'required|min:4',
+            'confirmar_contrasena' => 'required|same:confirmar_contrasena',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cedula' => 'required|unique:representante',
+            'fecha_nacimiento' => 'required|date',
+            'telefono' => 'required',
+            'direccion' => 'required',
+            'municipio' => 'required|exists:localidad,id'
+        ]);
+
+        return redirect()->back();
     }
 }
