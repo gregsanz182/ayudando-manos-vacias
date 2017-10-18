@@ -8,10 +8,19 @@ use App\Cancer;
 use App\Categoria_Insumo;
 use App\Medicamento;
 use App\Localidad;
+use App\Usuario;
 
 
 class AdminController extends Controller
 {
+
+    public function obtener_perfil(Request $request){
+
+        $usuario = Usuario::find('admin');
+
+        return view('admin', ['usuario' => $usuario]);
+    }
+
     public function guardar_tipo_cancer(Request $request){
 
         $cancer = new Cancer;
