@@ -29,7 +29,10 @@
                             </div>
                             <div class="col-xs-3">
                                 <label for="usuario">Usuario</label>
-                                <input name="usuario" type="text" class="form-control" value="js_123">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <input name="usuario" type="text" class="form-control" value="js_123">
+                                </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
@@ -46,61 +49,64 @@
                                 <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
                             </div>
                             <div class="col-xs-4">
-                                <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</buttom>
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form action="#" class="row">
+                    <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4">
-                            <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre de cáncer">
+                            <label for="tipo_c">Tipo</label>
+                            <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
                         </div>
                         <div class="col-xs-4">
-                            <label for="nombre">Descripción</label>
-                            <input name="descrip" type="text" class="form-control" placeholder="Ingrese una descripción">
+                            <label for="desc_c">Descripción</label>
+                            <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                    <form action="#" class="row">
+                    <form action="{{ route('guardar-medicamento') }}" method="post" class="row">
                         <h3>Agregar medicamento</h3>
                         <div class="col-xs-4">
-                            <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre del medicamento">
+                            <label for="nombre_m">Nombre</label>
+                            <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
                         </div>
                         <div class="col-xs-4">
-                            <label for="descrip">Descripción</label>
-                            <input name="descrip" type="text" class="form-control" placeholder="Ingrese una descripción">
+                            <label for="desc_m">Descripción</label>
+                            <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                    <form action="#" class="row">
+                    <form action="{{ route('guardar-categoria-insumo') }}" method="post" class="row">
                         <h3>Agregar categoria de insumo</h3>
                         <div class="col-xs-3">
                             <label for="cat">Categoria</label>
-                            <input name="categoria" type="text" class="form-control" placeholder="Ingrese categoria">
+                            <input name="categoria_i" type="text" class="form-control" required placeholder="Ingrese categoria">
                         </div>
                         <div class="col-xs-3">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
                 <div id="menu4" class="tab-pane fade">
-                    <form action="#" class="row">
+                    <form action="{{ route('guardar-localidad') }}" method="post" class="row">
                         <h3>Agregar localidad</h3>
                         <div class="col-xs-3">
                             <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre">
+                            <input name="nombre" type="text" class="form-control" required placeholder="Ingrese nombre">
                         </div>
                         <div class="col-xs-3">
                             <label for="tipo">Tipo</label><br>
@@ -116,8 +122,9 @@
                             <input name="estado" type="text" class="form-control" placeholder="Ingrese nombre">
                         </div>
                         <div class="col-xs-3">
-                            <buttom type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</buttom>
+                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
             </div>

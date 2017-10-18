@@ -56,16 +56,15 @@
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="tipo">Tipo</label>
-                        <select name="tipo" class="form-control">
-                        <option selected>Seleccione un tipo</option>
-                        <option value="1">Pulmon</option>
-                        <option value="2">Leucemia</option>
-                        <option value="3">Pancreas</option>
-                        <option value="4">Garganta</option>
-                        <option value="5">Tiroides</option>
-                        <option value="6">Colon</option>
-                        <option value="7">Higado</option>
-                    </select>
+                        <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
+                            <option value="1">Pulmon</option>
+                            <option value="2">Leucemia</option>
+                            <option value="3">Pancreas</option>
+                            <option value="4">Garganta</option>
+                            <option value="5">Tiroides</option>
+                            <option value="6">Colon</option>
+                            <option value="7">Higado</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <label for="estado_actual">Estado Actual</label>
@@ -83,36 +82,33 @@
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="TNM_T">Tumor primario (T)</label>
-                        <select name="TNM_T" class="form-control">
-                        <option selected>Seleccione un estado</option>
-                        <option value="1">TX</option>
-                        <option value="2">T0</option>
-                        <option value="3">Tis</option>
-                        <option value="4">T1</option>
-                        <option value="5">T2</option>
-                        <option value="6">T3</option>
-                        <option value="7">T4</option>
-                    </select>
+                            <select name="TNM_T" class="form-control selectpicker" data-live-search="true" title="TNM_Tx">
+                            <option value="1">TX</option>
+                            <option value="2">T0</option>
+                            <option value="3">Tis</option>
+                            <option value="4">T1</option>
+                            <option value="5">T2</option>
+                            <option value="6">T3</option>
+                            <option value="7">T4</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <label for="TNM_N">Ganglios linfáticos (N)</label>
-                        <select name="TNM_N" class="form-control">
-                        <option selected>Seleccione un estado</option>
-                        <option value="1">NX</option>
-                        <option value="2">N0</option>
-                        <option value="3">N1</option>
-                        <option value="4">N2</option>
-                        <option value="5">N3</option>
-                    </select>
+                        <select name="TNM_N" class="form-control selectpicker" data-live-search="true" title="TNM_Nx">
+                            <option value="1">NX</option>
+                            <option value="2">N0</option>
+                            <option value="3">N1</option>
+                            <option value="4">N2</option>
+                            <option value="5">N3</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <label for="TNM_M">Metástasis distante (M)</label>
-                        <select name="TNM_M" class="form-control">
-                        <option selected>Seleccione un estado</option>
-                        <option value="1">MX</option>
-                        <option value="2">M0</option>
-                        <option value="3">M1</option>
-                    </select>
+                        <select name="TNM_M" class="form-control selectpicker" data-live-search="true" title="TNM_Mx">
+                            <option value="1">MX</option>
+                            <option value="2">M0</option>
+                            <option value="3">M1</option>
+                        </select>
                     </div>
                 </div>
                 <hr>
@@ -120,16 +116,15 @@
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="tipo">Medicamento</label>
-                        <select name="tipo" class="form-control">
-                        <option selected>Seleccione un tipo</option>
-                        <option value="1">Pulmon</option>
-                        <option value="2">Leucemia</option>
-                        <option value="3">Pancreas</option>
-                        <option value="4">Garganta</option>
-                        <option value="5">Tiroides</option>
-                        <option value="6">Colon</option>
-                        <option value="7">Higado</option>
-                    </select>
+                        <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Medicamento">
+                            <option value="1">Pulmon</option>
+                            <option value="2">Leucemia</option>
+                            <option value="3">Pancreas</option>
+                            <option value="4">Garganta</option>
+                            <option value="5">Tiroides</option>
+                            <option value="6">Colon</option>
+                            <option value="7">Higado</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <label for="estado_actual">Dosis / Cantidad (Opcional)</label>
@@ -149,16 +144,15 @@
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="tipo">Categoria</label>
-                        <select name="tipo" class="form-control">
-                        <option selected>Seleccione un tipo</option>
-                        <option value="1">Pulmon</option>
-                        <option value="2">Leucemia</option>
-                        <option value="3">Pancreas</option>
-                        <option value="4">Garganta</option>
-                        <option value="5">Tiroides</option>
-                        <option value="6">Colon</option>
-                        <option value="7">Higado</option>
-                    </select>
+                        <select name="tipo" class="form-control selectpicker" data-live-search="true" title="Categoria de insumo">
+                            <option value="1">Pulmon</option>
+                            <option value="2">Leucemia</option>
+                            <option value="3">Pancreas</option>
+                            <option value="4">Garganta</option>
+                            <option value="5">Tiroides</option>
+                            <option value="6">Colon</option>
+                            <option value="7">Higado</option>
+                        </select>
                     </div>
                     <div class="col-xs-4">
                         <label for="estado_actual">Insumo</label>
