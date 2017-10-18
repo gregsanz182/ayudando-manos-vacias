@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Localidad;
 use App\Representante;
@@ -52,6 +53,8 @@ class RegistroController extends Controller
         $usuario->rol_type = 'App\Representante';
 
         $usuario->save();
+
+        Auth::login($usuario);
 
         return redirect()->back();
     }
