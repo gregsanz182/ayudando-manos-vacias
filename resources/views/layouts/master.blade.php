@@ -13,5 +13,8 @@
     @include('includes.footer')
 
     @include('includes/scriptLinks')
+    <script>
+        var token = '{{ Session::token() }}';
+    </script>
 </body>
 </html>
