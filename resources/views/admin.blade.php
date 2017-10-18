@@ -20,23 +20,26 @@
 
             <div class="tab-content">
                 <div id="perfil" class="tab-pane fade in active">
-                    <form action="#" method="post" class="row">
+                    <form action="{{ route('actualizar-perfil') }}" method="post" class="row">
                         <h3>Perfil</h3>
                         <div class="row">
                             <div class="col-xs-3">
                                 <label for="nombre">Nombre</label>
-                                <input name="nombre" type="text" class="form-control" value="{{ $usuario->usuario }}">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <input name="nombre" type="text" class="form-control" value="{{ Auth::user()->usuario }}">
+                                </div>
                             </div>
                             <div class="col-xs-3">
                                 <label for="usuario">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" class="form-control" value="{{ $usuario->usuario }}">
+                                    <input name="usuario" type="text" class="form-control" value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
-                                <input name="correo" type="text" class="form-control" value="{{ $usuario->correo }}">
+                                <input name="correo" type="text" class="form-control" value="{{ Auth::user()->correo }}">
                             </div>
                         </div><br>
                         <div class="row">
@@ -112,15 +115,15 @@
                         <div class="col-xs-3">
                             <label for="tipo">Tipo</label><br>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="ciudad" checked="checked"> Ciudad
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="estado"> Estado
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
                             </label>
                         </div>
                         <div class="col-xs-3">
                             <label for="estado">Estado</label>
-                            <input name="estado" type="text" class="form-control" placeholder="Ingrese nombre">
+                            <input name="estado" id="estado" type="text" class="form-control" placeholder="Ingrese nombre">
                         </div>
                         <div class="col-xs-3">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>

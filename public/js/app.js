@@ -26,3 +26,11 @@ $('#estado_select').on('change', function() {
         }
     });
 });
+
+$('#inlineRadio2').click( function(){
+    $("#estado").attr("disabled", "disabled");
+});
+
+$('#inlineRadio1').click( function(){
+    $("#estado").removeAttr("disabled");
+});

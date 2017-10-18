@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Ocidb;
 use App\motorData as MOTOR;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Cancer;
 use App\Categoria_Insumo;
 use App\Medicamento;
@@ -14,9 +15,9 @@ use App\Usuario;
 class AdminController extends Controller
 {
 
-    public function obtener_perfil(Request $request){
+    public function actualizar_perfil(Request $request){
 
-        $usuario = Usuario::find('admin');
+        $usuario = Usuario::find(Auth::user()->usuario);
 
         return view('admin', ['usuario' => $usuario]);
     }

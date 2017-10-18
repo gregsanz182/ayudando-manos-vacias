@@ -10,7 +10,6 @@ class Usuario extends Model implements Authenticatable
     use \Illuminate\Auth\Authenticatable;
 
     protected $table = 'usuario';
-    protected $primaryKey = 'usuario';
 
     public function rol() {
         return $this->morphTo();

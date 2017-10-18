@@ -17,7 +17,11 @@ Route::get('/', function () {
 
 Route::middleware(['es_admin'])->group(function(){
 
-    Route::post('/admin', 'AdminController@obtener_perfil')->name('admin');
+    Route::get('/admin', function(){
+        return view('admin');
+    })->name('admin');
+
+    Route::get('/admin/actualizar-perfil', 'AdminController@actualizar_perfil')->name('actualizar-perfil');
 
     Route::post('/admin/guardar-tipo-cancer', 'AdminController@guardar_tipo_cancer')->name('guardar-tipo-cancer');
 
