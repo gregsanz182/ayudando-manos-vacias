@@ -68,4 +68,8 @@ class AdminController extends Controller
 
         return redirect()->route('admin');
     }
+
+    public function guardar_admin(Request $request){
+        return redirect()->route('admin');
+    }
 }
