@@ -18,8 +18,7 @@ class AdminController extends Controller
     public function actualizar_perfil(Request $request){
 
         $usuario = Usuario::find(Auth::user()->usuario);
-
-        return view('admin', ['usuario' => $usuario]);
+        return redirect()->route('admin');
     }
 
     public function guardar_tipo_cancer(Request $request){
@@ -70,6 +69,14 @@ class AdminController extends Controller
     }
 
     public function guardar_admin(Request $request){
+
+        $usuario = new Usuario;
+
+        $usuario->correo = $request->input('correo');
+        $usuario->contrasena = $request->input('contrasena1');
+
+        $usuario->save();
+
         return redirect()->route('admin');
     }
 }

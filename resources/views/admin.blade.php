@@ -35,22 +35,31 @@
                                 <label for="usuario">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" class="form-control" value="{{ Auth::user()->usuario }}">
+                                    <input name="usuario" type="text" disabled class="form-control" value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
-                                <input name="correo" type="email" class="form-control" value="{{ Auth::user()->correo }}">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                                    <input name="correo" type="email" class="form-control" value="{{ Auth::user()->correo }}">
+                                </div>
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-xs-4">
                                 <label for="contrasena1">Contraseña nueva</label>
-                                <input name="contrasena1" type="text" class="form-control" placeholder="Ingrese contraseña">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input name="contrasena1" type="text" class="form-control" placeholder="Ingrese contraseña">
+                                </div>
                             </div>
                             <div class="col-xs-4">
                                 <label for="contrasena2">Confirmar contraseña</label>
-                                <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                                    <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
+                                </div>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
@@ -132,37 +141,46 @@
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
-                <div id="menu5" class="tab-pane fade in active">
+                <div id="menu5" class="tab-pane fade">
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">
-                        <h3>Perfil</h3>
+                        <h3>Agregar Administrador</h3>
                         <div class="row">
                             <div class="col-xs-3">
                                 <label for="nombre">Nombre</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre" type="text" class="form-control" placeholder="Ingrese nombre">
+                                    <input name="nombre" type="text" id="nombre" class="form-control" placeholder="Ingrese nombre">
                                 </div>
                             </div>
                             <div class="col-xs-3">
                                 <label for="usuario">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" class="form-control" placeholder="Ingrese Usuario">
+                                    <input name="usuario" type="text" id="usuario" class="form-control" placeholder="Ingrese Usuario">
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
-                                <input name="correo" type="email" class="form-control" placeholder="Ingrese correo">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                                    <input name="correo" type="email" id="correo" class="form-control" placeholder="Ingrese correo">
+                                </div>
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-xs-4">
                                 <label for="contrasena1">Contraseña nueva</label>
-                                <input name="contrasena1" type="text" class="form-control" placeholder="Ingrese contraseña">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input name="contrasena1" type="text" id="contrasena1" class="form-control" placeholder="Ingrese contraseña">
+                                </div>
                             </div>
                             <div class="col-xs-4">
                                 <label for="contrasena2">Confirmar contraseña</label>
-                                <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                                    <input name="contrasena2" type="text" id="contrasena2" class="form-control" placeholder="Confirmar contraseña">
+                                </div>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
