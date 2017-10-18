@@ -21,7 +21,7 @@ class RegistroController extends Controller
             'usuario' => 'required|unique:usuario',
             'correo' => 'required|email',
             'contrasena' => 'required|min:4',
-            'confirmar_contrasena' => 'required|same:confirmar_contrasena',
+            'confirmar_contrasena' => 'required|same:contrasena',
             'nombre' => 'required',
             'apellido' => 'required',
             'cedula' => 'required|unique:representante',
@@ -30,6 +30,28 @@ class RegistroController extends Controller
             'direccion' => 'required',
             'municipio' => 'required|exists:localidad,id'
         ]);
+
+        $usuario = new Usuario;
+        $representante = new Representante;
+
+        $representante->nombre = $request['nombre'];
+        $representante->apellido = $request['apellido'];
+        $representante->cedula = $request['cedula'];
+        $representante->fecha_nacimiento = $request['fecha_nacimiento'];
+        $representante->telefono = $request['telefono'];
+        $representante->direccion = $request['direccion'];
+        $representante->localidad_id = $request['municipio'];
+        $representante->genero = 'M';
+
+        $representante->save();
+
+        $usuario->usuario = $request['usuario'];
+        $usuario->correo = $request['correo'];
+        $usuario->contrasena = bcrypt($request['contrasena']);
+        $usuario->rol_id = $representante->id;
+        $usuario->rol_type = 'App\Representante';
+
+        $usuario->save();
 
         return redirect()->back();
     }
