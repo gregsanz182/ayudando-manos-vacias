@@ -1,4 +1,4 @@
-$(document).ready(function (){
+/*$(document).ready(function (){
     var docHeight = $(window).height();
     var footerHeight = $('#footer').height();
     var footerTop = $('#footer').position().top + footerHeight;
@@ -7,7 +7,7 @@ $(document).ready(function (){
      $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
     }
 
-});
+});*/
 
 $('#estado_select').on('change', function() {
     $.ajax({
