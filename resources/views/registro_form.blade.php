@@ -95,7 +95,7 @@
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
-                            <input type="date" name="fecha_nacimiento" class="form-control" value="{{ $errors->has('fecha_nacimiento')?'':Request::old('fecha_nacimiento') }}">
+                            <input type="date" placeholder="AAAA-MM-DD" name="fecha_nacimiento" class="form-control" value="{{ $errors->has('fecha_nacimiento')?'':Request::old('fecha_nacimiento') }}">
                         </div>
                     </div>
                 </div>
