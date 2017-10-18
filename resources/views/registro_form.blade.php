@@ -22,7 +22,7 @@
                     tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui,
                     eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
             </div>
-            <form class="col-xs-7 col-xs-offset-1 form-custom" method='post'>
+            <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar') }}">
                 <h4>Información de usuario</h4>
                 <div class="row form-group">
                     <div class="col-xs-12">
@@ -121,9 +121,10 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <button class="btn btn-default button-reg btn-block btn-md" action="">Registrarse</button>
+                        <button class="btn btn-default button-reg btn-block btn-md" type="submit">Registrarse</button>
                     </div>
                 </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
         </div>
     </div>

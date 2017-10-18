@@ -14,4 +14,9 @@ class RegistroController extends Controller
         $estados = Localidad::whereNull('localidad_id')->orderBy('nombre')->get();
         return view('registro_form', ['estados' => $estados]);
     }
+
+    public function registrar(Request $request)
+    {
+        
+    }
 }
