@@ -20,23 +20,23 @@
 
             <div class="tab-content">
                 <div id="perfil" class="tab-pane fade in active">
-                    <form action="#">
+                    <form action="#" method="post" class="row">
                         <h3>Perfil</h3>
                         <div class="row">
                             <div class="col-xs-3">
                                 <label for="nombre">Nombre</label>
-                                <input name="nombre" type="text" class="form-control" value="José Sánchez">
+                                <input name="nombre" type="text" class="form-control" value="{{ $usuario->usuario }}">
                             </div>
                             <div class="col-xs-3">
                                 <label for="usuario">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" class="form-control" value="js_123">
+                                    <input name="usuario" type="text" class="form-control" value="{{ $usuario->usuario }}">
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <label for="correo">Correo</label>
-                                <input name="correo" type="text" class="form-control" value="js_123@gmail.com">
+                                <input name="correo" type="text" class="form-control" value="{{ $usuario->correo }}">
                             </div>
                         </div><br>
                         <div class="row">
@@ -52,6 +52,7 @@
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
                         </div>
+                        <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
