@@ -13,6 +13,10 @@ class UsuarioController extends Controller
         return redirect()->back();
     }
 
+    public function registrarUsuario(Request $request) {
+        
+    }
+
     public function salirUsuario() {
         Auth::logout();
         return redirect()->route('inicio');
