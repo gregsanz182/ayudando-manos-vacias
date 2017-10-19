@@ -39,6 +39,7 @@ class NinoController extends Controller
                     $query->where('id', $request['municipio']);
             })->paginate(10);
         $estados = Localidad::whereNull('localidad_id')->orderBy('nombre')->get();
+        $municipios = [];
         if($request['estado'])
         {
             $municipios = Localidad::where('localidad_id', $request['estado'])->orderBy('nombre')->get();

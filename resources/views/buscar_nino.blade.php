@@ -79,7 +79,10 @@
                 </div>
                 
                 <div class="row form-group">
-                    <div class="col-xs-4 col-xs-offset-4">
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <button class="btn btn-default button-reg btn-block btn-md" type='button' onclick='limpiarFiltrosBuscar()'>Limpiar</button>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
                         <button class="btn btn-default button-reg btn-block btn-md" type="submit">Buscar</button>
                     </div>
                 </div>
@@ -103,5 +106,8 @@
     </div>
     <script>
         var cityUrl = "{{ route('obtener_ciudades') }}";
+        function limpiarFiltrosBuscar() {
+            window.location.href = "{{ route('buscar') }}";
+        }
     </script>
 @endsection
