@@ -16,10 +16,12 @@ use App\Admin;
 class AdminController extends Controller
 {
 
-    public function obtener_nombre(){
+    public function obtener_nombre_estados(){
         $admin = Admin::find(Auth::user()->rol_id);
 
-        return view('admin', ['nombre' => $admin->nombre]);
+        $localidad = Localidad::where('localidad_id',null)->get();
+
+        return view('admin', ['nombre' => $admin->nombre, 'estados' => $localidad]);
     }
 
     public function actualizar_perfil(Request $request){
@@ -99,12 +101,14 @@ class AdminController extends Controller
     public function guardar_localidad(Request $request){
 
         $this->validate($request, [
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'localidad_id' => 'different:0|nullable'
         ]);
 
         $localidad = new Localidad;
 
         $localidad->nombre = $request->input('nombre');
+        $localidad->localidad_id = $request->input('localidad_id');
         
         $localidad->save();
 

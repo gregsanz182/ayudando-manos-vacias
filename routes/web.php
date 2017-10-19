@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::middleware(['es_admin'])->group(function(){
 
-    Route::get('/admin', 'AdminController@obtener_nombre')->name('admin');
+    Route::get('/admin', 'AdminController@obtener_nombre_estados')->name('admin');
 
     Route::get('/admin/actualizar-perfil', 'AdminController@actualizar_perfil')->name('actualizar-perfil');
 

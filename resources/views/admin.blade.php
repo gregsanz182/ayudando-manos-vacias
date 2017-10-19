@@ -133,11 +133,17 @@
                         </div>
                         <div class="col-xs-3">
                             <label for="estado">Estado</label>
-                            <input name="estado" id="estado" type="text" class="form-control" placeholder="Ingrese nombre">
+                            <select name="estado" class="form-control" id="estado">
+                                <option value="0" selected>Selecciona un Estado</option>
+                                @foreach($estados as $estado)
+                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-xs-3">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                         </div>
+                        <input type="hidden" id="localidad_id" name="localidad_id">
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>

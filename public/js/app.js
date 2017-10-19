@@ -27,10 +27,14 @@ $('#estado_select').on('change', function() {
     });
 });
 
-$('#inlineRadio2').click( function(){
-    $("#estado").attr("disabled", "disabled");
-});
-
 $('#inlineRadio1').click( function(){
     $("#estado").removeAttr("disabled");
+    $('#estado').on('change', function(){
+        $('#localidad_id').val(this.value+'');
+    })
+});
+
+$('#inlineRadio2').click( function(){
+    $("#estado").attr("disabled", "disabled");
+    $('#localidad_id').val('NULL');
 });
