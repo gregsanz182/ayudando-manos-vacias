@@ -59,9 +59,7 @@ Route::get('/ayuda', function () {
     return view('ayuda');
 });
 
-Route::get('/buscar', function () {
-    return view('buscar_nino');
-});
+Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
 
 Route::get('/perfil_rep', function () {
     return view('perfil_representante');

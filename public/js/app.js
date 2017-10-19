@@ -19,7 +19,7 @@ $('#estado_select').on('change', function() {
         },
         success: function (data) {
             $('#ciudad_select').empty();
-            $('#ciudad_select').append('<option selected>Selecciona un municipio</option>');
+            $('#ciudad_select').append('<option selected>Municipio</option>');
             for (var i=0; i<data.length; i++){
                 $('#ciudad_select').append("<option value='"+data[i].id+"'>"+data[i].nombre+"</option>");
             }
