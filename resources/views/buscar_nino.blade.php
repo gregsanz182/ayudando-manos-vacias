@@ -24,20 +24,23 @@
             </p>
         </div>
         <div class="row">
-            <div class="col-xs-4">
+            <form class="col-xs-4" method='get' action=''>
                 <label>Ubicación</label>
                 <div class="row form-group">
                     <div class="col-xs-6">
                         <select name="estado" class="form-control" id='estado_select' title="Estado">
                             <option selected>Estado</option>
                             @foreach($estados as $estado)
-                                <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                <option value="{{ $estado->id }}" @if($old['estado']==$estado->id){{'selected'}}@endif>{{ $estado->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-xs-6">
                         <select name="municipio" class="form-control" id='ciudad_select' title="Municipio">
                             <option selected>Municipio</option>
+                            @foreach($municipios as $municipio)
+                                <option value="{{ $municipio->id }}" @if($old['municipio']==$municipio->id){{'selected'}}@endif>{{ $municipio->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -47,7 +50,7 @@
                     <div class="col-xs-12">
                         <select name="cancer" class="form-control selectpicker" data-live-search="true" title="Tipo de Cáncer">
                             @foreach($canceres as $cancer)
-                                <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
+                                <option value="{{ $cancer->id }}" @if($old['cancer']==$cancer->id){{'selected'}}@endif>{{ $cancer->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -58,7 +61,7 @@
                     <div class="col-xs-12">
                         <select name="medicamentos" class="form-control selectpicker" data-live-search="true" title="Tipo de Medicamento">
                             @foreach($medicamentos as $medicamento)
-                                <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
+                                <option value="{{ $medicamento->id }}" @if($old['medicamentos']==$medicamento->id){{'selected'}}@endif>{{ $medicamento->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -69,7 +72,7 @@
                     <div class="col-xs-12">
                         <select name="insumos" class="form-control selectpicker" data-live-search="true" title="Categoría">
                             @foreach($insumos_cat as $insumo_cat)
-                                <option value="{{ $insumo_cat->id }}">{{ $insumo_cat->nombre }}</option>
+                                <option value="{{ $insumo_cat->id }}" @if($old['insumos']==$insumo_cat->id){{'selected'}}@endif>{{ $insumo_cat->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -77,10 +80,10 @@
                 
                 <div class="row form-group">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <button class="btn btn-default button-reg btn-block btn-md" action="">Buscar</button>
+                        <button class="btn btn-default button-reg btn-block btn-md" type="submit">Buscar</button>
                     </div>
                 </div>
-            </div>
+            </form>
             <div class="col-xs-6 col-xs-offset-1 form-custom">
                 <div class="list-group list-group-card">
                     @foreach($ninos as $nino)
