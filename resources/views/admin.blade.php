@@ -25,10 +25,10 @@
                         <h3>Perfil</h3>
                         <div class="row">
                             <div class="col-xs-3">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre completo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre" type="text" class="form-control" value="{{ Auth::user()->usuario }}">
+                                    <input name="nombre" type="text" class="form-control" value="{{ $nombre }}">
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -51,14 +51,14 @@
                                 <label for="contrasena1">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1" type="text" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena1" type="password" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
                                 <label for="contrasena2">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2" type="text" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="contrasena2" type="password" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
@@ -72,12 +72,12 @@
                     <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4">
-                            <label for="tipo_c">Tipo</label>
-                            <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
+                            <label for="tipo">Tipo</label>
+                            <input name="tipo" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
                         </div>
                         <div class="col-xs-4">
-                            <label for="desc_c">Descripción</label>
-                            <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                            <label for="desc">Descripción</label>
+                            <input name="desc" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
@@ -89,12 +89,12 @@
                     <form action="{{ route('guardar-medicamento') }}" method="post" class="row">
                         <h3>Agregar medicamento</h3>
                         <div class="col-xs-4">
-                            <label for="nombre_m">Nombre</label>
-                            <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
+                            <label for="nombre">Nombre</label>
+                            <input name="nombre" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
                         </div>
                         <div class="col-xs-4">
-                            <label for="desc_m">Descripción</label>
-                            <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                            <label for="desc">Descripción</label>
+                            <input name="desc" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
@@ -107,7 +107,7 @@
                         <h3>Agregar categoria de insumo</h3>
                         <div class="col-xs-3">
                             <label for="cat">Categoria</label>
-                            <input name="categoria_i" type="text" class="form-control" required placeholder="Ingrese categoria">
+                            <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
                         </div>
                         <div class="col-xs-3">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
@@ -146,10 +146,10 @@
                         <h3>Agregar Administrador</h3>
                         <div class="row">
                             <div class="col-xs-3">
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre">Nombre completo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre" type="text" id="nombre" class="form-control" placeholder="Ingrese nombre">
+                                    <input name="nombre" type="text" id="nombre" class="form-control" placeholder="Ingrese nombre y apellido">
                                 </div>
                             </div>
                             <div class="col-xs-3">
@@ -172,18 +172,18 @@
                                 <label for="contrasena1">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1" type="text" id="contrasena1" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena1" type="password" id="contrasena1" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
                                 <label for="contrasena2">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2" type="text" id="contrasena2" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="contrasena2" type="password" id="contrasena2" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
-                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Guardar</button>
                             </div>
                         </div>
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
