@@ -18,7 +18,7 @@ class NinoTableSeeder extends Seeder
             "Muy enfermo. Pocos meses de vida",
             "Su situacion mejora cada día",
             "Comenzando con condicion",
-            "Mejoró pero en cancer aun no remite",
+            "Mejora cada día pero el cancer aún no remite",
             "Aun tiene fortaleza",
             "Situacion muy grave"
         ];
