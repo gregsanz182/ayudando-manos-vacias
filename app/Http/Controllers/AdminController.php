@@ -31,13 +31,13 @@ class AdminController extends Controller
             'correo' => 'required|email'
         ]);
 
-        $usuario = Usuario::find(Auth::user()->usuario);
+        $usuario = Auth::user();
 
         $usuario->correo = $request->input('correo');
 
-        if($request->input('contrasena1') != NULL){
+        if($request->has('contrasena1')){
             $this->validate($request, [
-                'contrasena1' => 'required|min:4',
+                'contrasena1' => 'min:4',
                 'contrasena2' => 'required|same:contrasena1'
             ]);
             $usuario->contrasena = bcrypt($request->input('contrasena1'));
