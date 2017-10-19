@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Insumo extends Model
+class Nino_Insumo extends Model
 {
-    protected $table = 'insumo';
+    protected $table = 'nino_insumo';
 
     public function nino() {
         return $this->belongsTo('App\Nino');

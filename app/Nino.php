@@ -21,7 +21,7 @@ class Nino extends Model
     }
 
     public function insumos () {
-        return $this->hasMany('App\Insumo');
+        return $this->hasMany('App\Nino_Insumo');
     }
 
     public function medicamentos () {

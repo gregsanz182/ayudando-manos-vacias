@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInsumoTable extends Migration
+class CreateNinoInsumoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateInsumoTable extends Migration
      */
     public function up()
     {
-        Schema::create('insumo', function(Blueprint $table) {
+        Schema::create('nino_insumo', function(Blueprint $table) {
             $table->string('nombre');
             $table->string('fecha');
             $table->string('estado_requerimiento')->nullable();
@@ -23,7 +23,7 @@ class CreateInsumoTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('insumo', function(Blueprint $table) {
+        Schema::table('nino_insumo', function(Blueprint $table) {
             $table->foreign('nino_id')->references('id')->on('nino');
             $table->foreign('categoria_insumo_id')->references('id')->on('categoria_insumo');
             $table->primary(["nino_id", "categoria_insumo_id"]);
@@ -37,6 +37,6 @@ class CreateInsumoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('insumo');
+        Schema::drop('nino_insumo');
     }
 }
