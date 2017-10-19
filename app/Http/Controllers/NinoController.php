@@ -24,18 +24,18 @@ class NinoController extends Controller
             })->whereHas('insumos', function($query){
                 $query->where('estado_requerimiento', 'Requerido');
             })->whereHas('canceres', function($query) use ($request){
-                if($request['cancer'])
+                if($request->exists('cancer') && $request['cancer'])
                     $query->where('cancer_id', $request['cancer']);
             })->whereHas('medicamentos', function($query) use ($request){
-                if($request['medicamentos'])
+                if($request->exists('medicamentos') && $request['medicamentos'])
                     $query->where('medicamento_id', $request['medicamentos'])->where('estado_requerimiento', 'Requerido');
             })->whereHas('insumos', function($query) use ($request){
-                if($request['insumos'])
+                if($request->exists('insumos') && $request['insumos'])
                     $query->where('categoria_insumo_id', $request['insumos'])->where('estado_requerimiento', 'Requerido');
             })->whereHas('representante.localidad', function($query) use ($request){
-                if($request['estado'] != 'Estado')
+                if($request->exists('estado') && $request['estado'] != 'Estado')
                     $query->where('localidad_id', $request['estado']);
-                if($request['municipio'] != 'Municipio')
+                if($request->exists('municipio') && $request['municipio'] != 'Municipio')
                     $query->where('id', $request['municipio']);
             })->paginate(10);
         $estados = Localidad::whereNull('localidad_id')->orderBy('nombre')->get();
