@@ -27,10 +27,13 @@ $('#estado_select').on('change', function() {
     });
 });
 
+$('#localidad_id').val( $('#estado option:selected').val() );
+
 $('#inlineRadio1').click( function(){
     $("#estado").removeAttr("disabled");
+    $('#localidad_id').val( $('#estado option:selected').val() );
     $('#estado').on('change', function(){
-        $('#localidad_id').val(this.value+'');
+        $('#localidad_id').val(this.value);
     })
 });
 

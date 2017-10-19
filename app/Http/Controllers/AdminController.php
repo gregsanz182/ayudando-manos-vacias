@@ -28,25 +28,24 @@ class AdminController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
-            'correo' => 'required|email',
-            'contrasena1' => 'required|min:4',
-            'contrasena2' => 'required|same:contrasena1'
+            'correo' => 'required|email'
         ]);
 
         $usuario = Usuario::find(Auth::user()->usuario);
-        
+
         $usuario->correo = $request->input('correo');
-        $usuario->contrasena = bcrypt($request->input('contrasena1'));
+
+        if($request->input('contrasena1') != NULL){
+            $this->validate($request, [
+                'contrasena1' => 'required|min:4',
+                'contrasena2' => 'required|same:contrasena1'
+            ]);
+            $usuario->contrasena = bcrypt($request->input('contrasena1'));
+        }
+
+        $usuario->rol->nombre = $request->input('nombre');
 
         $usuario->save();
-
-        $admin = Admin::find($usuario->rol_id);
-
-        $admin->nombre = $request->input('nombre');
-
-        $admin->save();
-
-        Auth::login($usuario);
 
         return redirect()->route('admin');
     }
@@ -102,13 +101,16 @@ class AdminController extends Controller
 
         $this->validate($request, [
             'nombre' => 'required',
-            'localidad_id' => 'different:0|nullable'
+            'localidad_id' => 'nullable'
         ]);
 
         $localidad = new Localidad;
 
         $localidad->nombre = $request->input('nombre');
-        $localidad->localidad_id = $request->input('localidad_id');
+
+        if($request->input('localidad_id') != 'NULL'){
+            $localidad->localidad_id = $request->input('localidad_id');
+        }
         
         $localidad->save();
 
