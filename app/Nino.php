@@ -9,14 +9,14 @@ class Nino extends Model
     protected $table = 'nino';
 
     static $relacionesRepr = [
-        0 => "Padre/Madre",
-        1 => "Tío(a)",
-        2 => "Primo(a)",
-        3 => "Hermano(a)",
-        4 => "Amigo(a)",
-        5 => "Abuelo(a)",
-        6 => "Padrino(a)", 
-        7 => "Padrastro/Madrastra"
+        1 => "Padre/Madre",
+        2 => "Tío(a)",
+        3 => "Primo(a)",
+        4 => "Hermano(a)",
+        5 => "Amigo(a)",
+        6 => "Abuelo(a)",
+        7 => "Padrino(a)", 
+        8 => "Padrastro/Madrastra"
     ];
 
     public function representante() {
