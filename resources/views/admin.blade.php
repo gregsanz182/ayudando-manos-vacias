@@ -71,6 +71,7 @@
                 </div>
                 <div id="menu1" class="tab-pane fade">
                     <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
+                        <input type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="100" data-onstyle="warning" data-offstyle="info">
                         <h3>Agregar tipo de cáncer</h3>
                         @include('includes.error_box')
                         <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
