@@ -26,10 +26,11 @@ class RegistroController extends Controller
             'nombre' => 'required',
             'apellido' => 'required',
             'cedula' => 'required|unique:representante',
-            'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'required|date_format:d-m-Y',
             'telefono' => 'required',
             'direccion' => 'required',
-            'municipio' => 'required|exists:localidad,id'
+            'municipio' => 'required|exists:localidad,id',
+            'genero' => 'required'
         ]);
 
         $usuario = new Usuario;
@@ -42,7 +43,7 @@ class RegistroController extends Controller
         $representante->telefono = $request['telefono'];
         $representante->direccion = $request['direccion'];
         $representante->localidad_id = $request['municipio'];
-        $representante->genero = 'M';
+        $representante->genero = $request['genero']==1?'M':'F';
 
         $representante->save();
 
