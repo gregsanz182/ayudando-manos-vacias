@@ -1,0 +1,122 @@
+.abajo {
+  position: relative;
+  margin-top: 24px;
+}
+.btn-on {
+  color: #fff;
+  background-color: #8EC63F;
+  border-color: #739e33;
+}
+.btn-on:focus,
+.btn-on.focus {
+  color: #fff;
+  background-color: #86b63f;
+  border-color: #5a7c26;
+}
+.btn-on:hover {
+  color: #fff;
+  background-color: #86b63f;
+  border-color: #5a7c26;
+}
+.btn-on:active,
+.btn-on.active,
+.open > .dropdown-toggle.btn-on {
+  color: #fff;
+  background-color: #86b63f;
+  border-color: #5a7c26;
+}
+.btn-on:active:hover,
+.btn-on.active:hover,
+.open > .dropdown-toggle.btn-on:hover,
+.btn-on:active:focus,
+.btn-on.active:focus,
+.open > .dropdown-toggle.btn-on:focus,
+.btn-on:active.focus,
+.btn-on.active.focus,
+.open > .dropdown-toggle.btn-on.focus {
+  color: #fff;
+  background-color: #86b63f;
+  border-color: #5a7c26;
+}
+.btn-on:active,
+.btn-on.active,
+.open > .dropdown-toggle.btn-on {
+  background-image: none;
+}
+.btn-on.disabled:hover,
+.btn-on[disabled]:hover,
+fieldset[disabled] .btn-on:hover,
+.btn-on.disabled:focus,
+.btn-on[disabled]:focus,
+fieldset[disabled] .btn-on:focus,
+.btn-on.disabled.focus,
+.btn-on[disabled].focus,
+fieldset[disabled] .btn-on.focus {
+  background-color: #8EC63F;
+  border-color: #8EC63F;
+}
+.btn-off {
+  color: #333;
+  background-color: #FBEDB5;
+  border-color: #f5d254;
+}
+.btn-off:focus,
+.btn-off.focus {
+  color: #333;
+  background-color: #f2de8e;
+  border-color: #e4bf3c;
+}
+.btn-off:hover {
+  color: #333;
+  background-color: #f2de8e;
+  border-color: #e4bf3c;
+}
+.btn-off:active,
+.btn-off.active,
+.open > .dropdown-toggle.btn-off {
+  color: #333;
+  background-color: #f2de8e;
+  border-color: #e4bf3c;
+}
+.btn-off:active:hover,
+.btn-off.active:hover,
+.open > .dropdown-toggle.btn-off:hover,
+.btn-off:active:focus,
+.btn-off.active:focus,
+.open > .dropdown-toggle.btn-off:focus,
+.btn-off:active.focus,
+.btn-off.active.focus,
+.open > .dropdown-toggle.btn-off.focus {
+  color: #333;
+  background-color: #f2de8e;
+  border-color: #e4bf3c;
+}
+.btn-off:active,
+.btn-off.active,
+.open > .dropdown-toggle.btn-off {
+  background-image: noffe;
+}
+.btn-off.disabled:hover,
+.btn-off[disabled]:hover,
+fieldset[disabled] .btn-off:hover,
+.btn-off.disabled:focus,
+.btn-off[disabled]:focus,
+fieldset[disabled] .btn-off:focus,
+.btn-off.disabled.focus,
+.btn-off[disabled].focus,
+fieldset[disabled] .btn-off.focus {
+  background-color: #FBEDB5;
+  border-color: #FBEDB5;
+}
+.oculto {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+.activo {
+  opacity: 1;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}

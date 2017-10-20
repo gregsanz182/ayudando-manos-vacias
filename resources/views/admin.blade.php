@@ -70,88 +70,121 @@
                     </form>
                 </div>
                 <div id="menu1" class="tab-pane fade">
-                    <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
-                        <input type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="100" data-onstyle="warning" data-offstyle="info">
-                        <h3>Agregar tipo de cáncer</h3>
-                        @include('includes.error_box')
-                        <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
-                            <label for="tipo_c">Tipo</label>
-                            <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
+                    <div class="row">
+                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                    </div>
+                    <div class="row">
+                        <div id="opc1" class="activo">
+                            <form action="{{ route('guardar-tipo-cancer') }}" method="post">
+                                <h3>Agregar tipo de cáncer</h3>
+                                @include('includes.error_box')
+                                <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
+                                    <label for="tipo_c">Tipo</label>
+                                    <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
+                                </div>
+                                <div class="col-xs-4 {{ $errors->has('desc_c')?'has-error':'' }}">
+                                    <label for="desc_c">Descripción</label>
+                                    <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                                </div>
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </form>
                         </div>
-                        <div class="col-xs-4 {{ $errors->has('desc_c')?'has-error':'' }}">
-                            <label for="desc_c">Descripción</label>
-                            <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
-                        </div>
-                        <div class="col-xs-4">
-                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                        </div>
-                        <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    </form>
+                        <div id="opc2" class="oculto">HOLA</div>
+                    </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
-                    <form action="{{ route('guardar-medicamento') }}" method="post" class="row">
-                        <h3>Agregar medicamento</h3>
-                        @include('includes.error_box')
-                        <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
-                            <label for="nombre_m">Nombre</label>
-                            <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
+                    <div class="row">
+                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                    </div>
+                    <div class="row">
+                        <div id="opc1" class="activo">
+                            <form action="{{ route('guardar-medicamento') }}" method="post">
+                                <h3>Agregar medicamento</h3>
+                                @include('includes.error_box')
+                                <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
+                                    <label for="nombre_m">Nombre</label>
+                                    <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
+                                </div>
+                                <div class="col-xs-4 {{ $errors->has('desc_m')?'has-error':'' }}">
+                                    <label for="desc_m">Descripción</label>
+                                    <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                                </div>
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </form>
                         </div>
-                        <div class="col-xs-4 {{ $errors->has('desc_m')?'has-error':'' }}">
-                            <label for="desc_m">Descripción</label>
-                            <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
-                        </div>
-                        <div class="col-xs-4">
-                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                        </div>
-                        <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    </form>
+                        <div id="opc2" class="oculto">HOLA</div>
+                    </div>
                 </div>
                 <div id="menu3" class="tab-pane fade">
-                    <form action="{{ route('guardar-categoria-insumo') }}" method="post" class="row">
-                        <h3>Agregar categoria de insumo</h3>
-                        @include('includes.error_box')
-                        <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
-                            <label for="categoria">Categoria</label>
-                            <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
+                    <div class="row">
+                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                    </div>
+                    <div class="row">
+                        <div id="opc1" class="activo">
+                            <form action="{{ route('guardar-categoria-insumo') }}" method="post">
+                                <h3>Agregar categoria de insumo</h3>
+                                @include('includes.error_box')
+                                <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
+                                    <label for="categoria">Categoria</label>
+                                    <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                                </div>
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </form>
                         </div>
-                        <div class="col-xs-3">
-                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                        </div>
-                        <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    </form>
+                        <div id="opc2" class="oculto">HOLA</div>
+                    </div>
                 </div>
                 <div id="menu4" class="tab-pane fade">
-                    <form action="{{ route('guardar-localidad') }}" method="post" class="row">
-                        <h3>Agregar localidad</h3>
-                        @include('includes.error_box')
-                        <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
-                            <label for="nombre_l">Nombre</label>
-                            <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
+                    <div class="row">
+                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                    </div>
+                    <div class="row">
+                        <div id="opc1" class="activo">
+                            <form action="{{ route('guardar-localidad') }}" method="post">
+                                <h3>Agregar localidad</h3>
+                                @include('includes.error_box')
+                                <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
+                                    <label for="nombre_l">Nombre</label>
+                                    <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
+                                </div>
+                                <div class="col-xs-3">
+                                    <label for="tipo">Tipo</label><br>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
+                                    </label>
+                                </div>
+                                <div class="col-xs-3 {{ $errors->has('estado')?'has-error':'' }}">
+                                    <label for="estado">Estado</label>
+                                    <select name="estado" class="form-control" id="estado">
+                                        <option value="0" selected>Selecciona un Estado</option>
+                                        @foreach($estados as $estado)
+                                            <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                                </div>
+                                <input type="hidden" id="localidad_id" name="localidad_id">
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                            </form>
                         </div>
-                        <div class="col-xs-3">
-                            <label for="tipo">Tipo</label><br>
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
-                            </label>
+                        <div id="opc2" class="oculto">
+                            HOLA
                         </div>
-                        <div class="col-xs-3 {{ $errors->has('estado')?'has-error':'' }}">
-                            <label for="estado">Estado</label>
-                            <select name="estado" class="form-control" id="estado">
-                                <option value="0" selected>Selecciona un Estado</option>
-                                @foreach($estados as $estado)
-                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-xs-3">
-                            <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                        </div>
-                        <input type="hidden" id="localidad_id" name="localidad_id">
-                        <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    </form>
+                    </div>
                 </div>
                 <div id="menu5" class="tab-pane fade">
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">

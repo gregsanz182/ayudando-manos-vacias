@@ -41,3 +41,17 @@ $('#inlineRadio2').click( function(){
     $("#estado").attr("disabled", "disabled");
     $('#localidad_id').val('NULL');
 });
+
+$('#toggle-event').change(function(){
+    if( $(this).prop('checked') ){
+        $('#opc1').removeClass('oculto');
+        $('#opc1').addClass('activo');
+        $('#opc2').addClass('oculto');
+        $('#opc2').removeClass('activo');
+    }else{
+        $('#opc1').addClass('oculto');
+        $('#opc1').removeClass('activo');
+        $('#opc2').removeClass('oculto');
+        $('#opc2').addClass('activo');
+    }
+});
