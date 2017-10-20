@@ -18,4 +18,8 @@ class Usuario extends Model implements Authenticatable
     public function getAuthPassword() {
         return $this->contrasena;
     }
+
+    public function bitacoras() {
+        return $this->hasMany('App\Bitacora');
+    }
 }

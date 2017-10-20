@@ -24,41 +24,41 @@
                     <form action="{{ route('actualizar-perfil') }}" method="post" class="row">
                         <h3>Perfil</h3>
                         <div class="row">
-                            <div class="col-xs-3">
-                                <label for="nombre">Nombre completo</label>
+                            <div class="col-xs-3 {{ $errors->has('nombre_p')?'has-error':'' }} ">
+                                <label for="nombre_p">Nombre completo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre" type="text" class="form-control" value="{{ $nombre }}">
+                                    <input name="nombre_p" type="text" class="form-control" value="{{ $nombre }}">
                                 </div>
                             </div>
-                            <div class="col-xs-3">
-                                <label for="usuario">Usuario</label>
+                            <div class="col-xs-3  {{ $errors->has('usuario_p')?'has-error':'' }}">
+                                <label for="usuario_p">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" disabled class="form-control" value="{{ Auth::user()->usuario }}">
+                                    <input name="usuario_p" type="text" disabled class="form-control" value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <label for="correo">Correo</label>
+                            <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
+                                <label for="correo_p">Correo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                                    <input name="correo" type="email" class="form-control" value="{{ Auth::user()->correo }}">
+                                    <input name="correo_p" type="email" class="form-control" value="{{ Auth::user()->correo }}">
                                 </div>
                             </div>
                         </div><br>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <label for="contrasena1">Contraseña nueva</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena1_p')?'has-error':'' }}">
+                                <label for="contrasena1_p">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1" type="password" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena1_p" type="password" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
-                            <div class="col-xs-4">
-                                <label for="contrasena2">Confirmar contraseña</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena2_p')?'has-error':'' }}">
+                                <label for="contrasena2_p">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2" type="password" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="contrasena2_p" type="password" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
@@ -71,13 +71,13 @@
                 <div id="menu1" class="tab-pane fade">
                     <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
                         <h3>Agregar tipo de cáncer</h3>
-                        <div class="col-xs-4">
-                            <label for="tipo">Tipo</label>
-                            <input name="tipo" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
+                        <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
+                            <label for="tipo_c">Tipo</label>
+                            <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
                         </div>
-                        <div class="col-xs-4">
-                            <label for="desc">Descripción</label>
-                            <input name="desc" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                        <div class="col-xs-4 {{ $errors->has('desc_c')?'has-error':'' }}">
+                            <label for="desc_c">Descripción</label>
+                            <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
@@ -88,13 +88,13 @@
                 <div id="menu2" class="tab-pane fade">
                     <form action="{{ route('guardar-medicamento') }}" method="post" class="row">
                         <h3>Agregar medicamento</h3>
-                        <div class="col-xs-4">
-                            <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
+                        <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
+                            <label for="nombre_m">Nombre</label>
+                            <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
                         </div>
-                        <div class="col-xs-4">
-                            <label for="desc">Descripción</label>
-                            <input name="desc" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                        <div class="col-xs-4 {{ $errors->has('desc_m')?'has-error':'' }}">
+                            <label for="desc_m">Descripción</label>
+                            <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
                         </div>
                         <div class="col-xs-4">
                             <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
@@ -105,8 +105,8 @@
                 <div id="menu3" class="tab-pane fade">
                     <form action="{{ route('guardar-categoria-insumo') }}" method="post" class="row">
                         <h3>Agregar categoria de insumo</h3>
-                        <div class="col-xs-3">
-                            <label for="cat">Categoria</label>
+                        <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
+                            <label for="categoria">Categoria</label>
                             <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
                         </div>
                         <div class="col-xs-3">
@@ -118,9 +118,9 @@
                 <div id="menu4" class="tab-pane fade">
                     <form action="{{ route('guardar-localidad') }}" method="post" class="row">
                         <h3>Agregar localidad</h3>
-                        <div class="col-xs-3">
-                            <label for="nombre">Nombre</label>
-                            <input name="nombre" type="text" class="form-control" required placeholder="Ingrese nombre">
+                        <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
+                            <label for="nombre_l">Nombre</label>
+                            <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
                         </div>
                         <div class="col-xs-3">
                             <label for="tipo">Tipo</label><br>
@@ -131,7 +131,7 @@
                                 <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
                             </label>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-3 {{ $errors->has('estado')?'has-error':'' }}">
                             <label for="estado">Estado</label>
                             <select name="estado" class="form-control" id="estado">
                                 <option value="0" selected>Selecciona un Estado</option>
@@ -151,41 +151,41 @@
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">
                         <h3>Agregar Administrador</h3>
                         <div class="row">
-                            <div class="col-xs-3">
-                                <label for="nombre">Nombre completo</label>
+                            <div class="col-xs-3 {{ $errors->has('nombre_n')?'has-error':'' }}">
+                                <label for="nombre_n">Nombre completo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre" type="text" id="nombre" class="form-control" placeholder="Ingrese nombre y apellido">
+                                    <input name="nombre_n" type="text" class="form-control" placeholder="Ingrese nombre y apellido">
                                 </div>
                             </div>
-                            <div class="col-xs-3">
-                                <label for="usuario">Usuario</label>
+                            <div class="col-xs-3 {{ $errors->has('usuario_n')?'has-error':'' }}">
+                                <label for="usuario_n">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario" type="text" id="usuario" class="form-control" placeholder="Ingrese Usuario">
+                                    <input name="usuario_n" type="text" class="form-control" placeholder="Ingrese Usuario">
                                 </div>
                             </div>
-                            <div class="col-xs-6">
-                                <label for="correo">Correo</label>
+                            <div class="col-xs-6 {{ $errors->has('correo_n')?'has-error':'' }}">
+                                <label for="correo_n">Correo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                                    <input name="correo" type="email" id="correo" class="form-control" placeholder="Ingrese correo">
+                                    <input name="correo_n" type="email" class="form-control" placeholder="Ingrese correo">
                                 </div>
                             </div>
                         </div><br>
                         <div class="row">
-                            <div class="col-xs-4">
-                                <label for="contrasena1">Contraseña nueva</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena1_n')?'has-error':'' }}">
+                                <label for="contrasena1_n">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1" type="password" id="contrasena1" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena1_n" type="password" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
-                            <div class="col-xs-4">
-                                <label for="contrasena2">Confirmar contraseña</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena2_n')?'has-error':'' }}">
+                                <label for="contrasena2_n">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2" type="password" id="contrasena2" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="contrasena2_n" type="password" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">

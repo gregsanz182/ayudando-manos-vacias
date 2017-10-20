@@ -11,13 +11,14 @@ use App\Medicamento;
 use App\Localidad;
 use App\Usuario;
 use App\Admin;
+use App\Bitacora;
 
 
 class AdminController extends Controller
 {
 
     public function obtener_nombre_estados(){
-        $admin = Admin::find(Auth::user()->rol_id);
+        $admin = Auth::user()->rol;
 
         $localidad = Localidad::where('localidad_id',null)->get();
 
@@ -27,25 +28,31 @@ class AdminController extends Controller
     public function actualizar_perfil(Request $request){
 
         $this->validate($request, [
-            'nombre' => 'required',
-            'correo' => 'required|email'
+            'nombre_p' => 'required',
+            'correo_p' => 'required|email'
         ]);
 
         $usuario = Auth::user();
 
-        $usuario->correo = $request->input('correo');
+        $usuario->correo = $request->input('correo_p');
 
-        if($request->has('contrasena1')){
+        if($request->has('contrasena1_p')){
             $this->validate($request, [
-                'contrasena1' => 'min:4',
-                'contrasena2' => 'required|same:contrasena1'
+                'contrasena1_p' => 'min:4',
+                'contrasena2_p' => 'required|same:contrasena1_p'
             ]);
-            $usuario->contrasena = bcrypt($request->input('contrasena1'));
+            $usuario->contrasena = bcrypt($request->input('contrasena1_p'));
         }
 
-        $usuario->rol->nombre = $request->input('nombre');
+        $usuario->rol->nombre = $request->input('nombre_p');
 
         $usuario->save();
+
+        $bitacora = new Bitacora;
+        $bitacora->accion = "actualizar";
+        $bitacora->tabla = "usuario";
+        $bitacora->usuario_id = $usuario->id;
+        $bitacora->save();
 
         return redirect()->route('admin');
     }
@@ -53,31 +60,43 @@ class AdminController extends Controller
     public function guardar_tipo_cancer(Request $request){
 
         $this->validate($request, [
-            'tipo' => 'required',
-            'desc' => 'required'
+            'tipo_c' => 'required',
+            'desc_c' => 'required'
         ]);
         $cancer = new Cancer;
 
-        $cancer->nombre = $request->input('tipo');
-        $cancer->descripcion = $request->input('desc');
+        $cancer->nombre = $request->input('tipo_c');
+        $cancer->descripcion = $request->input('desc_c');
 
         $cancer->save();
         
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "cancer";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
+
         return redirect()->route('admin');
     }
 
     public function guardar_medicamento(Request $request){
         
         $this->validate($request, [
-            'nombre' => 'required',
-            'desc' => 'required'
+            'nombre_m' => 'required',
+            'desc_m' => 'required'
         ]);
         $medicamento = new Medicamento;
 
-        $medicamento->nombre = $request->input('nombre');
-        $medicamento->descripcion = $request->input('desc');
+        $medicamento->nombre = $request->input('nombre_m');
+        $medicamento->descripcion = $request->input('desc_m');
 
         $medicamento->save();
+
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "medicamento";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
 
         return redirect()->route('admin');
     }
@@ -94,25 +113,39 @@ class AdminController extends Controller
 
         $insumo->save();
 
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "categoria_insumo";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
+
         return redirect()->route('admin');
     }
 
     public function guardar_localidad(Request $request){
 
         $this->validate($request, [
-            'nombre' => 'required',
-            'localidad_id' => 'nullable'
+            'nombre_l' => 'required'
         ]);
 
         $localidad = new Localidad;
 
-        $localidad->nombre = $request->input('nombre');
+        $localidad->nombre = $request->input('nombre_l');
 
         if($request->input('localidad_id') != 'NULL'){
+            $this->validate($request, [
+                'localidad_id' => 'different:0'
+            ]);
             $localidad->localidad_id = $request->input('localidad_id');
         }
         
         $localidad->save();
+
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "localidad";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
 
         return redirect()->route('admin');
     }
@@ -120,27 +153,39 @@ class AdminController extends Controller
     public function guardar_admin(Request $request){
 
         $this->validate($request, [
-            'nombre' => 'required',
-            'usuario' => 'required|unique:usuario',
-            'correo' => 'required|email',
-            'contrasena1' => 'required|min:4',
-            'contrasena2' => 'required|same:contrasena1'
+            'nombre_n' => 'required',
+            'usuario_n' => 'required|unique:usuario',
+            'correo_n' => 'required|email',
+            'contrasena1_n' => 'required|min:4',
+            'contrasena2_n' => 'required|same:contrasena1_n'
         ]);
 
         $usuario = new Usuario;
         $admin = new Admin;
         
-        $admin->nombre = $request->input('nombre');
+        $admin->nombre = $request->input('nombre_n');
 
         $admin->save();
 
-        $usuario->usuario = $request->input('usuario');
-        $usuario->correo = $request->input('correo');
-        $usuario->contrasena = bcrypt($request->input('contrasena1'));
+        $usuario->usuario = $request->input('usuario_n');
+        $usuario->correo = $request->input('correo_n');
+        $usuario->contrasena = bcrypt($request->input('contrasena1_n'));
         $usuario->rol_id = $admin->id;
         $usuario->rol_type = 'App\Admin';
         
         $usuario->save();
+
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "admin";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "usuario";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->save();
 
         return redirect()->route('admin');
     }
