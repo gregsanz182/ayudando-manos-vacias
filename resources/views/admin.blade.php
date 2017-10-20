@@ -73,27 +73,25 @@
                     <div class="row">
                         <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
                     </div>
-                    <div class="row">
-                        <div id="opc1" class="activo">
-                            <form action="{{ route('guardar-tipo-cancer') }}" method="post">
-                                <h3>Agregar tipo de cáncer</h3>
-                                @include('includes.error_box')
-                                <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
-                                    <label for="tipo_c">Tipo</label>
-                                    <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
-                                </div>
-                                <div class="col-xs-4 {{ $errors->has('desc_c')?'has-error':'' }}">
-                                    <label for="desc_c">Descripción</label>
-                                    <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
-                                </div>
-                                <div class="col-xs-4">
-                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                                </div>
-                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                            </form>
-                        </div>
-                        <div id="opc2" class="oculto">HOLA</div>
+                    <div id="opc1" class="row activo">
+                        <form action="{{ route('guardar-tipo-cancer') }}" method="post">
+                            <h3>Agregar tipo de cáncer</h3>
+                            @include('includes.error_box')
+                            <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
+                                <label for="tipo_c">Tipo</label>
+                                <input name="tipo_c" type="text" class="form-control" required placeholder="Ingrese tipo de cáncer">
+                            </div>
+                            <div class="col-xs-4 {{ $errors->has('desc_c')?'has-error':'' }}">
+                                <label for="desc_c">Descripción</label>
+                                <input name="desc_c" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                            </div>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
                     </div>
+                    <div id="opc2" class="row oculto">HOLA</div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <div class="row">

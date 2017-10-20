@@ -2,8 +2,8 @@
     position: relative;
     margin-top: 24px;
 }
-@color-on: #fff;
-@color-off: #333;
+@color-on: #ffffff;
+@color-off: #333333;
 @bg-on: #8EC63F;
 @bg-off: #FBEDB5;
 @bg-on-hover: rgb(134, 182, 63);
@@ -121,15 +121,11 @@
   }
 
   .oculto{
-    opacity: 0;
-    -webkit-transition: opacity .15s linear;
-         -o-transition: opacity .15s linear;
-            transition: opacity .15s linear;
+    visibility: hidden;
+    display: none;
   }
 
   .activo{
-      opacity: 1;
-      -webkit-transition: opacity .15s linear;
-           -o-transition: opacity .15s linear;
-              transition: opacity .15s linear;
+    visibility: visible;
+    display: none;
   }
