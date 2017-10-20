@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <a href="{{ route('inicio') }}">
-                    <img src="img/logo.png" alt="Inicio" class="logo-img">
+                    <img src="{{ URL::to('img/logo.png') }}" alt="Inicio" class="logo-img">
                 </a>
             </div>
             <div class="col-xs-12 header-right">
