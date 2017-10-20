@@ -38,6 +38,8 @@ Route::middleware(['es_representante'])->group(function(){
     Route::get('/actualizar_datos', function () {
         return view('actualizar_datos');
     });
+
+    Route::get('/gestion_requerimientos', 'RequerimientoController@gestionRequerimientos')->name('gestion_requerimientos');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
