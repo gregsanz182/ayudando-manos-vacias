@@ -80,19 +80,25 @@
                 <hr>
                 <h4>Tipo de cáncer que padece</h4>
                 <div class="row form-group">
-                    <div class="col-xs-4 {{ $errors->has('tipo_cancer')?'has-error':'' }}">
+                    <div class="col-xs-5 {{ $errors->has('tipo_cancer')?'has-error':'' }}">
                         <label for="tipo_cancer">Tipo</label>
-                        <select name="tipo_cancer" class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
+                        <select name="tipo_cancer" id='cancer_select' class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
                             @foreach($canceres as $cancer)
                                 <option value="{{ $cancer->id }}" @if(Request::old('tipo_cancer') == $key){{'selected'}}@endif>{{ $cancer->nombre }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-xs-4 {{ $errors->has('estado_actual_cancer')?'has-error':'' }}">
+                    <div class="col-xs-7">
+                        <label for="nombre_cancer_otro">Nombre otro</label>
+                        <input id='nombre_cancer_otro' type="text" class="form-control" name='otro_cancer' placeholder="Nombre" value='' disabled>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-xs-7 {{ $errors->has('estado_actual_cancer')?'has-error':'' }}">
                         <label for="estado_actual_cancer">Estado Actual</label>
                         <input type="text" class="form-control" name='estado_actual_cancer' placeholder="Estado Actual" value="{{ $errors->has('estado_actual_cancer')?'':Request::old('estado_actual_cancer') }}">
                     </div>
-                    <div class="col-xs-4 {{ $errors->has('fecha_desde')?'has-error':'' }}">
+                    <div class="col-xs-5 {{ $errors->has('fecha_desde')?'has-error':'' }}">
                         <label for="fecha_desde">Fecha de diagnóstico</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>

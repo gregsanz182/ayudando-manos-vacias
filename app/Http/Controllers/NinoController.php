@@ -102,6 +102,10 @@ class NinoController extends Controller
         {
             $nino_cancer->estado_actual = $request['estado_actual_cancer'];
         }
+        if($request->has('otro_cancer'))
+        {
+            $nino_cancer->nombre_otro = $request['otro_cancer'];
+        }
         $nino_cancer->nino_id = $nino->id;
         $nino_cancer->cancer_id = $request['tipo_cancer'];
 
