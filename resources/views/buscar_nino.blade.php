@@ -24,29 +24,23 @@
             </p>
         </div>
         <div class="row">
-            <div class="col-xs-4">
+            <form class="col-xs-4" method='get' action=''>
                 <label>Ubicación</label>
                 <div class="row form-group">
                     <div class="col-xs-6">
-                        <select name="estado" class="form-control selectpicker" data-live-search="true" title="Estado">
-                            <option value="1">Amazonas</option>
-                            <option value="2">Apure</option>
-                            <option value="3">Carabobo</option>
-                            <option value="4">Lara</option>
-                            <option value="5">Mérida</option>
-                            <option value="6">Táchira</option>
-                            <option value="7">Zulia</option>
+                        <select name="estado" class="form-control" id='estado_select' title="Estado">
+                            <option selected>Estado</option>
+                            @foreach($estados as $estado)
+                                <option value="{{ $estado->id }}" @if($old['estado']==$estado->id){{'selected'}}@endif>{{ $estado->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-xs-6">
-                        <select name="municipio" class="form-control selectpicker" data-live-search="true" title="Municipio">
-                            <option value="1">Andrés Bello</option>
-                            <option value="2">Ayacucho</option>
-                            <option value="3">Cárdenas</option>
-                            <option value="4">Guásimos</option>
-                            <option value="5">Indepencia</option>
-                            <option value="6">Libertad</option>
-                            <option value="7">San Cristóbal</option>
+                        <select name="municipio" class="form-control" id='ciudad_select' title="Municipio">
+                            <option selected>Municipio</option>
+                            @foreach($municipios as $municipio)
+                                <option value="{{ $municipio->id }}" @if($old['municipio']==$municipio->id){{'selected'}}@endif>{{ $municipio->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -55,10 +49,9 @@
                 <div class="row form-group">
                     <div class="col-xs-12">
                         <select name="cancer" class="form-control selectpicker" data-live-search="true" title="Tipo de Cáncer">
-                            <option value="1">Leucemia</option>
-                            <option value="2">Pancreas</option>
-                            <option value="3">Colon</option>
-                            <option value="4">Prostata</option>
+                            @foreach($canceres as $cancer)
+                                <option value="{{ $cancer->id }}" @if($old['cancer']==$cancer->id){{'selected'}}@endif>{{ $cancer->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -67,74 +60,54 @@
                 <div class="row form-group">
                     <div class="col-xs-12">
                         <select name="medicamentos" class="form-control selectpicker" data-live-search="true" title="Tipo de Medicamento">
-                            <option value="1">Atamel</option>
-                            <option value="2">Vitaminas</option>
-                            <option value="3">Tensión</option>
+                            @foreach($medicamentos as $medicamento)
+                                <option value="{{ $medicamento->id }}" @if($old['medicamentos']==$medicamento->id){{'selected'}}@endif>{{ $medicamento->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
 
-                <label>Insumos (Categoria)</label>
+                <label>Insumos (Categoría)</label>
                 <div class="row form-group">
                     <div class="col-xs-12">
-                        <select name="insumos" class="form-control selectpicker" data-live-search="true" title="Categoria">
-                            <option value="1">Quirurgicos</option>
-                            <option value="2">Cama</option>
+                        <select name="insumos" class="form-control selectpicker" data-live-search="true" title="Categoría">
+                            @foreach($insumos_cat as $insumo_cat)
+                                <option value="{{ $insumo_cat->id }}" @if($old['insumos']==$insumo_cat->id){{'selected'}}@endif>{{ $insumo_cat->nombre }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
                 
                 <div class="row form-group">
-                    <div class="col-xs-4 col-xs-offset-4">
-                        <button class="btn btn-default button-reg btn-block btn-md" action="">Buscar</button>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <button class="btn btn-default button-reg btn-block btn-md" type='button' onclick='limpiarFiltrosBuscar()'>Limpiar</button>
+                    </div>
+                    <div class="col-xs-4 col-xs-offset-1">
+                        <button class="btn btn-default button-reg btn-block btn-md" type="submit">Buscar</button>
                     </div>
                 </div>
-            </div>
+            </form>
             <div class="col-xs-6 col-xs-offset-1 form-custom">
                 <div class="list-group list-group-card">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading" style="margin-bottom: 12px;">José Hernadez</h4>
-                        <p class="list-group-item-text"><strong>Ubicación:</strong> Cárdenas, Táchira</p>
-                        <p class="list-group-item-text"><strong>Teléfono representante:</strong> 0277-5554455</p>
-                        <p class="list-group-item-text"><strong>Cancer:</strong> Leucemia</p>
-                        <p class="list-group-item-text"><strong>Estado Actual:</strong> Grave</p>
-                        <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> Jeringas. Pañales. Ibuprofeno.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading" style="margin-bottom: 12px;">Carlos Chacón</h4>
-                        <p class="list-group-item-text"><strong>Ubicación:</strong> Maracaibo, Zulia</p>
-                        <p class="list-group-item-text"><strong>Teléfono representante:</strong> 0277-5554455</p>
-                        <p class="list-group-item-text"><strong>Cancer:</strong> Leucemia</p>
-                        <p class="list-group-item-text"><strong>Estado Actual:</strong> Grave</p>
-                        <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> Jeringas. Pañales. Ibuprofeno.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading" style="margin-bottom: 12px;">Daniela Díaz</h4>
-                        <p class="list-group-item-text"><strong>Ubicación:</strong> San Crstóbal, Táchira</p>
-                        <p class="list-group-item-text"><strong>Teléfono representante:</strong> 0277-5554455</p>
-                        <p class="list-group-item-text"><strong>Cancer:</strong> Leucemia</p>
-                        <p class="list-group-item-text"><strong>Estado Actual:</strong> Grave</p>
-                        <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> Jeringas. Pañales. Ibuprofeno.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading" style="margin-bottom: 12px;">Karina Zambrano</h4>
-                        <p class="list-group-item-text"><strong>Ubicación:</strong> Valencia, Carabobo</p>
-                        <p class="list-group-item-text"><strong>Teléfono representante:</strong> 0277-5554455</p>
-                        <p class="list-group-item-text"><strong>Cancer:</strong> Leucemia</p>
-                        <p class="list-group-item-text"><strong>Estado Actual:</strong> Grave</p>
-                        <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> Jeringas. Pañales. Ibuprofeno.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading" style="margin-bottom: 12px;">Jesús Sánchez</h4>
-                        <p class="list-group-item-text"><strong>Ubicación:</strong> Mérida, Mérida</p>
-                        <p class="list-group-item-text"><strong>Teléfono representante:</strong> 0277-5554455</p>
-                        <p class="list-group-item-text"><strong>Cancer:</strong> Leucemia</p>
-                        <p class="list-group-item-text"><strong>Estado Actual:</strong> Grave</p>
-                        <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> Jeringas. Pañales. Ibuprofeno.</p>
-                    </a>
-
+                    @foreach($ninos as $nino)
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading" style="margin-bottom: 12px;">{{ $nino->nombre }} {{ $nino->apellido }}</h4>
+                            <p class="list-group-item-text"><strong>Ubicación:</strong> {{ $nino->representante->localidad->nombre }}, {{ $nino->representante->localidad->estado->nombre }}</p>
+                            <p class="list-group-item-text"><strong>Teléfono representante:</strong> {{ $nino->representante->telefono }}</p>
+                            <p class="list-group-item-text"><strong>Cancer:</strong> @include('includes.cancer_por_nino')</p>
+                            <p class="list-group-item-text"><strong>Situación Actual:</strong> {{ $nino->situacion_actual }}</p>
+                            <p class="list-group-item-text"><strong>Medicamentos e insumos que requiere:</strong> @include('includes.insumos_medicamentos_por_nino')</p>
+                        </a>
+                    @endforeach
                 </div>
+                {{ $ninos->links() }}
             </div>
         </div>
     </div>
+    <script>
+        var cityUrl = "{{ route('obtener_ciudades') }}";
+        function limpiarFiltrosBuscar() {
+            window.location.href = "{{ route('buscar') }}";
+        }
+    </script>
 @endsection

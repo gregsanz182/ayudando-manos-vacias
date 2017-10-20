@@ -19,10 +19,19 @@ $('#estado_select').on('change', function() {
         },
         success: function (data) {
             $('#ciudad_select').empty();
-            $('#ciudad_select').append('<option selected>Selecciona un municipio</option>');
+            $('#ciudad_select').append('<option selected>Municipio</option>');
             for (var i=0; i<data.length; i++){
                 $('#ciudad_select').append("<option value='"+data[i].id+"'>"+data[i].nombre+"</option>");
             }
         }
     });
+});
+
+$('#cancer_select').on('change', function(){
+    if($(this).children(':selected').text() === 'Otro'){
+        $('#nombre_cancer_otro').prop('disabled', false);
+    }else{
+        $('#nombre_cancer_otro').val('');
+        $('#nombre_cancer_otro').prop('disabled', true);
+    }
 });

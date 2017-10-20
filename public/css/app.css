@@ -221,9 +221,9 @@ h4 {
   display: inline-block;
   margin-right: 10px;
 }
-.list-group-card a,
-.list-group-card a:first-child,
-.list-group-card a:last-child {
+.list-group-card .list-group-item,
+.list-group-card .list-group-item:first-child,
+.list-group-card .list-group-item:last-child {
   margin-bottom: 6px;
   border-radius: 10px;
   border-color: #CCC;

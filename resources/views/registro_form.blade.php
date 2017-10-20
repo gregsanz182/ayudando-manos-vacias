@@ -23,31 +23,17 @@
                     eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
             </div>
             <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar') }}">
-                @if(count($errors) > 0)
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="alert alert-danger" role="alert">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                @include('includes.error_box')
                 <h4>Información de usuario</h4>
-                <div class="row">
-                    <div class="col-xs-12 form-group {{ $errors->has('usuario')?'has-error':'' }}">
+                <div class="row form-group">
+                    <div class="col-xs-6 form-group {{ $errors->has('usuario')?'has-error':'' }}">
                         <label for="usuario">Usuario</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
                             <input type="text" name="usuario" class="form-control" value="{{ $errors->has('usuario')?'':Request::old('usuario') }}">
                         </div>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-xs-12 {{ $errors->has('correo')?'has-error':'' }}">
+                    <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
                         <label for="correo">Correo electronico</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
@@ -84,19 +70,26 @@
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-xs-6 {{ $errors->has('cedula')?'has-error':'' }}">
+                    <div class="col-xs-5 {{ $errors->has('cedula')?'has-error':'' }}">
                         <label for="cedula">Cédula de identidad</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
                             <input type="text" name="cedula" class="form-control" placeholder="Documento de identidad" value="{{ $errors->has('cedula')?'':Request::old('cedula') }}">
                         </div>
                     </div>
-                    <div class="col-xs-6 {{ $errors->has('fecha_nacimiento')?'has-error':'' }}">
+                    <div class="col-xs-4 {{ $errors->has('fecha_nacimiento')?'has-error':'' }}">
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
-                            <input type="date" name="fecha_nacimiento" class="form-control" value="{{ $errors->has('fecha_nacimiento')?'':Request::old('fecha_nacimiento') }}">
+                            <input type="date" placeholder="AAAA-MM-DD" name="fecha_nacimiento" class="form-control" value="{{ $errors->has('fecha_nacimiento')?'':Request::old('fecha_nacimiento') }}">
                         </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <label for="genero">Genero</label>
+                        <select name="genero" class="form-control">
+                            <option value="1" @if(Request::old('genero') == 1){{'selected'}}@endif>Masculino</option>
+                            <option value="2" @if(Request::old('genero') == 2){{'selected'}}@endif>Femenino</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row form-group">

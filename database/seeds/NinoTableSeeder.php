@@ -18,19 +18,9 @@ class NinoTableSeeder extends Seeder
             "Muy enfermo. Pocos meses de vida",
             "Su situacion mejora cada día",
             "Comenzando con condicion",
-            "Mejoró pero en cancer aun no remite",
+            "Mejora cada día pero el cancer aún no remite",
             "Aun tiene fortaleza",
             "Situacion muy grave"
-        ];
-        $relacion = [
-            "Padre/Madre",
-            "Tío(a)",
-            "Primo(a)",
-            "Hermano(a)",
-            "Amigo(a)",
-            "Abuelo(a)",
-            "Padrino(a)", 
-            "Padrastro/Madrastra"
         ];
         for ($i=0; $i<60; $i++)
         {
@@ -41,7 +31,7 @@ class NinoTableSeeder extends Seeder
                 'genero' => ( $genderRand==1 ? 'F' : 'M'),
                 'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'situacion_actual' => $situacion[array_rand($situacion)],
-                'relacion_repr' => $relacion[array_rand($relacion)],
+                'relacion_repr' => Nino::$relacionesRepr[array_rand(Nino::$relacionesRepr)],
                 'identificacion' => $faker->optional()->numberBetween($min = 23000000, $max=26000000),
                 'representante_id' => $faker->numberBetween($min = 1, $max=25)
             ));
