@@ -202,7 +202,7 @@ body {
 h3 {
   font-weight: 400;
   color: #72611B;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 h4 {
   font-weight: 400;
@@ -237,4 +237,32 @@ h4 {
 .kids-footer-img {
   position: relative;
   top: -119px;
+}
+.table thead th {
+  text-align: center;
+}
+.table tbody th {
+  font-weight: 400;
+  text-align: center;
+}
+.table tbody th button {
+  color: #000;
+  font-size: 2.0rem;
+}
+.tabla-reqs {
+  margin-bottom: 40px;
+}
+.paginacion-meds-ins {
+  margin-bottom: 20px;
+}
+.paginacion-meds-ins button {
+  float: right;
+}
+.paginacion-meds-ins .pagination {
+  float: right;
+  margin: 0 0 0 10px;
+}
+.paginacion-meds-ins .pagination > .active > span {
+  background-color: #5cb85c;
+  border-color: #ddd;
 }
