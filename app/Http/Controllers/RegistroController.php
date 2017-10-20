@@ -26,7 +26,7 @@ class RegistroController extends Controller
             'nombre' => 'required',
             'apellido' => 'required',
             'cedula' => 'required|unique:representante',
-            'fecha_nacimiento' => 'required|date',
+            'fecha_nacimiento' => 'required|date_format:d-m-Y',
             'telefono' => 'required',
             'direccion' => 'required',
             'municipio' => 'required|exists:localidad,id',

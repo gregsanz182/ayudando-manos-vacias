@@ -33,7 +33,7 @@ Route::middleware(['es_admin'])->group(function(){
 Route::middleware(['es_representante'])->group(function(){
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
-    Route::get('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
+    Route::post('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
 
     Route::get('/actualizar_datos', function () {
         return view('actualizar_datos');

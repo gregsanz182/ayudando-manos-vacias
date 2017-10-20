@@ -64,8 +64,21 @@ class NinoController extends Controller
         return view('registro_nino', ['canceres' => $canceres, 'relacionesRepr' => Nino::$relacionesRepr]);
     }
 
-    public function registrarNino()
+    public function registrarNino(Request $request)
     {
-        
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nacimiento' => 'required|date_format:d/m/Y',
+            'genero' => 'required',
+            'relacion_representante' => 'required',
+            'identificacion' => 'nullable',
+            'situacion_actual' => 'required|max:250',
+            'tipo_cancer' => 'required',
+            'estado_actual_cancer' => 'required|max:100',
+            'fecha_desde' => 'required|date_format:d/m/Y'
+        ]);
+
+        return redirect()->route('inicio');
     }
 }

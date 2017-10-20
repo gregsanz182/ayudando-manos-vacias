@@ -27,21 +27,22 @@
                     eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
             </div>
             <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar_nino') }}">
+                @include('includes.error_box')
                 <h4>Información personal</h4>
                 <div class="row form-group">
                     <div class="col-xs-4">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" name='nombre' placeholder="Primer nombre">
+                        <input type="text" class="form-control" name='nombre' placeholder="Primer nombre" value="{{ $errors->has('nombre')?'':Request::old('nombre') }}">
                     </div>
                     <div class="col-xs-4">
                         <label for="apellido">Apellido</label>
-                        <input type="text" class="form-control" name='apellido' placeholder="Primer apellido">
+                        <input type="text" class="form-control" name='apellido' placeholder="Primer apellido" value="{{ $errors->has('apellido')?'':Request::old('apellido') }}">
                     </div>
                     <div class="col-xs-4">
                         <label for="fecha_nacimiento">Fecha de nacimiento</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
-                            <input type="date" name='fecha_nacimiento' class="form-control">
+                            <input type="date" name='fecha_nacimiento' class="form-control" value="{{ $errors->has('fecha_nacimiento')?'':Request::old('fecha_nacimiento') }}">
                         </div>
                     </div>
                 </div>
@@ -71,8 +72,8 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-xs-12">
-                        <label for="nombre">Situación Actual</label>
-                        <textarea class="form-control" rows="3" placeholder="Breve descripción de la situación actual del niño (máx. 250 caracteres)"></textarea>
+                        <label for="situacion_actual">Situación Actual</label>
+                        <textarea class="form-control" rows="3" name='situacion_actual' placeholder="Breve descripción de la situación actual del niño (máx. 250 caracteres)"></textarea>
                     </div>
                 </div>
                 <hr>
@@ -88,7 +89,7 @@
                     </div>
                     <div class="col-xs-4">
                         <label for="estado_actual_cancer">Estado Actual</label>
-                        <input type="text" class="form-control" placeholder="Estado Actual">
+                        <input type="text" class="form-control" name='estado_actual_cancer' placeholder="Estado Actual">
                     </div>
                     <div class="col-xs-4">
                         <label for="fecha_desde">Fecha de diagnóstico</label>
@@ -108,6 +109,7 @@
                         <button class="btn btn-deafult btn-block btn-md button-reg" type='submit'>Registrar</button>
                     </div>
                 </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
             </form>
         </div>
     </div>

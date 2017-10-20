@@ -23,19 +23,7 @@
                     eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
             </div>
             <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar') }}">
-                @if(count($errors) > 0)
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="alert alert-danger" role="alert">
-                                <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                @endif
+                @include('includes.error_box')
                 <h4>Información de usuario</h4>
                 <div class="row form-group">
                     <div class="col-xs-6 form-group {{ $errors->has('usuario')?'has-error':'' }}">
@@ -99,8 +87,8 @@
                     <div class="col-xs-3">
                         <label for="genero">Genero</label>
                         <select name="genero" class="form-control">
-                            <option value="1">Masculino</option>
-                            <option value="2">Femenino</option>
+                            <option value="1" @if(Request::old('genero') == 1){{'selected'}}@endif>Masculino</option>
+                            <option value="2" @if(Request::old('genero') == 2){{'selected'}}@endif>Femenino</option>
                         </select>
                     </div>
                 </div>
