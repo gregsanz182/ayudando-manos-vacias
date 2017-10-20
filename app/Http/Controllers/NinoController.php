@@ -57,4 +57,15 @@ class NinoController extends Controller
             'old' => $request
         ]);
     }
+
+    public function registroNino()
+    {
+        $canceres = Cancer::orderBy('nombre')->get();
+        return view('registro_nino', ['canceres' => $canceres, 'relacionesRepr' => Nino::$relacionesRepr]);
+    }
+
+    public function registrarNino()
+    {
+        
+    }
 }
