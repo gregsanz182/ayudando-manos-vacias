@@ -22,6 +22,7 @@
             <div class="tab-content">
                 <div id="perfil" class="tab-pane fade in active">
                     <form action="{{ route('actualizar-perfil') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Perfil</h3>
                         <div class="row">
                             <div class="col-xs-3 {{ $errors->has('nombre_p')?'has-error':'' }} ">
@@ -70,6 +71,7 @@
                 </div>
                 <div id="menu1" class="tab-pane fade">
                     <form action="{{ route('guardar-tipo-cancer') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Agregar tipo de cáncer</h3>
                         <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
                             <label for="tipo_c">Tipo</label>
@@ -87,6 +89,7 @@
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <form action="{{ route('guardar-medicamento') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Agregar medicamento</h3>
                         <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
                             <label for="nombre_m">Nombre</label>
@@ -104,6 +107,7 @@
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <form action="{{ route('guardar-categoria-insumo') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Agregar categoria de insumo</h3>
                         <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
                             <label for="categoria">Categoria</label>
@@ -117,6 +121,7 @@
                 </div>
                 <div id="menu4" class="tab-pane fade">
                     <form action="{{ route('guardar-localidad') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Agregar localidad</h3>
                         <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
                             <label for="nombre_l">Nombre</label>
@@ -149,6 +154,7 @@
                 </div>
                 <div id="menu5" class="tab-pane fade">
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">
+                        @include('includes.error_box')
                         <h3>Agregar Administrador</h3>
                         <div class="row">
                             <div class="col-xs-3 {{ $errors->has('nombre_n')?'has-error':'' }}">
