@@ -50,6 +50,10 @@ Route::middleware(['es_representante'])->group(function(){
         return view('actualizar_datos');
     });
 
+    Route::get('/perfil_rep', function() {
+        return view('perfil_rep');
+    })->name('perfil');
+
     Route::get('/gestion_requerimientos/{nino_id}', 'RequerimientoController@gestionRequerimientos')->name('gestion_requerimientos');
 });
 
