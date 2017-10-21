@@ -14,6 +14,7 @@ class CreateNinoCancerTable extends Migration
     public function up()
     {
         Schema::create('nino_cancer', function(Blueprint $table) {
+            $table->integer('id');
             $table->date('fecha_desde');
             $table->string('estado_actual')->nullable();
             $table->string('nombre_otro')->nullable();
@@ -25,7 +26,7 @@ class CreateNinoCancerTable extends Migration
         Schema::table('nino_cancer', function(Blueprint $table) {
             $table->foreign('nino_id')->references('id')->on('nino');
             $table->foreign('cancer_id')->references('id')->on('cancer');
-            $table->primary(["nino_id", "cancer_id"]);
+            $table->primary(["id", "nino_id", "cancer_id"]);
         });
     }
 

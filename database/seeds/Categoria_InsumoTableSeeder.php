@@ -19,7 +19,8 @@ class Categoria_InsumoTableSeeder extends Seeder
             ["Agujas e inyectadoras"],
             ["Sabanas, Fundas, Ropa"],
             ["Algodon"],
-            ["Material Aséptico"]
+            ["Material Aséptico"],
+            ['Otro']
         ];
 
         foreach ($inserts as $insert){

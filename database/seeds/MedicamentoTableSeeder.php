@@ -26,7 +26,8 @@ class MedicamentoTableSeeder extends Seeder
             ['Letrozol', 'Inhibidor de Aromatasa'],
             ['Rituximab', 'Anticuerpo'],
             ['Denileukin Diftitox', 'Medicamento qie afecta un receptor molecular'],
-            ['Bortezomib', 'Inhibidor de Proteosoma']
+            ['Bortezomib', 'Inhibidor de Proteosoma'],
+            ['Otro', 'Otro']
         ];
 
         foreach ($inserts as $insert){

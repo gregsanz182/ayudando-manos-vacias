@@ -14,6 +14,7 @@ class CreateNinoInsumoTable extends Migration
     public function up()
     {
         Schema::create('nino_insumo', function(Blueprint $table) {
+            $table->integer('id');
             $table->string('nombre');
             $table->string('fecha');
             $table->string('estado_requerimiento')->nullable();
@@ -26,7 +27,7 @@ class CreateNinoInsumoTable extends Migration
         Schema::table('nino_insumo', function(Blueprint $table) {
             $table->foreign('nino_id')->references('id')->on('nino');
             $table->foreign('categoria_insumo_id')->references('id')->on('categoria_insumo');
-            $table->primary(["nino_id", "categoria_insumo_id"]);
+            $table->primary(["id", "nino_id", "categoria_insumo_id"]);
         });
     }
 

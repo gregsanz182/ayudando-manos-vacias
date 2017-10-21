@@ -24,10 +24,11 @@ class Nino_CancerTableSeeder extends Seeder
         for ($i=0; $i<60; $i++)
         {
             Nino_Cancer::create(array(
+                'id' => Nino_Cancer::getNextId(),
                 'fecha_desde' => $faker->date($format = 'Y-m-d', $max = 'now'),
                 'estado_actual' => $estadoActual[array_rand($estadoActual)],
                 'nino_id' => $i+1,
-                'cancer_id' => $faker->numberBetween($min = 1, $max=12)
+                'cancer_id' => rand(1, 12)
             ));
         }
     }
