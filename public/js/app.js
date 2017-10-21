@@ -34,8 +34,9 @@ $('#cancer_select').on('change', function(){
         $('#nombre_cancer_otro').val('');
         $('#nombre_cancer_otro').prop('disabled', true);
     }
+});
+
 $('#select_tipo').on('change', function() {
-    $('#id_cancer').val(''+this.value+'');
     if(this.value != '0'){
         $('#tipo_c_a').removeAttr('disabled');
         $('#desc_c_a').removeAttr('disabled');
@@ -46,7 +47,6 @@ $('#select_tipo').on('change', function() {
 });
 
 $('#select_medicamento').on('change', function() {
-    $('#id_medicamento').val(''+this.value+'');
     console.log($('#id_medicamento').val());
     if(this.value != '0'){
         $('#nombre_m_a').removeAttr('disabled');
@@ -58,7 +58,6 @@ $('#select_medicamento').on('change', function() {
 });
 
 $('#select_insumo').on('change', function() {
-    $('#id_insumo').val(''+this.value+'');
     if(this.value != '0'){
         $('#nombre_i_a').removeAttr('disabled');
         $('#desc_i_a').removeAttr('disabled');
@@ -69,7 +68,6 @@ $('#select_insumo').on('change', function() {
 });
 var check = false;
 $('#select_localidad').on('change', function() {
-    $('#id_localidad').val(''+this.value+'');
     if(this.value != '0'){
         $('#nombre_l_a').removeAttr('disabled');
         $('#inlineRadio1_a').removeAttr('disabled');
