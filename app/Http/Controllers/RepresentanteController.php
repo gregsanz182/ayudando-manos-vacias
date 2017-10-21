@@ -14,39 +14,29 @@ class RepresentanteController extends Controller
         return view('actualizar_representante', ['repre' => $repre, 'estados' => $estados, 'municipios' => $municipios]);
     }
     public function actualizar(Request $request){
-        $this->validate($request, [
-            'usuario' => 'required|unique:usuario',
-            'correo' => 'required|email',
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'cedula' => 'required|unique:representante',
-            'fecha_nacimiento' => 'required|date_format:d-m-Y',
-            'telefono' => 'required',
-            'direccion' => 'required',
-            'municipio' => 'required|exists:localidad,id',
-            'genero' => 'required'
-        ]);
 
         $usuario = Auth::user();
 
         if($request->has('contrasena')){
             $this->validate($request, [
-                'contrasena' => 'min:4',
-                'confirmar_contrasena' => 'required|same:contrasena'
+                'contrasena' => 'nullable|min:4',
+                'confirmar_contrasena' => 'same:contrasena'
             ]);
             $usuario->contrasena = bcrypt($request['contrasena']);
         }
         $usuario->usuario = $request['usuario'];
         $usuario->correo = $request['correo'];
-        $usuario->rol->nombre = $request['nombre'];
-        $usuario->rol->apellido = $request['apellido'];
-        $usuario->rol->cedula = $request['cedula'];
-        $usuario->rol->fecha_nacimiento = $request['fecha_nacimiento'];
-        $usuario->rol->genero = $request['genero']==1?'M':'F';
-        $usuario->rol->telefono = $request['telefono'];
-        $usuario->rol->direccion = $request['direccion'];
-        $usuario->rol->localidad_id = $request['municipio'];
         $usuario->save();
+        $representante = $usuario->rol;
+        $representante->nombre = $request['nombre'];
+        $representante->apellido = $request['apellido'];
+        $representante->cedula = $request['cedula'];
+        $representante->fecha_nacimiento = $request['fecha_nacimiento'];
+        $representante->genero = $request['genero']==1?'M':'F';
+        $representante->telefono = $request['telefono'];
+        $representante->direccion = $request['direccion'];
+        $representante->localidad_id = $request['municipio'];
+        $representante->save();
 
         return redirect()->route('ver-perfil');
     }

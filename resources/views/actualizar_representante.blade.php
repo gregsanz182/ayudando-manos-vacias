@@ -19,7 +19,7 @@
                     <label for="usuario">Usuario</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                        <input type="text" name="usuario" class="form-control" required disabled value="{{ $repre->usuario }}">
+                        <input type="text" name="usuario" class="form-control" value="{{ $repre->usuario }}">
                     </div>
                 </div>
                 <div class="col-xs-3">
