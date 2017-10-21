@@ -90,7 +90,7 @@
             <div class="col-xs-6 col-xs-offset-1 form-custom">
                 <div class="list-group list-group-card">
                     @foreach($ninos as $nino)
-                        <a href="#" class="list-group-item">
+                        <a href="{{ route('info_nino', ['id' => $nino->id]) }}" class="list-group-item">
                             <h4 class="list-group-item-heading" style="margin-bottom: 12px;">{{ $nino->nombre }} {{ $nino->apellido }}</h4>
                             <p class="list-group-item-text"><strong>Ubicación:</strong> {{ $nino->representante->localidad->nombre }}, {{ $nino->representante->localidad->estado->nombre }}</p>
                             <p class="list-group-item-text"><strong>Teléfono representante:</strong> {{ $nino->representante->telefono }}</p>
