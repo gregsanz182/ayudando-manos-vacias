@@ -44,10 +44,15 @@ Route::middleware(['es_representante'])->group(function(){
         'middleware' => 'nino_repr_valido'
     ])->name('gestion_requerimientos');
 
-    Route::post('/gestion_requerimientos/{nino_id}',[
+    Route::post('/agregar_medicamento/{nino_id}',[
         'uses' => 'RequerimientoController@agregarMedicamento',
         'middleware' => 'nino_repr_valido'
     ])->name('agregar_medicamento');
+
+    Route::post('/agregar_insumo/{nino_id}',[
+        'uses' => 'RequerimientoController@agregarInsumo',
+        'middleware' => 'nino_repr_valido'
+    ])->name('agregar_insumo');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');

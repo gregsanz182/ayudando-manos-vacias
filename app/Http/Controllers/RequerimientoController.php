@@ -20,6 +20,7 @@ class RequerimientoController extends Controller
         $nino_insumos = Nino_Insumo::where('nino_id', $nino_id)->orderBy('created_at', 'DESC')->paginate(10);
 
         return view('ges_requerimientos', [
+            'nino_id' => $nino_id,
             'nino_medicamentos' => $nino_medicamentos, 
             'nino_insumos' => $nino_insumos,
             'medicamentos' => $medicamentos,
@@ -31,8 +32,9 @@ class RequerimientoController extends Controller
     {
         $nino_medicamento = new Nino_Medicamento;
 
-        $nino_medicamento->fecha = $request->fecha;
-        $nino_medicamento->medicamento_id = $request->medicamento;
+        $nino_medicamento->id = Nino_Medicamento::getNextId();
+        $nino_medicamento->fecha = $request['fecha'];
+        $nino_medicamento->medicamento_id = $request['medicamento'];
         if($request->has('dosis'))
             $nino_medicamento->dosis = $request['dosis'];
         if($request->has('otro_medicamento'))
@@ -41,6 +43,24 @@ class RequerimientoController extends Controller
         $nino_medicamento->nino_id = $nino_id;
 
         $nino_medicamento->save();
+
+        return redirect()->back();
+    }
+
+    public function agregarInsumo($nino_id, Request $request)
+    {
+        $nino_insumo = new Nino_Insumo;
+
+        $nino_insumo->id = Nino_Insumo::getNextId();
+        $nino_insumo->nombre = $request['insumo'];
+        $nino_insumo->fecha = $request->fecha;
+        $nino_insumo->categoria_insumo_id = $request['categoria_insumo'];
+        if($request->has('motivo'))
+            $nino_insumo->motivo = $request['motivo'];
+        $nino_insumo->estado_requerimiento = 'Requerido';
+        $nino_insumo->nino_id = $nino_id;
+
+        $nino_insumo->save();
 
         return redirect()->back();
     }

@@ -18,7 +18,6 @@ class MedicamentoTableSeeder extends Seeder
             ['Alemtuzumab', 'Anticuerpo'],
             ['Ibritumomab', 'Anticuerpo'],
             ['Asparaginasa', 'Activador de Enzima'],
-            ['Bortezomib', 'Inhibidor de Proteosoma'],
             ['Doxorubicina', 'Agente Genotóxico'],
             ['Melfalan', 'Agente Genotóxico'],
             ['Vindesina', 'Inhibidor del Huso'],

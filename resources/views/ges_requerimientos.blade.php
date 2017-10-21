@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-xs-12 text-right paginacion-meds-ins">
                 {{ $nino_insumos->links() }}
-                <button type="button" class="btn btn-success">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#agg-insumo-modal">
                     <i class="fa fa-plus"></i> Añadir insumo</button>
             </div>
         </div>
@@ -103,7 +103,7 @@
                 </button>
                 <h4 class="modal-title" id="gridSystemModalLabel">Agregar medicamento</h4>
             </div>
-            <form action="" method="post">
+            <form action="{{ route('agregar_medicamento', ['nino_id' => $nino_id]) }}" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-6 form-group">
@@ -133,6 +133,57 @@
                         <div class="col-xs-6 form-group">
                             <label for='dosis'>Dosis (Opcional)</label>
                             <input id='nombre_otro' type="text" class="form-control" name='dosis' placeholder="Dosis">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="agg-insumo-modal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Agregar insumo</h4>
+            </div>
+            <form action="{{ route('agregar_insumo', ['nino_id' => $nino_id]) }}" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6 form-group">
+                            <label for='categoria_insumo'>Categoria</label>
+                            <select name="categoria_insumo" class="form-control selectpicker" data-live-search="true" title="Categoria"
+                                required>
+                                @foreach($insumos_cat as $insumo_cat)
+                                    <option value="{{ $insumo_cat->id }}">{{ $insumo_cat->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                            <label for='insumo'>Insumo</label>
+                            <input type="text" class="form-control" name='insumo' placeholder="Nombre insumo" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 form-group">
+                            <label for="fecha">Fecha limite</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar-plus-o"></i>
+                                </span>
+                                <input placeholder='AAAA-MM-DD' type="date" name='fecha' class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 form-group">
+                            <label for='motivo'>Motivo (Opcional)</label>
+                            <input id='motivo' type="text" class="form-control" name='dosis' placeholder="Motivo">
                         </div>
                     </div>
                 </div>

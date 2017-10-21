@@ -25,7 +25,7 @@ class Nino_MedicamentoTableSeeder extends Seeder
                     'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
                     'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
                     'nino_id' => rand(1, 60),
-                    'medicamento_id' => rand(1, 14)
+                    'medicamento_id' => rand(1, 13)
             ));
         }
     }
