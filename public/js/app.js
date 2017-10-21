@@ -34,7 +34,6 @@ function otroSelect(sel, sel2){
         $(sel2).val('');
         $(sel2).prop('disabled', true);
     }
-<<<<<<< HEAD
 }
 
 function modMedicamentoModal(id, medicamento_id, fecha, dosis, nombre_otro){
@@ -56,8 +55,6 @@ function modInsumoModal(id, categoria_insumo_id, nombre, fecha, motivo){
     $("#mod-insumo-modal .modal-footer a").attr('href', del_insumo_url+id+'/'+categoria_insumo_id).change();
     $('#mod-insumo-modal').modal('show');
 }
-=======
-});
 
 $('#select_tipo').on('change', function() {
     if(this.value != '0'){
@@ -139,4 +136,3 @@ $('#inlineRadio2').click( function(){
     $("#estado").attr("disabled", "disabled");
     $('#localidad_id').val('NULL');
 });
->>>>>>> 98ae2753c00b10a63a78fbfa53459d52ef6b80e5
