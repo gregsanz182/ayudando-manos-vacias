@@ -49,10 +49,20 @@ Route::middleware(['es_representante'])->group(function(){
         'middleware' => 'nino_repr_valido'
     ])->name('agregar_medicamento');
 
+    Route::post('/modificar_medicamento/{nino_id}/{id}/{medicamento_id}',[
+        'uses' => 'RequerimientoController@modificarMedicamento',
+        'middleware' => 'nino_repr_valido'
+    ])->name('modificar_medicamento');
+
     Route::post('/agregar_insumo/{nino_id}',[
         'uses' => 'RequerimientoController@agregarInsumo',
         'middleware' => 'nino_repr_valido'
     ])->name('agregar_insumo');
+
+    Route::post('/modificar_insumo/{nino_id}/{id}/{categoria_insumo_id}',[
+        'uses' => 'RequerimientoController@modificarinsumo',
+        'middleware' => 'nino_repr_valido'
+    ])->name('modificar_insumo');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');

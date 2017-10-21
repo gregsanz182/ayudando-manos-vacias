@@ -27,11 +27,31 @@ $('#estado_select').on('change', function() {
     });
 });
 
-$('#otro_select').on('change', function(){
-    if($(this).children(':selected').text() === 'Otro'){
-        $('#nombre_otro').prop('disabled', false);
+function otroSelect(sel, sel2){
+    if($(sel).children(':selected').text() === 'Otro'){
+        $(sel2).prop('disabled', false);
     }else{
-        $('#nombre_otro').val('');
-        $('#nombre_otro').prop('disabled', true);
+        $(sel2).val('');
+        $(sel2).prop('disabled', true);
     }
-});
+}
+
+function modMedicamentoModal(id, medicamento_id, fecha, dosis, nombre_otro){
+    $("#mod-medicamento-modal select[name='medicamento']").val(medicamento_id).change();
+    $("#mod-medicamento-modal input[name='otro_medicamento']").val(nombre_otro).change();
+    $("#mod-medicamento-modal input[name='fecha']").val(fecha).change();
+    $("#mod-medicamento-modal input[name='dosis']").val(dosis).change();
+    $("#mod-medicamento-modal form").attr('action', mod_medicamento_url+id+'/'+medicamento_id).change();
+    $("#mod-medicamento-modal .modal-footer a").attr('href', del_medicamento_url+id+'/'+medicamento_id).change();
+    $('#mod-medicamento-modal').modal('show');
+}
+
+function modInsumoModal(id, categoria_insumo_id, nombre, fecha, motivo){
+    $("#mod-insumo-modal select[name='categoria_insumo']").val(categoria_insumo_id).change();
+    $("#mod-insumo-modal input[name='insumo']").val(nombre).change();
+    $("#mod-insumo-modal input[name='fecha']").val(fecha).change();
+    $("#mod-insumo-modal input[name='motivo']").val(motivo).change();
+    $("#mod-insumo-modal form").attr('action', mod_insumo_url+id+'/'+categoria_insumo_id).change();
+    $("#mod-insumo-modal .modal-footer a").attr('href', del_insumo_url+id+'/'+categoria_insumo_id).change();
+    $('#mod-insumo-modal').modal('show');
+}

@@ -92,11 +92,12 @@ class NinoController extends Controller
         {
             $nino->identificacion = $request['identificacion'];
         }
-        $nino->representante_id = Auth::user()->id;
+        $nino->representante_id = Auth::user()->rol_id;
 
         $nino->save();
 
         $nino_cancer = new Nino_Cancer;
+        $nino_cancer->id = Nino_Cancer::getNextId();
         $nino_cancer->fecha_desde = $request['fecha_desde'];
         if($request->has('estado_actual_cancer'))
         {

@@ -64,4 +64,43 @@ class RequerimientoController extends Controller
 
         return redirect()->back();
     }
+
+    public function modificarMedicamento($nino_id, $id, $medicamento_id, Request $request) 
+    {
+        $insert = [
+            'fecha' => $request['fecha'],
+            'medicamento_id' => $request['medicamento']
+        ];
+        if($request->has('dosis'))
+            $insert['dosis'] = $request['dosis'];
+        if($request->has('otro_medicamento'))
+            $insert['nombre_otro'] = $request['otro_medicamento'];
+        if($request->has('donado'))
+            $insert['estado_requerimiento'] = 'Donado';
+        Nino_Medicamento::where('nino_id', $nino_id)
+                        ->where('medicamento_id', $medicamento_id)
+                        ->where('id', $id)
+                        ->update($insert);
+
+        return redirect()->back();
+    }
+
+    public function modificarInsumo($nino_id, $id, $categoria_insumo_id, Request $request) 
+    {
+        $insert = [
+            'fecha' => $request['fecha'],
+            'categoria_insumo_id' => $request['categoria_insumo'],
+            'nombre' => $request['insumo']
+        ];
+        if($request->has('motivo'))
+            $insert['motivo'] = $request['motivo'];
+        if($request->has('donado'))
+            $insert['estado_requerimiento'] = 'Donado';
+        Nino_Insumo::where('nino_id', $nino_id)
+                        ->where('categoria_insumo_id', $categoria_insumo_id)
+                        ->where('id', $id)
+                        ->update($insert);
+
+        return redirect()->back();
+    }
 }
