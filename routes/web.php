@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('index');
 })->name('inicio');
 
+Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
+
+Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
+
+Route::get('/info_nino/{id}', 'NinoController@infoNino')->name('info_nino');
+
+Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
+
+Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
+
+Route::get('/ayuda', function () {
+    return view('ayuda');
+});
+
+Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
+
+Route::get('/perfil_rep', function () {
+    return view('perfil_representante');
+});
+
 Route::middleware(['es_admin'])->group(function(){
 
     Route::get('/admin', 'AdminController@obtener_nombre_estados')->name('admin');
@@ -49,7 +69,7 @@ Route::middleware(['es_representante'])->group(function(){
     
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
-    Route::post('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
+    Route::post('/registro_nino', 'NinoController@registrarNino')->name('registrar_nino');
 
     Route::get('/gestion_requerimientos/{nino_id}',[
         'uses' => 'RequerimientoController@gestionRequerimientos',
@@ -60,6 +80,11 @@ Route::middleware(['es_representante'])->group(function(){
         'uses' => 'RequerimientoController@agregarMedicamento',
         'middleware' => 'nino_repr_valido'
     ])->name('agregar_medicamento');
+
+    Route::get('/eliminar_medicamento/{nino_id}/{id}/{medicamento_id}',[
+        'uses' => 'RequerimientoController@eliminarMedicamento',
+        'middleware' => 'nino_repr_valido'
+    ])->name('eliminar_medicamento');
 
     Route::post('/modificar_medicamento/{nino_id}/{id}/{medicamento_id}',[
         'uses' => 'RequerimientoController@modificarMedicamento',
@@ -72,12 +97,16 @@ Route::middleware(['es_representante'])->group(function(){
     ])->name('agregar_insumo');
 
     Route::post('/modificar_insumo/{nino_id}/{id}/{categoria_insumo_id}',[
-        'uses' => 'RequerimientoController@modificarinsumo',
+        'uses' => 'RequerimientoController@modificarInsumo',
         'middleware' => 'nino_repr_valido'
     ])->name('modificar_insumo');
+
+    Route::get('/eliminar_insumo/{nino_id}/{id}/{categoria_insumo_id}',[
+        'uses' => 'RequerimientoController@eliminarInsumo',
+        'middleware' => 'nino_repr_valido'
+    ])->name('eliminar_insumo');
 });
 
-Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
 
 Route::middleware(['es_invitado'])->group(function(){
     Route::get('/registro_rep', 'RegistroController@formulario')->name('registro');
@@ -85,15 +114,6 @@ Route::middleware(['es_invitado'])->group(function(){
     Route::post('/registrar_rep', 'RegistroController@registrar')->name('registrar');
 });
 
-Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
-
-Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
-
-Route::get('/ayuda', function () {
-    return view('ayuda');
-});
-
-Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
 
 Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
 

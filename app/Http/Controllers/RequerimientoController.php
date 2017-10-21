@@ -103,4 +103,24 @@ class RequerimientoController extends Controller
 
         return redirect()->back();
     }
+
+    public function eliminarMedicamento($nino_id, $id, $medicamento_id)
+    {
+        Nino_Medicamento::where('nino_id', $nino_id)
+                        ->where('medicamento_id', $medicamento_id)
+                        ->where('id', $id)
+                        ->delete();
+        
+        return redirect()->back();
+    }
+
+    public function eliminarInsumo($nino_id, $id, $categoria_insumo_id)
+    {
+        Nino_Insumo::where('nino_id', $nino_id)
+                        ->where('categoria_insumo_id', $categoria_insumo_id)
+                        ->where('id', $id)
+                        ->delete();
+        
+        return redirect()->back();
+    }
 }

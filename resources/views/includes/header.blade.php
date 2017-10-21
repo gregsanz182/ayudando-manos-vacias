@@ -13,7 +13,7 @@
                             <a href="{{ route('inicio') }}" class="active">Inicio</a>
                         </li>
                         <li>
-                            <a href="buscar">Buscar</a>
+                            <a href="{{ route('buscar') }}">Buscar</a>
                         </li>
                         <li>
                             <a href="ayuda">Ayuda</a>
