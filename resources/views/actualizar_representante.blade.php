@@ -33,14 +33,14 @@
                     <label for="contrasena">Contraseña</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" name="contrasena" class="form-control">
+                        <input type="password" name="contrasena" placeholder="Ingrese contraseña" class="form-control">
                     </div>
                 </div>
                 <div class="col-xs-3">
                     <label for="confirmar_contrasena">Confirmar Contraseña</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                        <input type="password" name="confirmar_contrasena" class="form-control">
+                        <input type="password" name="confirmar_contrasena" placeholder="Confirme contraseña" class="form-control">
                     </div>
                 </div>
             </div>

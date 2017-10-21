@@ -45,7 +45,7 @@ Route::middleware(['es_representante'])->group(function(){
 
     Route::get('/ver_perfil', 'RepresentanteController@datos')->name('ver-perfil');
 
-    Route::post('/actualizar_perfil', 'RequestController@actualizar')->name('actualizar-perfil');
+    Route::post('/actualizar_perfil', 'RepresentanteController@actualizar')->name('actualizar-perfil');
     
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 

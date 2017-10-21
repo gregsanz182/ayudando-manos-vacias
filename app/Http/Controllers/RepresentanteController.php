@@ -14,6 +14,18 @@ class RepresentanteController extends Controller
         return view('actualizar_representante', ['repre' => $repre, 'estados' => $estados, 'municipios' => $municipios]);
     }
     public function actualizar(Request $request){
+        $this->validate($request, [
+            'usuario' => 'required|unique:usuario',
+            'correo' => 'required|email',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cedula' => 'required|unique:representante',
+            'fecha_nacimiento' => 'required|date_format:d-m-Y',
+            'telefono' => 'required',
+            'direccion' => 'required',
+            'municipio' => 'required|exists:localidad,id',
+            'genero' => 'required'
+        ]);
 
         $usuario = Auth::user();
 
