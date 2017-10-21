@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Nino_Medicamento extends Model
 {
@@ -14,5 +15,9 @@ class Nino_Medicamento extends Model
 
     public function medicamento() {
         return $this->belongsTo('App\Medicamento');
+    }
+
+    public static function getNextId() {
+        return DB::table('nino_medicamento')->max('id')+1;
     }
 }
