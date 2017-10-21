@@ -27,11 +27,11 @@ $('#estado_select').on('change', function() {
     });
 });
 
-$('#cancer_select').on('change', function(){
+$('#otro_select').on('change', function(){
     if($(this).children(':selected').text() === 'Otro'){
-        $('#nombre_cancer_otro').prop('disabled', false);
+        $('#nombre_otro').prop('disabled', false);
     }else{
-        $('#nombre_cancer_otro').val('');
-        $('#nombre_cancer_otro').prop('disabled', true);
+        $('#nombre_otro').val('');
+        $('#nombre_otro').prop('disabled', true);
     }
 });
