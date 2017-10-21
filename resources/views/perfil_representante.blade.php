@@ -3,23 +3,12 @@
 @section('contenido')
     <div class="container" id="cuerpo">
         <div class="row">
-            <hr>
-            <div class="col-xs-6">
-                <h4>Información personal</h4>
-                <div class="row form-group">
-                    <div class="col-xs-3">
-                        <label for="nombre">Nombre: Gregory</label>
-                    </div>
-                    <div class="col-xs-3">
-                        <label for="apellido">Apellido: Sánchez</label>
-                    </div>
-                    <div class="col-xs-5">
-                        <label for="nombre">Correo: gregory@unet.edu.ve</label>
-                    </div>
-                </div>
+            <h3>Perfil</h3>
+            <div class="col-xs-12">
+                
             </div>
-            <div class="col-xs-6">
-                <h4>Información del Niño</h4>
+            <div class="col-xs-12 col-md-6">
+                <h4>Niños registrados</h4>
                 <div class="row form-group">
                     <div class="list-group list-group-card">
                         <a href="#" class="list-group-item">

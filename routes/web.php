@@ -42,6 +42,11 @@ Route::middleware(['es_admin'])->group(function(){
 });
 
 Route::middleware(['es_representante'])->group(function(){
+
+    Route::get('/perfil_rep', function () {
+        return view('perfil_representante');
+    })->name('perfil');
+    
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
     Route::post('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
@@ -93,10 +98,6 @@ Route::get('/ayuda', function () {
 });
 
 Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
-
-Route::get('/perfil_rep', function () {
-    return view('perfil_representante');
-});
 
 Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
 
