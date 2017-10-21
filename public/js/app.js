@@ -47,7 +47,6 @@ $('#select_tipo').on('change', function() {
 });
 
 $('#select_medicamento').on('change', function() {
-    console.log($('#id_medicamento').val());
     if(this.value != '0'){
         $('#nombre_m_a').removeAttr('disabled');
         $('#desc_m_a').removeAttr('disabled');
