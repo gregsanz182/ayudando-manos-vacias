@@ -10,10 +10,10 @@
 <div class="container" id="cuerpo">
     <div class="row">
         <div class="col-xs-6">
-            <h3><i class="fa fa-user-o"></i>&emsp;Información de infante</h3>
+            <h3><i class="fa fa-user-o"></i>&emsp;Información del niño</h3>
             <hr>
             <div class="list-group list-group-card">
-                <div href="#" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h4 class="list-group-item-heading" style="margin-bottom: 12px;">{{ $nino->nombre }} {{ $nino->apellido }}</h4>
                     <br>
                     @if($nino->identificacion != '')
@@ -79,14 +79,14 @@
                             <span>({{$medicamento->fecha}})</span>
                         @endforeach
                     </p>
-                </div>
+                </a>
             </div>
         </div>
         <div class="col-xs-6">
-            <h3><i class="fa fa-vcard-o"></i>&emsp;Información representante</h3>
+            <h3><i class="fa fa-vcard-o"></i>&emsp;Información del representante</h3>
             <hr>
             <div class="list-group list-group-card">
-                <div href="#" class="list-group-item">
+                <a href="#" class="list-group-item">
                     <h4 class="list-group-item-heading" style="margin-bottom: 12px;"><span>{{ $nino->representante->nombre }} {{ $nino->representante->apellido }} ({{ $nino->relacion_repr }})</span></h4>
                     <br>
                     <p class="list-group-item-text">
@@ -112,9 +112,71 @@
                     <p class="list-group-item-text">
                         <strong><i class="fa fa-phone"></i> Teléfono:</strong> {{$nino->representante->telefono}}
                     </p>
-                </div>
+                </a>
             </div>
         </div>
+    </div>
+    <div class="row reg-desc">
+        <h3>¿Tienes medicamentos o insumos que no usarás? !Donalos!... ¡Sé una mano amiga!</h3>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
+            nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
+            laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
+            Suspendisse potenti.</p>
+    </div>
+    <div class="row">
+        <form action="{{ route('enviar_mensaje') }}" method='post'>
+            <h3>...o enviale un mensaje a su representante</h3>
+            <div class="row">
+                <div class="col-xs-5 col-xs-offset-1">
+                    <div class="row form-group">
+                        <div class="col-xs-12">
+                            <label for="nombre">Nombre completo</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                                <input type="text" name="nombre" class="form-control" placeholder="Nombre y apellido" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-xs-6">
+                            <label for="correo">Correo electrónico</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                <input type="text" name="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label for="telefono">Teléfono (Opcional)</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                <input type="text" name="telefono" class="form-control" placeholder="(123) 1234567">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="row form-group">
+                        <div class="col-xs-12">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea type="text" name="mensaje" rows='5' class="form-control" placeholder="Mensaje (max. 500 caracteres)" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="row form-group">
+                        <div class="col-xs-3 col-xs-offset-9">
+                            <button class="btn btn-deafult btn-block btn-md button-reg" type='submit'>Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="nino_id" value="{{ $nino->id }}">
+            <input type="hidden" name="_token" value="{{ Session::token() }}">
+        </form>
     </div>
 </div>
 @endsection

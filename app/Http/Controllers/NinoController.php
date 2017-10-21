@@ -124,4 +124,5 @@ class NinoController extends Controller
 
         return view('informacion_nino', ['nino' => $nino]);
     }
+    
 }

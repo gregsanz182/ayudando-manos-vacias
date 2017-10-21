@@ -23,6 +23,8 @@ Route::get('/info_nino/{id}', 'NinoController@infoNino')->name('info_nino');
 
 Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
 
+Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
+
 Route::get('/ayuda', function () {
     return view('ayuda');
 });
