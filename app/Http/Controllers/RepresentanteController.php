@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Localidad;
+use App\Representante;
 
 class RepresentanteController extends Controller
 {
@@ -39,5 +40,13 @@ class RepresentanteController extends Controller
         $representante->save();
 
         return redirect()->route('ver-perfil');
+    }
+
+    public function info_rep($id){
+        $rep = Representante::find($id);
+        if(!$rep){
+            return redirect()->back();
+        }
+        return view('informacion_representante', ['rep' => $rep]);
     }
 }

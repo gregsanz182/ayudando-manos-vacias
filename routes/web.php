@@ -21,6 +21,8 @@ Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
 
 Route::get('/info_nino/{id}', 'NinoController@infoNino')->name('info_nino');
 
+Route::get('/info_rep/{id}', 'RepresentanteController@info_rep')->name('info-rep');
+
 Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
 
 Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
@@ -30,10 +32,6 @@ Route::get('/ayuda', function () {
 });
 
 Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
-
-Route::get('/perfil_rep', function () {
-    return view('perfil_representante');
-});
 
 Route::middleware(['es_admin'])->group(function(){
 
