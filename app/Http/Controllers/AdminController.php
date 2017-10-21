@@ -86,15 +86,17 @@ class AdminController extends Controller
 
     public function actualizar_tipo_cancer(Request $request){
 
-        $this->validate($request, [
-            'tipo_c_a' => 'required',
-            'desc_c_a' => 'required'
-        ]);
-        $id = $request['id_cancer'];
-        $cancer = Cancer::find($id);
-        $cancer->nombre = $request['tipo_c_a'];
-        $cancer->descripcion = $request['desc_c_a'];
-        $cancer->save();
+        if( $request['select_cancer'] != '0'){
+            $id = $request['select_cancer'];
+            $cancer = Cancer::find($id);
+            if( $request->has('tipo_c_a') ){
+                $cancer->nombre = $request['tipo_c_a'];
+            }
+            if( $request->has('desc_c_a') ){
+                $cancer->descripcion = $request['desc_c_a'];
+            }
+            $cancer->save();
+        }
 
         return redirect()->route('admin');
     }
@@ -123,17 +125,17 @@ class AdminController extends Controller
 
     public function actualizar_medicamento(Request $request){
 
-        $this->validate($request, [
-            'nombre_m_a' => 'required',
-            'desc_m_a' => 'required' 
-        ]);
-
-        $id = $request['id_medicamento'];
-        $medicamento = Medicamento::find($id);
-        $medicamento->nombre = $request['nombre_m_a'];
-        dd($medicamento->descripcion);
-        $medicamento->descripcion = $request['desc_m_a'];
-        $medicamento->save();
+        if($request['select_medicamento'] != '0'){
+            $id = $request['select_medicamento'];
+            $medicamento = Medicamento::find($id);
+            if( $request->has('nombre_m_a') ){
+                $medicamento->nombre = $request['nombre_m_a'];
+            }
+            if( $request->has('desc_m_a') ){
+                $medicamento->descripcion = $request['desc_m_a'];
+            }
+            $medicamento->save();
+        }
 
         return redirect()->route('admin');
     }
@@ -161,14 +163,14 @@ class AdminController extends Controller
 
     public function actualizar_insumo(Request $request){
 
-        $this->validate($request, [
-            'nombre_i_a' => 'required'
-        ]);
-
-        $id = $request['id_insumo'];
-        $insumo = Categoria_Insumo::find($id);
-        $insumo->nombre = $request['nombre_i_a'];
-        $insumo->save();
+        if($request['select_insumo'] != '0'){
+            $id = $request['select_insumo'];
+            $insumo = Categoria_Insumo::find($id);
+            if ($request->has('nombre_i_a') ){
+                $insumo->nombre = $request['nombre_i_a'];
+            }
+            $insumo->save();
+        }
 
         return redirect()->route('admin');
     }
@@ -202,15 +204,17 @@ class AdminController extends Controller
     }
 
     public function actualizar_localidad(Request $request){
-
-        $this->validate($request, [
-            'nombre_l_a' => 'required'
-        ]);
-
-        $id = $request['id_localidad'];
-        $localidad = Localidad::find( $id);
-        $localidad->nombre = $request['nombre_l_a'];
-        $localidad->save();
+        if($request['select_localidad'] != '0'){
+            $id = $request['select_localidad'];
+            $localidad = Localidad::find( $id);
+            if( $request->has('nombre_l_a') ){
+                $localidad->nombre = $request['nombre_l_a'];
+            }
+            if( $request->has('estado_l_a') ){
+                $localidad->localidad_id = $request['estado_l_a'];
+            }
+            $localidad->save();
+        }
 
         return redirect()->route('admin');
     }

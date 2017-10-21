@@ -95,28 +95,27 @@
                     <hr>
                     <div class="row">
                         <h3>Actualizar tipo de cáncer</h3>
-                        <div class="col-xs-4">
-                            <label for="tipo_c_a">Tipo</label>
-                            <select name="tipo_c_a" class="form-control" required id="select_tipo">
-                                <option value='0' selected>Selecciona un Tipo</option>
-                                @foreach($tipos as $cancer)
-                                    <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <form action="{{ route('actualizar-tipo-cancer') }}" method="post">
                             <div class="col-xs-4">
+                                <label for="select_cancer">Tipo</label>
+                                <select name="select_cancer" class="form-control" id="select_tipo">
+                                    <option value='0' selected>Selecciona un Tipo</option>
+                                    @foreach($tipos as $cancer)
+                                        <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
                                 <label for="tipo_c_a">Tipo</label>
-                                <input name="tipo_c_a" id="tipo_c_a" type="text" class="form-control" required disabled>
+                                <input name="tipo_c_a" id="tipo_c_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-4">
                                 <label for="desc_c_a">Descripción</label>
-                                <input name="desc_c_a" id="desc_c_a" type="text" class="form-control" required disabled>
+                                <input name="desc_c_a" id="desc_c_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
-                            <input type="text" id="id_cancer" name="id_cancer">
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
@@ -145,28 +144,27 @@
                     <hr>
                     <div class="row">
                         <h3>Actualizar medicamento</h3>
-                        <div class="col-xs-4">
-                            <label for="nombre_m">Nombre</label>
-                            <select name="nombre_m" class="form-control" required id="select_medicamento">
-                                <option value='0' selected>Selecciona medicamento</option>
-                                @foreach($medicamentos as $medicamento)
-                                    <option value="{{ $medicamento->id }}">{{ $medicamento->descripcion }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <form action="{{ route('actualizar-medicamento') }}" method="post">
                             <div class="col-xs-4">
+                                <label for="select_medicamento">Nombre</label>
+                                <select name="select_medicamento" class="form-control" id="select_medicamento">
+                                    <option value='0' selected>Selecciona medicamento</option>
+                                    @foreach($medicamentos as $medicamento)
+                                        <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
                                 <label for="nombre_m_a">Nombre</label>
-                                <input name="nombre_m_a" id="nombre_m_a" type="text" class="form-control" required disabled>
+                                <input name="nombre_m_a" id="nombre_m_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-4">
                                 <label for="desc_m_a">Descripción</label>
-                                <input name="desc_m_a" id="desc_m_a" type="text" class="form-control" required disabled>
+                                <input name="desc_m_a" id="desc_m_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
-                            <input type="hidden" id="id_medicamento">
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
@@ -191,24 +189,23 @@
                     <hr>
                     <div class="row">
                         <h3>Actualizar categoria insumo</h3>
-                        <div class="col-xs-4">
-                            <label for="nombre_i">Nombre</label>
-                            <select name="nombre_i" class="form-control" required id="select_insumo">
-                                <option value='0' selected>Selecciona insumo</option>
-                                @foreach($insumos as $insumo)
-                                    <option value="{{ $insumo->id }}">{{ $insumo->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <form action="{{ route('actualizar-insumo') }}" method="post">
                             <div class="col-xs-4">
+                                <label for="select_insumo">Nombre</label>
+                                <select name="select_insumo" class="form-control" id="select_insumo">
+                                    <option value='0' selected>Selecciona insumo</option>
+                                    @foreach($insumos as $insumo)
+                                        <option value="{{ $insumo->id }}">{{ $insumo->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
                                 <label for="nombre_i_a">Categoria</label>
-                                <input name="nombre_i_a" id="nombre_i_a" type="text" class="form-control" required disabled>
+                                <input name="nombre_i_a" id="nombre_i_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
-                            <input type="hidden" id="id_insumo">
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
@@ -252,19 +249,19 @@
                     <hr>
                     <div class="row">
                         <h3>Actualizar localidad</h3>
-                        <div class="col-xs-3">
-                            <label for="nombre_i">Nombre</label>
-                            <select name="nombre_i" class="form-control" required id="select_localidad">
-                                <option value='0' selected>Selecciona Localidad</option>
-                                @foreach($localidades as $localidad)
-                                    <option value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <form action="{{ route('actualizar-localidad') }}" method="post">
                             <div class="col-xs-3">
+                                <label for="select_localidad">Nombre</label>
+                                <select name="select_localidad" class="form-control" id="select_localidad">
+                                    <option value='0' selected>Selecciona Localidad</option>
+                                    @foreach($localidades as $localidad)
+                                        <option value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-3">
                                 <label for="nombre_l_a">Nombre</label>
-                                <input name="nombre_l_a" id="nombre_l_a" type="text" class="form-control" required disabled>
+                                <input name="nombre_l_a" id="nombre_l_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-3">
                                 <label for="radio">Tipo</label><br>
@@ -276,8 +273,8 @@
                                 </label>
                             </div>
                             <div class="col-xs-3">
-                                <label for="estado">Estado</label>
-                                <select name="estado" class="form-control" id="estado_l_a" disabled>
+                                <label for="estado_l_a">Estado</label>
+                                <select name="estado_l_a" class="form-control" id="estado_l_a" disabled>
                                     <option value="0" selected>Selecciona un Estado</option>
                                     @foreach($estados as $estado)
                                         <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
@@ -287,7 +284,6 @@
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
                             </div>
-                            <input type="hidden" id="id_localidad">
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
