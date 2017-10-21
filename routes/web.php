@@ -39,7 +39,10 @@ Route::middleware(['es_representante'])->group(function(){
         return view('actualizar_datos');
     });
 
-    Route::get('/gestion_requerimientos/{nino_id}', 'RequerimientoController@gestionRequerimientos')->name('gestion_requerimientos');
+    Route::get('/gestion_requerimientos/{nino_id}',[
+        'uses' => 'RequerimientoController@gestionRequerimientos',
+        'middleware' => 'nino_repr_valido'
+    ])->name('gestion_requerimientos');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');

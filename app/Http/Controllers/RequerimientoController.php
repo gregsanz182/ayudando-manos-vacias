@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Nino;
 use App\Nino_Medicamento;
 use App\Nino_Insumo;
 use App\Medicamento;
@@ -17,11 +18,21 @@ class RequerimientoController extends Controller
         $insumos_cat = Categoria_Insumo::orderBy('nombre')->get();
         $nino_medicamentos = Nino_Medicamento::where('nino_id', $nino_id)->orderBy('created_at', 'DESC')->paginate(10);
         $nino_insumos = Nino_Insumo::where('nino_id', $nino_id)->orderBy('created_at', 'DESC')->paginate(10);
+
         return view('ges_requerimientos', [
             'nino_medicamentos' => $nino_medicamentos, 
             'nino_insumos' => $nino_insumos,
             'medicamentos' => $medicamentos,
             'insumos_cat' => $insumos_cat
         ]);
+    }
+
+    public function agregarMedicamento($nino_id, Request $request)
+    {
+        $nino_medicamento = new Nino_Medicamento;
+
+        $nino_medicamento->fecha = $request->fecha;
+        $nino_medicamento->medicamento_id = $request->medicamento;
+
     }
 }
