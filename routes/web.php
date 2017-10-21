@@ -44,7 +44,7 @@ Route::middleware(['es_admin'])->group(function(){
 Route::middleware(['es_representante'])->group(function(){
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
-    Route::post('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
+    Route::post('/registro_nino', 'NinoController@registrarNino')->name('registrar_nino');
 
     Route::get('/actualizar_datos', function () {
         return view('actualizar_datos');
@@ -60,6 +60,11 @@ Route::middleware(['es_representante'])->group(function(){
         'middleware' => 'nino_repr_valido'
     ])->name('agregar_medicamento');
 
+    Route::get('/eliminar_medicamento/{nino_id}/{id}/{medicamento_id}',[
+        'uses' => 'RequerimientoController@eliminarMedicamento',
+        'middleware' => 'nino_repr_valido'
+    ])->name('eliminar_medicamento');
+
     Route::post('/modificar_medicamento/{nino_id}/{id}/{medicamento_id}',[
         'uses' => 'RequerimientoController@modificarMedicamento',
         'middleware' => 'nino_repr_valido'
@@ -71,9 +76,14 @@ Route::middleware(['es_representante'])->group(function(){
     ])->name('agregar_insumo');
 
     Route::post('/modificar_insumo/{nino_id}/{id}/{categoria_insumo_id}',[
-        'uses' => 'RequerimientoController@modificarinsumo',
+        'uses' => 'RequerimientoController@modificarInsumo',
         'middleware' => 'nino_repr_valido'
     ])->name('modificar_insumo');
+
+    Route::get('/eliminar_insumo/{nino_id}/{id}/{categoria_insumo_id}',[
+        'uses' => 'RequerimientoController@eliminarInsumo',
+        'middleware' => 'nino_repr_valido'
+    ])->name('eliminar_insumo');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
