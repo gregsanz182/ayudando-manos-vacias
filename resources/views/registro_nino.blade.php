@@ -82,7 +82,7 @@
                 <div class="row form-group">
                     <div class="col-xs-5 {{ $errors->has('tipo_cancer')?'has-error':'' }}">
                         <label for="tipo_cancer">Tipo</label>
-                        <select name="tipo_cancer" id='cancer_select' class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
+                        <select onchange="otroSelect(this, '#nombre_cancer_otro');" name="tipo_cancer" class="form-control selectpicker" data-live-search="true" title="Tipo de cáncer">
                             @foreach($canceres as $cancer)
                                 <option value="{{ $cancer->id }}" @if(Request::old('tipo_cancer') == $key){{'selected'}}@endif>{{ $cancer->nombre }}</option>
                             @endforeach
