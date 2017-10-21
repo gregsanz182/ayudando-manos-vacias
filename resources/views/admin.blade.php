@@ -20,6 +20,7 @@
             </ul>
 
             <div class="tab-content">
+                <!-- **********************  PERFIL  ********************** -->
                 <div id="perfil" class="tab-pane fade in active">
                     <form action="{{ route('actualizar-perfil') }}" method="post" class="row">
                         <h3>Perfil</h3>
@@ -69,13 +70,15 @@
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </form>
                 </div>
+                <!-- **********************  CANCER  ********************** -->
                 <div id="menu1" class="tab-pane fade">
                     <div class="row">
-                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                        <input id="toggle-event1" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
                     </div>
-                    <div id="opc1" class="row activo">
+                    <!-- **********************  AGREGAR CANCER  ********************** -->
+                    <div class="row">
+                        <h3>Agregar tipo de cáncer</h3>
                         <form action="{{ route('guardar-tipo-cancer') }}" method="post">
-                            <h3>Agregar tipo de cáncer</h3>
                             @include('includes.error_box')
                             <div class="col-xs-4 {{ $errors->has('tipo_c')?'has-error':'' }}">
                                 <label for="tipo_c">Tipo</label>
@@ -91,99 +94,227 @@
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
-                    <div id="opc2" class="row oculto">HOLA</div>
+                    <!-- **********************  ACTUALIZAR CANCER  ********************** -->
+                    <hr>
+                    <div class="row">
+                        <h3>Actualizar tipo de cáncer</h3>
+                        <h3>Buscar</h3>
+                        <div class="col-xs-4">
+                            <label for="tipo_c">Tipo</label>
+                            <select name="tipo_c" class="form-control" required id="tipo_c">
+                                <option selected>Selecciona un Tipo</option>
+                                @foreach($tiposcancer as $cancer)
+                                    <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="submit" id="buscar_cancer" class="btn btn-deafult btn-block btn-md button-reg abajo">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Modificar</h3>
+                        <form action="{{ route('actualizar-tipo-cancer') }}" method="post">
+                            <div class="col-xs-4">
+                                <label for="tipo_c_a">Tipo</label>
+                                <input name="tipo_c_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <label for="desc_c_a">Descripción</label>
+                                <input name="desc_c_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
+                            </div>
+                            <input type="hidden" id="id">
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
+                    </div>
                 </div>
+                <!-- **********************  MEDICAMENTO  ********************** -->
                 <div id="menu2" class="tab-pane fade">
                     <div class="row">
-                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                        <input id="toggle-event2" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
                     </div>
                     <div class="row">
-                        <div id="opc1" class="activo">
-                            <form action="{{ route('guardar-medicamento') }}" method="post">
-                                <h3>Agregar medicamento</h3>
-                                @include('includes.error_box')
-                                <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
-                                    <label for="nombre_m">Nombre</label>
-                                    <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
-                                </div>
-                                <div class="col-xs-4 {{ $errors->has('desc_m')?'has-error':'' }}">
-                                    <label for="desc_m">Descripción</label>
-                                    <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
-                                </div>
-                                <div class="col-xs-4">
-                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                                </div>
-                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                            </form>
+                        <h3>Agregar medicamento</h3>
+                        <form action="{{ route('guardar-medicamento') }}" method="post">
+                            @include('includes.error_box')
+                            <div class="col-xs-4 {{ $errors->has('nombre_m')?'has-error':'' }}">
+                                <label for="nombre_m">Nombre</label>
+                                <input name="nombre_m" type="text" class="form-control" required placeholder="Ingrese nombre del medicamento">
+                            </div>
+                            <div class="col-xs-4 {{ $errors->has('desc_m')?'has-error':'' }}">
+                                <label for="desc_m">Descripción</label>
+                                <input name="desc_m" type="text" class="form-control" required placeholder="Ingrese una descripción">
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                            </div>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
+                    </div>
+                    <!-- **********************  ACTUALIZAR MEDICAMENTO  ********************** -->
+                    <hr>
+                    <div class="row">
+                        <h3>Actualizar medicamento</h3>
+                        <h3>Buscar</h3>
+                        <div class="col-xs-4">
+                            <label for="nombre_m">Nombre</label>
+                            <select name="nombre_m" class="form-control" required id="nombre_m">
+                                <option selected>Selecciona medicamento</option>
+                                @foreach($medicamentos as $medicamento)
+                                    <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div id="opc2" class="oculto">HOLA</div>
+                        <div class="col-xs-4">
+                            <button type="submit" id="buscar_medicamento" class="btn btn-deafult btn-block btn-md button-reg abajo">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Modificar</h3>
+                        <form action="{{ route('actualizar-medicamento') }}" method="post">
+                            <div class="col-xs-4">
+                                <label for="nombre_m_a">Tipo</label>
+                                <input name="nombre_m_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <label for="desc_m_a">Descripción</label>
+                                <input name="desc_m_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
+                            </div>
+                            <input type="hidden" id="id">
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
                     </div>
                 </div>
+                <!-- **********************  CATEGORIA INSUMO  ********************** -->
                 <div id="menu3" class="tab-pane fade">
                     <div class="row">
-                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                        <input id="toggle-event3" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
                     </div>
                     <div class="row">
-                        <div id="opc1" class="activo">
-                            <form action="{{ route('guardar-categoria-insumo') }}" method="post">
-                                <h3>Agregar categoria de insumo</h3>
-                                @include('includes.error_box')
-                                <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
-                                    <label for="categoria">Categoria</label>
-                                    <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
-                                </div>
-                                <div class="col-xs-3">
-                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                                </div>
-                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                            </form>
+                        <h3>Agregar categoria de insumo</h3>
+                        <form action="{{ route('guardar-categoria-insumo') }}" method="post">
+                            @include('includes.error_box')
+                            <div class="col-xs-3 {{ $errors->has('categoria')?'has-error':'' }}">
+                                <label for="categoria">Categoria</label>
+                                <input name="categoria" type="text" class="form-control" required placeholder="Ingrese categoria">
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                            </div>
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
+                    </div>
+                    <!-- **********************  ACTUALIZAR INSUMO  ********************** -->
+                    <hr>
+                    <div class="row">
+                        <h3>Actualizar categoria insumo</h3>
+                        <h3>Buscar</h3>
+                        <div class="col-xs-4">
+                            <label for="nombre_i">Nombre</label>
+                            <select name="nombre_i" class="form-control" required id="nombre_i">
+                                <option selected>Selecciona insumo</option>
+                                @foreach($insumos as $insumo)
+                                    <option value="{{ $insumo->id }}">{{ $insumo->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div id="opc2" class="oculto">HOLA</div>
+                        <div class="col-xs-4">
+                            <button type="submit" id="buscar_insumo" class="btn btn-deafult btn-block btn-md button-reg abajo">Buscar</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h3>Modificar</h3>
+                        <form action="{{ route('actualizar-insumo') }}" method="post">
+                            <div class="col-xs-4">
+                                <label for="nombre_i_a">Categoria</label>
+                                <input name="nombre_i_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
+                            </div>
+                            <input type="hidden" id="id">
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
                     </div>
                 </div>
+                <!-- **********************  LOCALIDAD  ********************** -->
                 <div id="menu4" class="tab-pane fade">
                     <div class="row">
-                        <input id="toggle-event" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
+                        <input id="toggle-event4" type="checkbox" data-on="Guardar" data-off="Actualizar" checked data-toggle="toggle" data-width="110" data-onstyle="on" data-offstyle="off">
                     </div>
                     <div class="row">
-                        <div id="opc1" class="activo">
-                            <form action="{{ route('guardar-localidad') }}" method="post">
-                                <h3>Agregar localidad</h3>
-                                @include('includes.error_box')
-                                <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
-                                    <label for="nombre_l">Nombre</label>
-                                    <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
-                                </div>
-                                <div class="col-xs-3">
-                                    <label for="tipo">Tipo</label><br>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
-                                    </label>
-                                </div>
-                                <div class="col-xs-3 {{ $errors->has('estado')?'has-error':'' }}">
-                                    <label for="estado">Estado</label>
-                                    <select name="estado" class="form-control" id="estado">
-                                        <option value="0" selected>Selecciona un Estado</option>
-                                        @foreach($estados as $estado)
-                                            <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-xs-3">
-                                    <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
-                                </div>
-                                <input type="hidden" id="localidad_id" name="localidad_id">
-                                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                            </form>
+                        <h3>Agregar localidad</h3>
+                        <form action="{{ route('guardar-localidad') }}" method="post">
+                            @include('includes.error_box')
+                            <div class="col-xs-3 {{ $errors->has('nombre_l')?'has-error':'' }}">
+                                <label for="nombre_l">Nombre</label>
+                                <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
+                            </div>
+                            <div class="col-xs-3">
+                                <label for="tipo">Tipo</label><br>
+                                <label class="radio-inline">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> Estado
+                                </label>
+                            </div>
+                            <div class="col-xs-3 {{ $errors->has('estado')?'has-error':'' }}">
+                                <label for="estado">Estado</label>
+                                <select name="estado" class="form-control" id="estado">
+                                    <option value="0" selected>Selecciona un Estado</option>
+                                    @foreach($estados as $estado)
+                                        <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
+                            </div>
+                            <input type="hidden" id="localidad_id" name="localidad_id">
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
+                    </div>
+                    <!-- **********************  ACTUALIZAR LOCALIDAD  ********************** -->
+                    <hr>
+                    <div class="row">
+                        <h3>Actualizar localidad</h3>
+                        <h3>Buscar</h3>
+                        <div class="col-xs-4">
+                            <label for="nombre_i">Nombre</label>
+                            <select name="nombre_i" class="form-control" required id="nombre_i">
+                                <option selected>Selecciona Localidad</option>
+                                @foreach($localidades as $localidad)
+                                    <option value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div id="opc2" class="oculto">
-                            HOLA
+                        <div class="col-xs-4">
+                            <button type="submit" id="buscar_localidad" class="btn btn-deafult btn-block btn-md button-reg abajo">Buscar</button>
                         </div>
                     </div>
+                    <div class="row">
+                        <h3>Modificar</h3>
+                        <form action="{{ route('actualizar-localidad') }}" method="post">
+                            <div class="col-xs-4">
+                                <label for="nombre_l_a">Categoria</label>
+                                <input name="nombre_l_a" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
+                            </div>
+                            <input type="hidden" id="id">
+                            <input type="hidden" name="_token" value="{{ Session::token() }}">
+                        </form>
+                    </div>
                 </div>
+                <!-- **********************  ADMINISTRADOR  ********************** -->
                 <div id="menu5" class="tab-pane fade">
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">
                         <h3>Agregar Administrador</h3>
@@ -237,4 +368,10 @@
         </div>
     </div>
 </div>
+<script>
+    var tipoCancer = "{{ route('buscar-tipo-cancer') }}";
+    var medicamento = "{{ route('buscar-medicamento') }}";
+    var insumo = "{{ route('buscar-insumo') }}";
+    var localidad = "{{ route('buscar-localidad') }}";
+</script>
 @endsection

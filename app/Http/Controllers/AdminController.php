@@ -22,7 +22,12 @@ class AdminController extends Controller
 
         $localidad = Localidad::where('localidad_id',null)->get();
 
-        return view('admin', ['nombre' => $admin->nombre, 'estados' => $localidad]);
+        $tipocancer = Cancer::all();
+        $insumo = Categoria_Insumo::all();
+        $medicamento = Medicamento::all();
+        $localidades = Localidad::all();
+
+        return view('admin', ['nombre' => $admin->nombre, 'estados' => $localidad, 'tiposcancer' => $tipocancer, 'insumos' => $insumo, 'medicamentos' => $insumo, 'localidades' => $localidades]);
     }
 
     public function actualizar_perfil(Request $request){
@@ -79,6 +84,29 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+    public function buscar_tipo_cancer(Request $request){
+        $id = $request['id'];
+        dd($id);
+        $cancer = Cancer::select(['id','nombre','descripcion'])->where('id',$id)->get();
+        return response()->json($cancer);
+    }
+
+    public function actualizar_tipo_cancer(Request $request){
+
+        $this->validate($request, [
+            'tipo_c_a' => 'required',
+            'desc_c_a' => 'required'
+        ]);
+
+        $id = $request->input('id');
+        $cancer = Cancer::select(['nombre','descripcion'])->where('id',$id);
+        $cancer->nombre = $request->input('tipo_c_a');
+        $cancer->descripcion = $request->input('desc_c_a');
+        $cancer->save();
+
+        return redirect()->route('admin');
+    }
+
     public function guardar_medicamento(Request $request){
         
         $this->validate($request, [
@@ -101,6 +129,28 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+    public function buscar_medicamento(Request $request){
+        $id = $request['id'];
+        $medicamento = Medicamento::select(['id','nombre','descripcion'])->where('id',$id)->get();
+        return response()->json($medicamento);
+    }
+
+    public function actualizar_medicamento(Request $request){
+
+        $this->validate($request, [
+            'nombre_m_a' => 'required',
+            'desc_m_a' => 'required' 
+        ]);
+
+        $id = $request->input('id');
+        $medicamento = Medicamento::select(['nombre','descripcion'])->where('id',$id)->get();
+        $medicamento->nombre = $request->input('nombre_m_a');
+        $medicamento->descripcion = $request->input('desc_m_a');
+        $medicamento->save();
+
+        return redirect()->route('admin');
+    }
+        
     public function guardar_categoria_insumo(Request $request){
 
         $this->validate($request, [
@@ -122,6 +172,26 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+    public function buscar_insumo(Request $request){
+        $id = $request['id'];
+        $insumo = Insumo::select(['id','nombre'])->where('id',$id)->get();
+        return response()->json($insumo);
+    }
+
+    public function actualizar_insumo(Request $request){
+
+        $this->validate($request, [
+            'nombre_i_a' => 'required'
+        ]);
+
+        $id = $request->input('id');
+        $insumo = Categoria_Insumo::select(['nombre'])->where(´id´,$id)->get();
+        $insumo->nombre = $request->input('nombre_i_a');
+        $insumo->save();
+
+        return redirect()->route('admin');
+    }
+        
     public function guardar_localidad(Request $request){
 
         $this->validate($request, [
@@ -150,6 +220,27 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+    public function buscar_localidad(Request $request){
+        $id = $request['id'];
+        $localidad = Localidad::select(['id','nombre','localidad_id'])->where('id',$id)->get();
+        return response()->json($localidad);
+    }
+
+    public function actualizar_localidad(Request $request){
+
+        $this->validate($request, [
+            'nombre_l_a' => 'required'
+        ]);
+
+        $id = $request->input('id');
+        $localidad = Localidad::select('nombre','localidad_id')->where('id',$id)->get();
+        $localidad->nombre = $request->input('nombre_l_a');
+        $localidad->localidad_id = $request->input('localidad_id_a');
+        $localidad->save();
+
+        return redirect()->route('admin');
+    }
+        
     public function guardar_admin(Request $request){
 
         $this->validate($request, [
