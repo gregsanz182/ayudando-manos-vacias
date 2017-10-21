@@ -27,66 +27,75 @@ $('#estado_select').on('change', function() {
     });
 });
 
-$('#buscar_cancer').on('click', function(){
-    $.ajax({
-        method: 'POST',
-        url: tipoCancer,
-        data: {
-            id: $('#tipo_c option:selected').val(),
-            _token: token
-        },
-        success: function(data){
-            $('#id').val(data.id);
-            $('#tipo_c_a').val(data.nombre);
-            $('#desc_c_a').val(data.descripcion);
-        }
-    });
+$('#select_tipo').on('change', function() {
+    $('#id_cancer').val(''+this.value+'');
+    if(this.value != '0'){
+        $('#tipo_c_a').removeAttr('disabled');
+        $('#desc_c_a').removeAttr('disabled');
+    }else{
+        $('#tipo_c_a').attr('disabled', 'disabled');
+        $('#desc_c_a').attr('disabled', 'disabled');
+    }
 });
 
-$('#buscar_medicamento').on('click', function(){
-    $.ajax({
-        method: 'POST',
-        url: medicamento,
-        data: {
-            id: $('#nombre_m option:selected').val(),
-            _token: token
-        },
-        success: function(data){
-            $('#id').val(data.id);
-            $('#nombre_m_a').val(data.nombre);
-            $('#desc_m_a').val(data.descripcion);
-        }
-    });
+$('#select_medicamento').on('change', function() {
+    $('#id_medicamento').val(''+this.value+'');
+    console.log($('#id_medicamento').val());
+    if(this.value != '0'){
+        $('#nombre_m_a').removeAttr('disabled');
+        $('#desc_m_a').removeAttr('disabled');
+    }else{
+        $('#nombre_m_a').attr('disabled', 'disabled');
+        $('#desc_m_a').attr('disabled', 'disabled');
+    }
 });
 
-$('#buscar_insumo').on('click', function(){
-    $.ajax({
-        method: 'POST',
-        url: insumo,
-        data: {
-            id: $('#nombre_i option:selected').val(),
-            _token: token
-        },
-        success: function(data){
-            $('#id').val(data.id);
-            $('#nombre_i_a').val(data.nombre);
-        }
-    });
+$('#select_insumo').on('change', function() {
+    $('#id_insumo').val(''+this.value+'');
+    if(this.value != '0'){
+        $('#nombre_i_a').removeAttr('disabled');
+        $('#desc_i_a').removeAttr('disabled');
+    }else{
+        $('#nombre_i_a').attr('disabled', 'disabled');
+        $('#desc_i_a').attr('disabled', 'disabled');
+    }
+});
+var check = false;
+$('#select_localidad').on('change', function() {
+    $('#id_localidad').val(''+this.value+'');
+    if(this.value != '0'){
+        $('#nombre_l_a').removeAttr('disabled');
+        $('#inlineRadio1_a').removeAttr('disabled');
+        $('#inlineRadio2_a').removeAttr('disabled');
+        $('#estado_l_a').removeAttr('disabled');
+    }else{
+        $('#nombre_l_a').attr('disabled', 'disabled');
+        $('#inlineRadio1_a').attr('disabled', 'disabled');
+        $('#inlineRadio2_a').attr('disabled', 'disabled');
+        $('#estado_l_a').attr('disabled', 'disabled');
+    }
+    if(check){
+        $("#estado_l_a").attr("disabled", "disabled");
+    }else{
+        $("#estado_l_a").removeAttr("disabled");
+    }
 });
 
-$('#buscar_localidad').on('click', function(){
-    $.ajax({
-        method: 'POST',
-        url: localidad,
-        data: {
-            id: $('#nombre_l option:selected').val(),
-            _token: token
-        },
-        success: function(data){
-            $('#id').val(data.id);
-            $('#nombre_l_a').val(data.nombre);
-        }
+$('#id_localidad').val( $('#estado_l_a option:selected').val() );
+
+$('#inlineRadio1_a').click( function(){
+    $("#estado_l_a").removeAttr("disabled");
+    $('#id_localidad').val( $('#estado_l_a option:selected').val() );
+    $('#estado_l_a').on('change', function(){
+        $('#id_localidad').val(''+this.value+'');
     });
+    check = false;
+});
+
+$('#inlineRadio2_a').click( function(){
+    $("#estado_l_a").attr("disabled", "disabled");
+    $('#id_localidad').val('NULL');
+    check = true;
 });
 
 $('#localidad_id').val( $('#estado option:selected').val() );
@@ -95,51 +104,11 @@ $('#inlineRadio1').click( function(){
     $("#estado").removeAttr("disabled");
     $('#localidad_id').val( $('#estado option:selected').val() );
     $('#estado').on('change', function(){
-        $('#localidad_id').val(this.value);
-    })
+        $('#localidad_id').val(''+this.value+'');
+    });
 });
 
 $('#inlineRadio2').click( function(){
     $("#estado").attr("disabled", "disabled");
     $('#localidad_id').val('NULL');
-});
-
-$('#toggle-event1').on('click', function(){
-    if( $(this).prop('checked') ){
-        $('#opc1').hide();
-        $('#opc2').show();
-    }else{
-        $('#opc1').show();
-        $('#opc2').hide();
-    }
-});
-
-$('#toggle-event2').change(function(){
-    if( $(this).prop('checked') ){
-        $('#opc3').hide();
-        $('#opc4').show();
-    }else{
-        $('#opc3').show();
-        $('#opc4').hide();
-    }
-});
-
-$('#toggle-event3').change(function(){
-    if( $(this).prop('checked') ){
-        $('#opc5').hide();
-        $('#opc6').show();
-    }else{
-        $('#opc5').show();
-        $('#opc6').hide();
-    }
-});
-
-$('#toggle-event4').change(function(){
-    if( $(this).prop('checked') ){
-        $('#opc7').hide();
-        $('#opc8').show();
-    }else{
-        $('#opc7').show();
-        $('#opc8').hide();
-    }
 });

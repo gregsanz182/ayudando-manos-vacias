@@ -20,14 +20,14 @@ class AdminController extends Controller
     public function obtener_nombre_estados(){
         $admin = Auth::user()->rol;
 
-        $localidad = Localidad::where('localidad_id',null)->get();
+        $estado = Localidad::where('localidad_id',null)->get();
 
-        $tipocancer = Cancer::all();
+        $cancer = Cancer::all();
         $insumo = Categoria_Insumo::all();
         $medicamento = Medicamento::all();
-        $localidades = Localidad::all();
+        $localidad = Localidad::all();
 
-        return view('admin', ['nombre' => $admin->nombre, 'estados' => $localidad, 'tiposcancer' => $tipocancer, 'insumos' => $insumo, 'medicamentos' => $insumo, 'localidades' => $localidades]);
+        return view('admin', ['nombre' => $admin->nombre, 'estados' => $estado, 'tipos' => $cancer, 'insumos' => $insumo, 'medicamentos' => $medicamento, 'localidades' => $localidad]);
     }
 
     public function actualizar_perfil(Request $request){
@@ -39,17 +39,17 @@ class AdminController extends Controller
 
         $usuario = Auth::user();
 
-        $usuario->correo = $request->input('correo_p');
+        $usuario->correo = $request['correo_p'];
 
         if($request->has('contrasena1_p')){
             $this->validate($request, [
                 'contrasena1_p' => 'min:4',
                 'contrasena2_p' => 'required|same:contrasena1_p'
             ]);
-            $usuario->contrasena = bcrypt($request->input('contrasena1_p'));
+            $usuario->contrasena = bcrypt($request['contrasena1_p']);
         }
 
-        $usuario->rol->nombre = $request->input('nombre_p');
+        $usuario->rol->nombre = $request['nombre_p'];
 
         $usuario->save();
 
@@ -70,8 +70,8 @@ class AdminController extends Controller
         ]);
         $cancer = new Cancer;
 
-        $cancer->nombre = $request->input('tipo_c');
-        $cancer->descripcion = $request->input('desc_c');
+        $cancer->nombre = $request['tipo_c'];
+        $cancer->descripcion = $request['desc_c'];
 
         $cancer->save();
         
@@ -84,24 +84,16 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
-    public function buscar_tipo_cancer(Request $request){
-        $id = $request['id'];
-        dd($id);
-        $cancer = Cancer::select(['id','nombre','descripcion'])->where('id',$id)->get();
-        return response()->json($cancer);
-    }
-
     public function actualizar_tipo_cancer(Request $request){
 
         $this->validate($request, [
             'tipo_c_a' => 'required',
             'desc_c_a' => 'required'
         ]);
-
-        $id = $request->input('id');
-        $cancer = Cancer::select(['nombre','descripcion'])->where('id',$id);
-        $cancer->nombre = $request->input('tipo_c_a');
-        $cancer->descripcion = $request->input('desc_c_a');
+        $id = $request['id_cancer'];
+        $cancer = Cancer::find($id);
+        $cancer->nombre = $request['tipo_c_a'];
+        $cancer->descripcion = $request['desc_c_a'];
         $cancer->save();
 
         return redirect()->route('admin');
@@ -115,8 +107,8 @@ class AdminController extends Controller
         ]);
         $medicamento = new Medicamento;
 
-        $medicamento->nombre = $request->input('nombre_m');
-        $medicamento->descripcion = $request->input('desc_m');
+        $medicamento->nombre = $request['nombre_m'];
+        $medicamento->descripcion = $request['desc_m'];
 
         $medicamento->save();
 
@@ -126,13 +118,7 @@ class AdminController extends Controller
         $bitacora->usuario_id = Auth::user()->id;
         $bitacora->save();
 
-        return redirect()->route('admin');
-    }
-
-    public function buscar_medicamento(Request $request){
-        $id = $request['id'];
-        $medicamento = Medicamento::select(['id','nombre','descripcion'])->where('id',$id)->get();
-        return response()->json($medicamento);
+        return redirect()->view('admin');
     }
 
     public function actualizar_medicamento(Request $request){
@@ -142,10 +128,11 @@ class AdminController extends Controller
             'desc_m_a' => 'required' 
         ]);
 
-        $id = $request->input('id');
-        $medicamento = Medicamento::select(['nombre','descripcion'])->where('id',$id)->get();
-        $medicamento->nombre = $request->input('nombre_m_a');
-        $medicamento->descripcion = $request->input('desc_m_a');
+        $id = $request['id_medicamento'];
+        $medicamento = Medicamento::find($id);
+        $medicamento->nombre = $request['nombre_m_a'];
+        dd($medicamento->descripcion);
+        $medicamento->descripcion = $request['desc_m_a'];
         $medicamento->save();
 
         return redirect()->route('admin');
@@ -159,7 +146,7 @@ class AdminController extends Controller
 
         $insumo = new Categoria_Insumo;
 
-        $insumo->nombre = $request->input('categoria');
+        $insumo->nombre = $request['categoria'];
 
         $insumo->save();
 
@@ -172,26 +159,20 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
-    public function buscar_insumo(Request $request){
-        $id = $request['id'];
-        $insumo = Insumo::select(['id','nombre'])->where('id',$id)->get();
-        return response()->json($insumo);
-    }
-
     public function actualizar_insumo(Request $request){
 
         $this->validate($request, [
             'nombre_i_a' => 'required'
         ]);
 
-        $id = $request->input('id');
-        $insumo = Categoria_Insumo::select(['nombre'])->where(´id´,$id)->get();
-        $insumo->nombre = $request->input('nombre_i_a');
+        $id = $request['id_insumo'];
+        $insumo = Categoria_Insumo::find($id);
+        $insumo->nombre = $request['nombre_i_a'];
         $insumo->save();
 
         return redirect()->route('admin');
     }
-        
+
     public function guardar_localidad(Request $request){
 
         $this->validate($request, [
@@ -200,13 +181,13 @@ class AdminController extends Controller
 
         $localidad = new Localidad;
 
-        $localidad->nombre = $request->input('nombre_l');
+        $localidad->nombre = $request['nombre_l'];
 
-        if($request->input('localidad_id') != 'NULL'){
+        if($request['localidad_id'] != 'NULL'){
             $this->validate($request, [
                 'localidad_id' => 'different:0'
             ]);
-            $localidad->localidad_id = $request->input('localidad_id');
+            $localidad->localidad_id = $request['localidad_id'];
         }
         
         $localidad->save();
@@ -220,27 +201,20 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
-    public function buscar_localidad(Request $request){
-        $id = $request['id'];
-        $localidad = Localidad::select(['id','nombre','localidad_id'])->where('id',$id)->get();
-        return response()->json($localidad);
-    }
-
     public function actualizar_localidad(Request $request){
 
         $this->validate($request, [
             'nombre_l_a' => 'required'
         ]);
 
-        $id = $request->input('id');
-        $localidad = Localidad::select('nombre','localidad_id')->where('id',$id)->get();
-        $localidad->nombre = $request->input('nombre_l_a');
-        $localidad->localidad_id = $request->input('localidad_id_a');
+        $id = $request['id_localidad'];
+        $localidad = Localidad::find( $id);
+        $localidad->nombre = $request['nombre_l_a'];
         $localidad->save();
 
         return redirect()->route('admin');
     }
-        
+
     public function guardar_admin(Request $request){
 
         $this->validate($request, [
@@ -254,13 +228,13 @@ class AdminController extends Controller
         $usuario = new Usuario;
         $admin = new Admin;
         
-        $admin->nombre = $request->input('nombre_n');
+        $admin->nombre = $request['nombre_n'];
 
         $admin->save();
 
-        $usuario->usuario = $request->input('usuario_n');
-        $usuario->correo = $request->input('correo_n');
-        $usuario->contrasena = bcrypt($request->input('contrasena1_n'));
+        $usuario->usuario = $request['usuario_n'];
+        $usuario->correo = $request['correo_n'];
+        $usuario->contrasena = bcrypt($request['contrasena1_n']);
         $usuario->rol_id = $admin->id;
         $usuario->rol_type = 'App\Admin';
         

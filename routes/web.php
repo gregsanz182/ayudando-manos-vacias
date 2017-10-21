@@ -23,26 +23,18 @@ Route::middleware(['es_admin'])->group(function(){
 
     Route::post('/admin/guardar-tipo-cancer', 'AdminController@guardar_tipo_cancer')->name('guardar-tipo-cancer');
 
-    Route::post('/admin/buscar-tipo-cancer', 'AdminController@buscar_tipo_cancer')->name('buscar-tipo-cancer');
-
     Route::post('/admin/actualizar-tipo-cancer', 'AdminController@actualizar_tipo_cancer')->name('actualizar-tipo-cancer');
 
     Route::post('/admin/guardar-categoria-insumo', 'AdminController@guardar_categoria_insumo')->name('guardar-categoria-insumo');
-    
-    Route::post('/admin/buscar-insumo', 'AdminController@buscar_insumo')->name('buscar-insumo');
 
     Route::post('/admin/actualizar-insumo', 'AdminController@actualizar_insumo')->name('actualizar-insumo');
 
     Route::post('/admin/guardar-medicamento', 'AdminController@guardar_medicamento')->name('guardar-medicamento');
-    
-    Route::post('/admin/buscar-medicamento', 'AdminController@buscar_medicamento')->name('buscar-medicamento');
 
     Route::post('/admin/actualizar-medicamento', 'AdminController@actualizar_medicamento')->name('actualizar-medicamento');
 
     Route::post('/admin/guardar-localidad', 'AdminController@guardar_localidad')->name('guardar-localidad');
     
-    Route::post('/admin/buscar-localidad', 'AdminController@buscar_localidad')->name('buscar-localidad');
-
     Route::post('/admin/actualizar-localidad', 'AdminController@actualizar_localidad')->name('actualizar-localidad');
 
     Route::post('/admin/guardar-admin', 'AdminController@guardar_admin')->name('guardar-admin');
