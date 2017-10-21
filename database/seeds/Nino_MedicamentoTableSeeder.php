@@ -20,21 +20,13 @@ class Nino_MedicamentoTableSeeder extends Seeder
         ];
         for ($i=0; $i<200; $i++)
         {
-            while(true)
-            {
-                $nino_id = rand(1, 60);
-                $medicamento_id = rand(1, 14);
-                if (Nino_Medicamento::where('nino_id', $nino_id)->where('medicamento_id', $medicamento_id)->count() == 0)
-                {
-                    Nino_Medicamento::create(array(
-                        'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                        'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
-                        'nino_id' => $nino_id,
-                        'medicamento_id' => $medicamento_id
-                    ));
-                    break;
-                }
-            }
+            Nino_Medicamento::create(array(
+                    'id' => Nino_Medicamento::getNextId(),
+                    'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
+                    'nino_id' => rand(1, 60),
+                    'medicamento_id' => rand(1, 13)
+            ));
         }
     }
 }

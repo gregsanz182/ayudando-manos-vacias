@@ -59,6 +59,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'es_admin' => \App\Http\Middleware\EsAdminMiddleware::class,
         'es_representante' => \App\Http\Middleware\EsRepresentanteMiddleware::class,
-        'es_invitado' => \App\Http\Middleware\EsInvitadoMiddleware::class
+        'es_invitado' => \App\Http\Middleware\EsInvitadoMiddleware::class,
+        'nino_repr_valido' => \App\Http\Middleware\NinoReprValidoMiddleware::class
     ];
 }

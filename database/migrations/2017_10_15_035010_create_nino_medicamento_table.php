@@ -14,6 +14,7 @@ class CreateNinoMedicamentoTable extends Migration
     public function up()
     {
         Schema::create('nino_medicamento', function(Blueprint $table) {
+            $table->integer('id');
             $table->date('fecha');
             $table->string('estado_requerimiento');
             $table->string('nombre_otro')->nullable();
@@ -26,7 +27,7 @@ class CreateNinoMedicamentoTable extends Migration
         Schema::table('nino_medicamento', function(Blueprint $table) {
             $table->foreign('nino_id')->references('id')->on('nino');
             $table->foreign('medicamento_id')->references('id')->on('medicamento');
-            $table->primary(["nino_id", "medicamento_id"]);
+            $table->primary(["id", "nino_id"]);
         });
     }
 

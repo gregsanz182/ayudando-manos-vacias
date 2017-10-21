@@ -18,7 +18,6 @@ class MedicamentoTableSeeder extends Seeder
             ['Alemtuzumab', 'Anticuerpo'],
             ['Ibritumomab', 'Anticuerpo'],
             ['Asparaginasa', 'Activador de Enzima'],
-            ['Bortezomib', 'Inhibidor de Proteosoma'],
             ['Doxorubicina', 'Agente Genotóxico'],
             ['Melfalan', 'Agente Genotóxico'],
             ['Vindesina', 'Inhibidor del Huso'],
@@ -26,7 +25,8 @@ class MedicamentoTableSeeder extends Seeder
             ['Letrozol', 'Inhibidor de Aromatasa'],
             ['Rituximab', 'Anticuerpo'],
             ['Denileukin Diftitox', 'Medicamento qie afecta un receptor molecular'],
-            ['Bortezomib', 'Inhibidor de Proteosoma']
+            ['Bortezomib', 'Inhibidor de Proteosoma'],
+            ['Otro', 'Otro']
         ];
 
         foreach ($inserts as $insert){

@@ -35,22 +35,15 @@ class Nino_InsumoTableSeeder extends Seeder
         ];
         for ($i=0; $i<100; $i++)
         {
-            while(true)
-            {
-                $nino_id = rand(1, 60);
-                $randCatInsumo = array_rand($nombre);
-                if (Nino_Insumo::where('nino_id', $nino_id)->where('categoria_insumo_id', $nombre[$randCatInsumo][1])->count() == 0)
-                {
-                    Nino_Insumo::create(array(
-                        'nombre' => $nombre[$randCatInsumo][0],
-                        'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
-                        'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
-                        'nino_id' => $nino_id,
-                        'categoria_insumo_id' => $nombre[$randCatInsumo][1]
-                    ));
-                    break;
-                }
-            }
+            $randCatInsumo = array_rand($nombre);
+            Nino_Insumo::create(array(
+                    'id' => Nino_Insumo::getNextId(),
+                    'nombre' => $nombre[$randCatInsumo][0],
+                    'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
+                    'nino_id' => rand(1, 60),
+                    'categoria_insumo_id' => $nombre[$randCatInsumo][1]
+            ));
         }
     }
 }
