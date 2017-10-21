@@ -43,17 +43,13 @@ Route::middleware(['es_admin'])->group(function(){
 
 Route::middleware(['es_representante'])->group(function(){
 
-    Route::get('/perfil_rep', function () {
-        return view('perfil_representante');
-    })->name('perfil');
+    Route::get('/ver_perfil', 'RepresentanteController@datos')->name('ver-perfil');
+
+    Route::post('/actualizar_perfil', 'RequestController@actualizar')->name('actualizar-perfil');
     
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
     Route::post('/registrar_nino', 'NinoController@registrarNino')->name('registrar_nino');
-
-    Route::get('/actualizar_datos', function () {
-        return view('actualizar_datos');
-    });
 
     Route::get('/gestion_requerimientos/{nino_id}',[
         'uses' => 'RequerimientoController@gestionRequerimientos',

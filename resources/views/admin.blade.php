@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('contenido')<div class="cabecera-titulo">
+@section('contenido')
+<div class="cabecera-titulo">
     <div class="container">
         <div class="row">
-            <h2>Bienvenido Administrador</h2>
+            <h2>Bienvenido {{ $nombre }}</h2>
         </div>
     </div>
 </div>
