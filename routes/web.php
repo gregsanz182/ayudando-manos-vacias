@@ -43,6 +43,11 @@ Route::middleware(['es_representante'])->group(function(){
         'uses' => 'RequerimientoController@gestionRequerimientos',
         'middleware' => 'nino_repr_valido'
     ])->name('gestion_requerimientos');
+
+    Route::post('/gestion_requerimientos/{nino_id}',[
+        'uses' => 'RequerimientoController@agregarMedicamento',
+        'middleware' => 'nino_repr_valido'
+    ])->name('agregar_medicamento');
 });
 
 Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');

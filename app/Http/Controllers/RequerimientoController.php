@@ -33,6 +33,15 @@ class RequerimientoController extends Controller
 
         $nino_medicamento->fecha = $request->fecha;
         $nino_medicamento->medicamento_id = $request->medicamento;
+        if($request->has('dosis'))
+            $nino_medicamento->dosis = $request['dosis'];
+        if($request->has('otro_medicamento'))
+            $nino_medicamento->nombre_otro = $request['otro_medicamento'];
+        $nino_medicamento->estado_requerimiento = 'Requerido';
+        $nino_medicamento->nino_id = $nino_id;
 
+        $nino_medicamento->save();
+
+        return redirect()->back();
     }
 }
