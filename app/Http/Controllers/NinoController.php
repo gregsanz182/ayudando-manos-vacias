@@ -114,4 +114,14 @@ class NinoController extends Controller
 
         return redirect()->route('inicio');
     }
+
+    public function infoNino($id)
+    {
+        $nino = Nino::find($id);
+        if(!$nino){
+            return redirect()->back();
+        }
+
+        return view('informacion_nino', ['nino' => $nino]);
+    }
 }

@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('index');
 })->name('inicio');
 
+Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
+
+Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
+
+Route::get('/info_nino/{id}', 'NinoController@infoNino')->name('info_nino');
+
+Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
+
+Route::get('/ayuda', function () {
+    return view('ayuda');
+});
+
+Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
+
+Route::get('/perfil_rep', function () {
+    return view('perfil_representante');
+});
+
 Route::middleware(['es_admin'])->group(function(){
 
     Route::get('/admin', 'AdminController@obtener_nombre_estados')->name('admin');
@@ -86,7 +104,6 @@ Route::middleware(['es_representante'])->group(function(){
     ])->name('eliminar_insumo');
 });
 
-Route::post('/get_ciudades', 'LocalidadController@obtenerCiudades')->name('obtener_ciudades');
 
 Route::middleware(['es_invitado'])->group(function(){
     Route::get('/registro_rep', 'RegistroController@formulario')->name('registro');
@@ -94,19 +111,6 @@ Route::middleware(['es_invitado'])->group(function(){
     Route::post('/registrar_rep', 'RegistroController@registrar')->name('registrar');
 });
 
-Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
-
-Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
-
-Route::get('/ayuda', function () {
-    return view('ayuda');
-});
-
-Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
-
-Route::get('/perfil_rep', function () {
-    return view('perfil_representante');
-});
 
 Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
 
