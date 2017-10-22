@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('contenido')
+@extends('layouts.master') @section('contenido')
 <div class="cabecera-titulo">
     <div class="container">
         <div class="row">
@@ -12,12 +10,24 @@
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#perfil">Perfil</a></li>
-                <li><a data-toggle="tab" href="#menu1">Tipo de Cáncer</a></li>
-                <li><a data-toggle="tab" href="#menu2">Medicamento</a></li>
-                <li><a data-toggle="tab" href="#menu3">Categoria de Insumo</a></li>
-                <li><a data-toggle="tab" href="#menu4">Localidad</a></li>
-                <li><a data-toggle="tab" href="#menu5">Administrador</a></li>
+                <li class="active">
+                    <a data-toggle="tab" href="#perfil">Perfil</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu1">Tipo de Cáncer</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu2">Medicamento</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu3">Categoria de Insumo</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu4">Localidad</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#menu5">Administrador</a>
+                </li>
             </ul>
 
             <div class="tab-content">
@@ -25,6 +35,11 @@
                 <div id="perfil" class="tab-pane fade in active">
                     <form action="{{ route('actualizar-perfil') }}" method="post" class="row">
                         <h3>Perfil</h3>
+                        <div class="col-xs-12 text-right">
+                            <a href="#" data-toggle="modal" data-target="#eliminar_cuenta">
+                                Eliminar cuenta
+                            </a>
+                        </div>
                         @include('includes.error_box')
                         <div class="row">
                             <div class="col-xs-3 {{ $errors->has('nombre_p')?'has-error':'' }} ">
@@ -34,30 +49,39 @@
                             <div class="col-xs-3  {{ $errors->has('usuario_p')?'has-error':'' }}">
                                 <label for="usuario_p">Usuario</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user-circle"></i>
+                                    </span>
                                     <input name="usuario_p" type="text" class="form-control" required value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
                             <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
                                 <label for="correo_p">Correo</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-envelope-open-o"></i>
+                                    </span>
                                     <input name="correo_p" type="email" class="form-control" required value="{{ Auth::user()->correo }}">
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="row">
                             <div class="col-xs-4 {{ $errors->has('contrasena_p')?'has-error':'' }}">
                                 <label for="contrasena_p">Contraseña nueva</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
                                     <input name="contrasena_p" type="password" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4 {{ $errors->has('confirmar_contrasena_p')?'has-error':'' }}">
                                 <label for="confirmar_contrasena_p">Confirmar contraseña</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-repeat"></i>
+                                    </span>
                                     <input name="confirmar_contrasena_p" type="password" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
@@ -99,7 +123,7 @@
                                 <select name="select_cancer" class="form-control" id="select_tipo">
                                     <option value='0' selected>Selecciona un Tipo</option>
                                     @foreach($tipos as $cancer)
-                                        <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
+                                    <option value="{{ $cancer->id }}">{{ $cancer->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -148,7 +172,7 @@
                                 <select name="select_medicamento" class="form-control" id="select_medicamento">
                                     <option value='0' selected>Selecciona medicamento</option>
                                     @foreach($medicamentos as $medicamento)
-                                        <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
+                                    <option value="{{ $medicamento->id }}">{{ $medicamento->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -193,7 +217,7 @@
                                 <select name="select_insumo" class="form-control" id="select_insumo">
                                     <option value='0' selected>Selecciona insumo</option>
                                     @foreach($insumos as $insumo)
-                                        <option value="{{ $insumo->id }}">{{ $insumo->nombre }}</option>
+                                    <option value="{{ $insumo->id }}">{{ $insumo->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -219,7 +243,8 @@
                                 <input name="nombre_l" type="text" class="form-control" required placeholder="Ingrese nombre">
                             </div>
                             <div class="col-xs-3">
-                                <label for="tipo">Tipo</label><br>
+                                <label for="tipo">Tipo</label>
+                                <br>
                                 <label class="radio-inline">
                                     <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" checked="checked"> Ciudad
                                 </label>
@@ -232,7 +257,7 @@
                                 <select name="estado" class="form-control" id="estado">
                                     <option value="0" selected>Selecciona un Estado</option>
                                     @foreach($estados as $estado)
-                                        <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -253,7 +278,7 @@
                                 <select name="select_localidad" class="form-control" id="select_localidad">
                                     <option value='0' selected>Selecciona Localidad</option>
                                     @foreach($localidades as $localidad)
-                                        <option value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
+                                    <option value="{{ $localidad->id }}">{{ $localidad->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -262,7 +287,8 @@
                                 <input name="nombre_l_a" id="nombre_l_a" type="text" class="form-control" disabled>
                             </div>
                             <div class="col-xs-3">
-                                <label for="radio">Tipo</label><br>
+                                <label for="radio">Tipo</label>
+                                <br>
                                 <label class="radio-inline">
                                     <input type="radio" name="inlineRadioOptions" id="inlineRadio1_a" value="1" checked="checked" disabled> Ciudad
                                 </label>
@@ -275,7 +301,7 @@
                                 <select name="estado_l_a" class="form-control" id="estado_l_a" disabled>
                                     <option value="0" selected>Selecciona un Estado</option>
                                     @foreach($estados as $estado)
-                                        <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -299,30 +325,39 @@
                             <div class="col-xs-3 {{ $errors->has('usuario_n')?'has-error':'' }}">
                                 <label for="usuario_n">Usuario</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user-circle"></i>
+                                    </span>
                                     <input name="usuario_n" type="text" class="form-control" required placeholder="Ingrese Usuario">
                                 </div>
                             </div>
                             <div class="col-xs-6 {{ $errors->has('correo_n')?'has-error':'' }}">
                                 <label for="correo_n">Correo</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-envelope-open-o"></i>
+                                    </span>
                                     <input name="correo_n" type="email" class="form-control" required placeholder="Ingrese correo">
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="row">
                             <div class="col-xs-4 {{ $errors->has('contrasena_n')?'has-error':'' }}">
                                 <label for="contrasena_n">Contraseña nueva</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
                                     <input name="contrasena_n" type="password" class="form-control" required placeholder="Ingrese contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4 {{ $errors->has('confirmar_contrasena_n')?'has-error':'' }}">
                                 <label for="confirmar_contrasena_n">Confirmar contraseña</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-repeat"></i>
+                                    </span>
                                     <input name="confirmar_contrasena_n" type="password" class="form-control" required placeholder="Confirmar contraseña">
                                 </div>
                             </div>
@@ -334,6 +369,32 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="eliminar_cuenta" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Eliminar cuenta</h4>
+            </div>
+            <form action="{{ route('desactivar_cuenta') }}" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            ¿Esta Seguro que desea eliminar su cuenta?
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-on">Aceptar</button>
+                </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+            </form>
         </div>
     </div>
 </div>

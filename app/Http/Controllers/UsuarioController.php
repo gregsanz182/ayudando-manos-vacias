@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Usuario;
+use App\Admin;
+use App\Representante;
 
 class UsuarioController extends Controller
 {
@@ -23,8 +25,14 @@ class UsuarioController extends Controller
     }
 
     public function desactivarUsuario(){
-        Auth::user()->estado_cuenta = 0;
+        $user = Auth::user();
         Auth::logout();
+        Usuario::where('id',$user->id)->delete();
+        if($user->rol_type == 'App\Admin'){
+            Admin::where('id',$user->rol_id)->delete();
+        }else{
+            Representante::where('id',$user->rol_id)->delete();
+        }
         return redirect()->route('inicio');
     }
 }
