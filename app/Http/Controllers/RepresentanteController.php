@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Localidad;
 use App\Representante;
+use App\Mensaje;
 
 class RepresentanteController extends Controller
 {
@@ -49,5 +50,15 @@ class RepresentanteController extends Controller
             return redirect()->back();
         }
         return view('informacion_representante', ['rep' => $rep]);
+    }
+
+    public function mensajes($rep_id){
+        $mensajes = Mensaje::whereHas(
+            'nino', function($query) use ($rep_id){
+                $query->where('representante_id',$rep_id);
+            }
+        )->paginate(10);
+
+        return view('bandeja_mensajes', ['mensajes' => $mensajes]);
     }
 }
