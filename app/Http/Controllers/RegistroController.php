@@ -52,6 +52,7 @@ class RegistroController extends Controller
         $usuario->contrasena = bcrypt($request['contrasena']);
         $usuario->rol_id = $representante->id;
         $usuario->rol_type = 'App\Representante';
+        $usuario->estado_cuenta = 1;
 
         $usuario->save();
 

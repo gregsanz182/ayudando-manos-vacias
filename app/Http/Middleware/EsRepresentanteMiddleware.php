@@ -18,7 +18,7 @@ class EsRepresentanteMiddleware
     {
         if (Auth::check())
         {
-            if (Auth::user()->rol_type == 'App\Representante') 
+            if (Auth::user()->rol_type == 'App\Representante' && Auth::user()->estado_cuenta == 1) 
             {
                 return $next($request);
             }

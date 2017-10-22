@@ -4,7 +4,7 @@
 <div class="cabecera-titulo">
     <div class="container">
         <div class="row">
-            <h2>Bienvenido {{ $nombre }}</h2>
+            <h2>Bienvenid@ {{ $nombre }}</h2>
         </div>
     </div>
 </div>

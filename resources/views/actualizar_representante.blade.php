@@ -4,13 +4,18 @@
 <div class="cabecera-titulo">
     <div class="container">
         <div class="row">
-            <h2>Bienvenido {{ $repre->rol->nombre }}</h2>
+            <h2>Bienvenid@ {{ $repre->rol->nombre }}</h2>
         </div>
     </div>
 </div>
 <div class="container" id="cuerpo">
     <div class="row">
-        <h3>Modificar perfil</h3>
+        <h3><i class="fa fa-pencil"></i>&emsp;Modificar perfil</h3>
+        <div class="col-xs-12 text-right">
+            <a href="#" data-toggle="modal" data-target="#eliminar_cuenta">
+                Desactivar cuenta
+            </a>
+        </div>
         <form action="{{ route('actualizar-perfil') }}" method="post">
             @include('includes.error_box')
             <h4>Información de usuario</h4>
@@ -113,6 +118,7 @@
                     </select>
                 </div>
             </div>
+            <br>
             <div class="row form-group">
                 <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2">
                     <button class="btn btn-default button-reg btn-block btn-md" type="submit">Actualizar</button>
@@ -120,6 +126,32 @@
             </div>
             <input type="hidden" name="_token" value="{{ Session::token() }}">
         </form>
+    </div>
+</div>
+<div class="modal fade" id="eliminar_cuenta" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Desactivar cuenta</h4>
+            </div>
+            <form action="{{ route('desactivar_cuenta') }}" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            ¿Esta Seguro que desea desactivar su cuenta?
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-on">Aceptar</button>
+                </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+            </form>
+        </div>
     </div>
 </div>
 <script>

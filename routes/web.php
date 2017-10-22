@@ -25,6 +25,8 @@ Route::get('/info_rep/{id}', 'RepresentanteController@info_rep')->name('info-rep
 
 Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
 
+Route::post('/desactivar', 'UsuarioController@desactivarUsuario')->name('desactivar_cuenta');
+
 Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
 
 Route::get('/ayuda', function () {

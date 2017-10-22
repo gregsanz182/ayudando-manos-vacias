@@ -12,7 +12,7 @@ class UsuarioTableSeeder extends Seeder
      */
     public function run()
     {
-        Usuario::create(['usuario' => 'admin', 'contrasena' => bcrypt('admin'), 'correo' => 'admin@admin.com', 'rol_type' => 'App\Admin', 'rol_id' => 1]);
-        Usuario::create(['usuario' => 'repr', 'contrasena' => bcrypt('repr'), 'correo' => 'iker@gmail.com', 'rol_type' => 'App\Representante', 'rol_id' => 6]);
+        Usuario::create(['usuario' => 'admin', 'contrasena' => bcrypt('admin'), 'correo' => 'admin@admin.com', 'rol_type' => 'App\Admin', 'rol_id' => 1, 'estado_cuenta' => 1]);
+        Usuario::create(['usuario' => 'repr', 'contrasena' => bcrypt('repr'), 'correo' => 'iker@gmail.com', 'rol_type' => 'App\Representante', 'rol_id' => 6, 'estado_cuenta' => 1]);
     }
 }

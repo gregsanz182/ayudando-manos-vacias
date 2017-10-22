@@ -21,4 +21,10 @@ class UsuarioController extends Controller
         Auth::logout();
         return redirect()->route('inicio');
     }
+
+    public function desactivarUsuario(){
+        Auth::user()->estado_cuenta = 0;
+        Auth::logout();
+        return redirect()->route('inicio');
+    }
 }

@@ -230,6 +230,7 @@ class AdminController extends Controller
         $usuario->contrasena = bcrypt($request['contrasena_n']);
         $usuario->rol_id = $admin->id;
         $usuario->rol_type = 'App\Admin';
+        $usuario->estado_cuenta = 1;
         
         $usuario->save();
 
