@@ -15,4 +15,4 @@ let mix = require('laravel-mix');
     .options({
         processCssUrls: false
      });
- mix.browserSync('localhost:80');
+ //mix.browserSync('localhost:80');

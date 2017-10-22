@@ -28,7 +28,7 @@ class Nino extends Model
     }
 
     public function canceres () {
-        return $this->hasMany('App\Nino_Cancer');
+        return $this->hasMany('App\Nino_Cancer')->orderBy('fecha_desde', 'DESC');
     }
 
     public function insumos () {
