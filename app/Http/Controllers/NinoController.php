@@ -40,6 +40,7 @@ class NinoController extends Controller
                 if($request->exists('municipio') && $request['municipio'] != 'Municipio')
                     $query->where('id', $request['municipio']);
             })->paginate(10);
+
         $estados = Localidad::whereNull('localidad_id')->orderBy('nombre')->get();
         $municipios = [];
         if($request['estado'])

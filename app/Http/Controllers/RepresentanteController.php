@@ -28,6 +28,7 @@ class RepresentanteController extends Controller
         $usuario->usuario = $request['usuario'];
         $usuario->correo = $request['correo'];
         $usuario->save();
+        
         $representante = $usuario->rol;
         $representante->nombre = $request['nombre'];
         $representante->apellido = $request['apellido'];

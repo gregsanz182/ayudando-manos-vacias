@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MensajeTableSeeder::class);
         $this->call(Nino_CancerTableSeeder::class);
         $this->call(AdminTableSeeder::class);
-        $this->call(UsuarioTableSeeder::class);
         $this->call(Nino_MedicamentoTableSeeder::class);
         $this->call(Nino_InsumoTableSeeder::class);
     }
