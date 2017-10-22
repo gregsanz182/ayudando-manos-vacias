@@ -56,6 +56,16 @@ function modInsumoModal(id, categoria_insumo_id, nombre, fecha, motivo){
     $('#mod-insumo-modal').modal('show');
 }
 
+function modCancerModal(id, cancer_id, nombre_otro, fecha_desde, estado_actual){
+    $("#mod-cancer-modal select[name='cancer']").val(cancer_id).change();
+    $("#mod-cancer-modal input[name='nombre_otro']").val(nombre_otro).change();
+    $("#mod-cancer-modal input[name='fecha']").val(fecha_desde).change();
+    $("#mod-cancer-modal input[name='estado_actual']").val(estado_actual).change();
+    $("#mod-cancer-modal form").attr('action', mod_cancer_url+id+'/'+cancer_id).change();
+    $("#mod-cancer-modal .modal-footer a").attr('href', del_cancer_url+id+'/'+cancer_id).change();
+    $('#mod-cancer-modal').modal('show');
+}
+
 $('#select_tipo').on('change', function() {
     if(this.value != '0'){
         $('#tipo_c_a').removeAttr('disabled');

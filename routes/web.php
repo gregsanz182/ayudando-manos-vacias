@@ -104,6 +104,31 @@ Route::middleware(['es_representante'])->group(function(){
         'uses' => 'RequerimientoController@eliminarInsumo',
         'middleware' => 'nino_repr_valido'
     ])->name('eliminar_insumo');
+
+    Route::get('/modificacion_nino/{nino_id}',[
+        'uses' => 'NinoController@modificacionNino',
+        'middleware' => 'nino_repr_valido'
+    ])->name('modificacion_nino');
+
+    Route::post('/modificar_nino/{nino_id}',[
+        'uses' => 'NinoController@modificarNino',
+        'middleware' => 'nino_repr_valido'
+    ])->name('modificar_nino');
+
+    Route::post('/agregar_cancer/{nino_id}',[
+        'uses' => 'NinoController@agregarCancer',
+        'middleware' => 'nino_repr_valido'
+    ])->name('agregar_cancer');
+
+    Route::post('/modificar_cancer/{nino_id}/{id}/{cancer_id}',[
+        'uses' => 'NinoController@modificarCancer',
+        'middleware' => 'nino_repr_valido'
+    ])->name('modificar_cancer');
+
+    Route::get('/eliminar_cancer/{nino_id}/{id}/{cancer_id}',[
+        'uses' => 'NinoController@eliminarCancer',
+        'middleware' => 'nino_repr_valido'
+    ])->name('eliminar_cancer');
 });
 
 

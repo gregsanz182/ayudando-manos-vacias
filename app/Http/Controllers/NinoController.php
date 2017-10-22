@@ -125,4 +125,94 @@ class NinoController extends Controller
         return view('informacion_nino', ['nino' => $nino]);
     }
     
+    public function modificacionNino($nino_id)
+    {
+        $nino = Nino::find($nino_id);
+        if(!$nino){
+            return redirect()->route('inicio');
+        }
+        $canceres = Cancer::orderBy('nombre')->get();
+        return view('modificacion_nino', ['nino' => $nino, 'relacionesRepr' => Nino::$relacionesRepr, 'canceres' => $canceres]);
+    }
+
+    public function modificarNino($nino_id, Request $request)
+    {
+        $nino = Nino::find($nino_id);
+        if(!$nino){
+            return redirect()->route('inicio');
+        }
+
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'fecha_nacimiento' => 'required|date_format:Y-m-d',
+            'genero' => 'required',
+            'identificacion' => 'nullable',
+            'situacion_actual' => 'required|max:250'
+        ]);
+        
+        $nino->nombre = $request['nombre'];
+        $nino->apellido = $request['apellido'];
+        $nino->fecha_nacimiento = $request['fecha_nacimiento'];
+        $nino->genero = $request['genero']==1?'M':'F';
+        $nino->relacion_repr = Nino::$relacionesRepr[(int)$request['relacion_representante']];
+        if ($request->has('identificacion'))
+        {
+            $nino->identificacion = $request['identificacion'];
+        }
+        $nino->situacion_actual = $request['situacion_actual'];
+        $nino->save();
+
+        return redirect()->back();
+    }
+
+    public function agregarCancer($nino_id, Request $request) 
+    {
+        $nino_cancer = new Nino_Cancer;
+        $nino_cancer->id = Nino_Cancer::getNextId();
+        $nino_cancer->fecha_desde = $request['fecha'];
+        if($request->has('estado_actual'))
+        {
+            $nino_cancer->estado_actual = $request['estado_actual'];
+        }
+        if($request->has('otro_nombre'))
+        {
+            $nino_cancer->nombre_otro = $request['otro_nombre'];
+        }
+        $nino_cancer->nino_id = $nino_id;
+        $nino_cancer->cancer_id = $request['cancer'];
+
+        $nino_cancer->save();
+
+        return redirect()->back(); 
+    }
+
+    public function modificarCancer($nino_id, $id, $cancer_id, Request $request) 
+    {
+        $insert = [
+            'fecha_desde' => $request['fecha'],
+            'cancer_id' => $request['cancer_id']
+        ];
+        if($request->has('estado_actual'))
+            $insert['estado_actual'] = $request['estado_actual'];
+        if($request->has('otro_nombre'))
+            $insert['nombre_otro'] = $request['otro_nombre'];
+        Nino_Cancer::where('nino_id', $nino_id)
+                    ->where('cancer_id', $cancer_id)
+                    ->where('id', $id)
+                    ->update($insert);
+
+        return redirect()->back();
+    }
+
+    public function eliminarCancer($nino_id, $id, $cancer_id)
+    {
+        Nino_Cancer::where('nino_id', $nino_id)
+                        ->where('cancer_id', $cancer_id)
+                        ->where('id', $id)
+                        ->delete();
+        
+        return redirect()->back();
+    }
+
 }
