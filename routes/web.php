@@ -67,6 +67,11 @@ Route::middleware(['es_representante'])->group(function(){
 
     Route::post('/registro_nino', 'NinoController@registrarNino')->name('registrar_nino');
 
+    Route::post('/desactivar_nino/{nino_id}',[
+        'uses' => 'NinoController@eliminarNino',
+        'middleware' => 'nino_repr_valido'
+    ])->name('desactivar_nino');
+
     Route::get('/bandeja_mensajes/{id}','RepresentanteController@mensajes')->name('bandeja');
 
     Route::get('/gestion_requerimientos/{nino_id}',[
