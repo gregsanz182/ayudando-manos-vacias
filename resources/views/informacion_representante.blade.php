@@ -24,7 +24,7 @@
                         <strong><i class="fa fa-address-card-o"></i> Cédula identidad:</strong> {{ $rep->cedula }}
                     </p>
                     <p class="list-group-item-text">
-                        <strong><i class="fa fa-dot-circle-o"></i> Ubicación:</strong> {{ $rep->localidad->nombre }}, {{ $rep->localidad->estado->nombre }}
+                        <strong><i class="fa fa-crosshairs"></i> Ubicación:</strong> {{ $rep->localidad->nombre }}, {{ $rep->localidad->estado->nombre }}
                     </p>
                     <p class="list-group-item-text">
                         <strong><i class="fa fa-transgender"></i> Genero:</strong>

@@ -203,10 +203,10 @@ body {
   display: table-cell;
   vertical-align: bottom;
 }
-.navbar-home li > a:hover {
+.navbar-home .navbar-nav > li > a:hover {
   color: #777;
 }
-.navbar-home li > a:after {
+.navbar-home .navbar-nav > li > a:after {
   content: "";
   display: block;
   position: absolute;
@@ -218,12 +218,12 @@ body {
   -webkit-transition: width 500ms, left 500ms;
   transition: width 500ms, left 500ms;
 }
-.navbar-home li > a.active:after {
+.navbar-home .navbar-nav > li > a.active:after {
   width: 100%;
   left: 0%;
   background-color: #DDDDDD;
 }
-.navbar-home li > a:hover:after {
+.navbar-home .navbar-nav > li > a:hover:after {
   width: 100%;
   left: 0%;
 }

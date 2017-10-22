@@ -18,7 +18,7 @@ class EsAdminMiddleware
     {
         if (Auth::check())
         {
-            if (Auth::user()->rol_type == 'App\Admin' && Auth::user()->estado_cuenta == 1) 
+            if (Auth::user()->rol_type == 'App\Admin') 
             {
                 return $next($request);
             }
