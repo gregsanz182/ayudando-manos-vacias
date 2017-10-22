@@ -182,8 +182,7 @@ body {
 }
 .navbar-home {
   height: 85px;
-  -webkit-box-shadow: 2px 2px 4px #AFAFAF;
-          box-shadow: 2px 2px 4px #AFAFAF;
+  box-shadow: 2px 2px 4px #AFAFAF;
   border: 0;
 }
 .navbar-home .container,
@@ -216,6 +215,7 @@ body {
   height: 4px;
   width: 0;
   -webkit-transition: width 500ms, left 500ms;
+  -moz-transition: width 500ms, left 500ms;
   transition: width 500ms, left 500ms;
 }
 .navbar-home .navbar-nav > li > a.active:after {
@@ -286,17 +286,12 @@ body {
 .button-reg {
   background-color: #8EC63F;
   color: #FFF;
-  -webkit-box-shadow: 0px 0px 0px #AFAFAF;
-          box-shadow: 0px 0px 0px #AFAFAF;
-  -webkit-transition: -webkit-box-shadow 250ms;
-  transition: -webkit-box-shadow 250ms;
+  box-shadow: 0px 0px 0px #AFAFAF;
   transition: box-shadow 250ms;
-  transition: box-shadow 250ms, -webkit-box-shadow 250ms;
 }
 .button-reg:hover {
   background-color: #8EC63F;
-  -webkit-box-shadow: 0px 0px 12px #317421;
-          box-shadow: 0px 0px 12px #317421;
+  box-shadow: 0px 0px 12px #317421;
   color: #FFF;
 }
 .nav-custom {
