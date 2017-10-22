@@ -11,7 +11,7 @@
         <div class="col-md-10 col-md-offset-1 col-sm-12">
             @if( count($mensajes) == 0)
             <div class="row">
-                <h4>Disculpa, todavia no posees mensajes en tu bandeja.</h4>
+                <h4>Disculpa, todavia no posees mensajes en tu buzón.</h4>
             </div>
             @else
                 @foreach($mensajes as $mensaje)

@@ -49,7 +49,11 @@ class RepresentanteController extends Controller
         if(!$rep){
             return redirect()->back();
         }
-        return view('informacion_representante', ['rep' => $rep]);
+        $ban = true;
+        if($id == Auth::user()->rol_id && Auth::user()->rol_type == 'App\Representante'){
+            $ban = false;
+        }
+        return view('informacion_representante', ['rep' => $rep, 'ban' => $ban]);
     }
 
     public function mensajes($rep_id){
@@ -57,7 +61,7 @@ class RepresentanteController extends Controller
             'nino', function($query) use ($rep_id){
                 $query->where('representante_id',$rep_id);
             }
-        )->paginate(10);
+        )->paginate(5);
 
         return view('bandeja_mensajes', ['mensajes' => $mensajes]);
     }

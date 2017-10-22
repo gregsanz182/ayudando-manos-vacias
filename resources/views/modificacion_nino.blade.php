@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-xs-12 text-right paginacion-meds-ins">
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#agg-insumo-modal">
-                        <i class="fa fa-plus"></i> Añadir insumo</button>
+                        <i class="fa fa-plus"></i> Añadir Cáncer</button>
                 </div>
             </div>
             <table class="table table-hover table-bordered">
@@ -100,7 +100,7 @@
             </div>
             <div class="row form-group">
                 <div class="col-xs-4 col-xs-offset-4">
-                    <button class="btn btn-deafult btn-block btn-md button-reg" type='submit'>Registrar</button>
+                    <button class="btn btn-deafult btn-block btn-md button-reg" type='submit'>Actualizar</button>
                 </div>
             </div>
             <input type="hidden" name="_token" value="{{ Session::token() }}">

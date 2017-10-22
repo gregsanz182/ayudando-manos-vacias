@@ -115,34 +115,22 @@ $('#select_localidad').on('change', function() {
     }
 });
 
-$('#id_localidad').val( $('#estado_l_a option:selected').val() );
-
 $('#inlineRadio1_a').click( function(){
     $("#estado_l_a").removeAttr("disabled");
-    $('#id_localidad').val( $('#estado_l_a option:selected').val() );
-    $('#estado_l_a').on('change', function(){
-        $('#id_localidad').val(''+this.value+'');
-    });
     check = false;
 });
 
 $('#inlineRadio2_a').click( function(){
     $("#estado_l_a").attr("disabled", "disabled");
-    $('#id_localidad').val('NULL');
     check = true;
 });
 
-$('#localidad_id').val( $('#estado option:selected').val() );
-
 $('#inlineRadio1').click( function(){
     $("#estado").removeAttr("disabled");
-    $('#localidad_id').val( $('#estado option:selected').val() );
     $('#estado').on('change', function(){
-        $('#localidad_id').val(''+this.value+'');
     });
 });
 
 $('#inlineRadio2').click( function(){
     $("#estado").attr("disabled", "disabled");
-    $('#localidad_id').val('NULL');
 });

@@ -60,6 +60,7 @@
             </div>
         @endforeach
     </div>
+    @if($ban)
     <div class="row reg-desc">
         <h3>¿Tienes medicamentos o insumos que no usarás? !Donalos y ayúdame, dame una mano!</h3>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
@@ -67,5 +68,6 @@
             laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
             Suspendisse potenti.</p>
     </div>
+    @endif
 </div>
 @endsection

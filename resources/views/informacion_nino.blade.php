@@ -142,7 +142,7 @@
                             <label for="correo">Correo electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                                <input type="text" name="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
+                                <input type="email" name="correo" class="form-control" placeholder="ejemplo@gmail.com" required>
                             </div>
                         </div>
                         <div class="col-xs-6">

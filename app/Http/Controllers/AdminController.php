@@ -80,12 +80,8 @@ class AdminController extends Controller
         if( $request['select_cancer'] != '0'){
             $id = $request['select_cancer'];
             $cancer = Cancer::find($id);
-            if( $request->has('tipo_c_a') ){
-                $cancer->nombre = $request['tipo_c_a'];
-            }
-            if( $request->has('desc_c_a') ){
-                $cancer->descripcion = $request['desc_c_a'];
-            }
+            $cancer->nombre = $request['tipo_c_a'];
+            $cancer->descripcion = $request['desc_c_a'];
             $cancer->save();
         }
 
@@ -93,11 +89,7 @@ class AdminController extends Controller
     }
 
     public function guardar_medicamento(Request $request){
-        
-        $this->validate($request, [
-            'nombre_m' => 'required',
-            'desc_m' => 'required'
-        ]);
+
         $medicamento = new Medicamento;
 
         $medicamento->nombre = $request['nombre_m'];
@@ -119,12 +111,8 @@ class AdminController extends Controller
         if($request['select_medicamento'] != '0'){
             $id = $request['select_medicamento'];
             $medicamento = Medicamento::find($id);
-            if( $request->has('nombre_m_a') ){
-                $medicamento->nombre = $request['nombre_m_a'];
-            }
-            if( $request->has('desc_m_a') ){
-                $medicamento->descripcion = $request['desc_m_a'];
-            }
+            $medicamento->nombre = $request['nombre_m_a'];
+            $medicamento->descripcion = $request['desc_m_a'];
             $medicamento->save();
         }
 
@@ -168,19 +156,14 @@ class AdminController extends Controller
 
     public function guardar_localidad(Request $request){
 
-        $this->validate($request, [
-            'nombre_l' => 'required'
-        ]);
-
         $localidad = new Localidad;
 
         $localidad->nombre = $request['nombre_l'];
 
-        if($request['localidad_id'] != 'NULL'){
-            $this->validate($request, [
-                'localidad_id' => 'different:0'
-            ]);
-            $localidad->localidad_id = $request['localidad_id'];
+        if($request['inlineRadioOptions'] == '1'){
+            $localidad->localidad_id = $request['estado'];
+        }else{
+            $localidad->localidad_id = null;
         }
         
         $localidad->save();
@@ -198,11 +181,11 @@ class AdminController extends Controller
         if($request['select_localidad'] != '0'){
             $id = $request['select_localidad'];
             $localidad = Localidad::find( $id);
-            if( $request->has('nombre_l_a') ){
-                $localidad->nombre = $request['nombre_l_a'];
-            }
-            if( $request->has('estado_l_a') ){
+            $localidad->nombre = $request['nombre_l_a'];
+            if( $request['inlineRadioOptions'] == '1'){
                 $localidad->localidad_id = $request['estado_l_a'];
+            }else{
+                $localidad->localidad_id = null;
             }
             $localidad->save();
         }
