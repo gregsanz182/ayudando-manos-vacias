@@ -1,9 +1,10 @@
 @extends('layouts.master')
 
-@section('contenido')<div class="cabecera-titulo">
+@section('contenido')
+<div class="cabecera-titulo">
     <div class="container">
         <div class="row">
-            <h2>Bienvenido Administrador</h2>
+            <h2>Bienvenido {{ $nombre }}</h2>
         </div>
     </div>
 </div>
@@ -28,39 +29,36 @@
                         <div class="row">
                             <div class="col-xs-3 {{ $errors->has('nombre_p')?'has-error':'' }} ">
                                 <label for="nombre_p">Nombre completo</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre_p" type="text" class="form-control" value="{{ $nombre }}">
-                                </div>
+                                <input name="nombre_p" type="text" class="form-control" required value="{{ $nombre }}">
                             </div>
                             <div class="col-xs-3  {{ $errors->has('usuario_p')?'has-error':'' }}">
                                 <label for="usuario_p">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario_p" type="text" disabled class="form-control" value="{{ Auth::user()->usuario }}">
+                                    <input name="usuario_p" type="text" class="form-control" required value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
                             <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
                                 <label for="correo_p">Correo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                                    <input name="correo_p" type="email" class="form-control" value="{{ Auth::user()->correo }}">
+                                    <input name="correo_p" type="email" class="form-control" required value="{{ Auth::user()->correo }}">
                                 </div>
                             </div>
                         </div><br>
                         <div class="row">
-                            <div class="col-xs-4 {{ $errors->has('contrasena1_p')?'has-error':'' }}">
-                                <label for="contrasena1_p">Contraseña nueva</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena_p')?'has-error':'' }}">
+                                <label for="contrasena_p">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1_p" type="password" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena_p" type="password" class="form-control" placeholder="Ingrese contraseña">
                                 </div>
                             </div>
-                            <div class="col-xs-4 {{ $errors->has('contrasena2_p')?'has-error':'' }}">
-                                <label for="contrasena2_p">Confirmar contraseña</label>
+                            <div class="col-xs-4 {{ $errors->has('confirmar_contrasena_p')?'has-error':'' }}">
+                                <label for="confirmar_contrasena_p">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2_p" type="password" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="confirmar_contrasena_p" type="password" class="form-control" placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">
@@ -296,39 +294,36 @@
                         <div class="row">
                             <div class="col-xs-3 {{ $errors->has('nombre_n')?'has-error':'' }}">
                                 <label for="nombre_n">Nombre completo</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="nombre_n" type="text" class="form-control" placeholder="Ingrese nombre y apellido">
-                                </div>
+                                <input name="nombre_n" type="text" class="form-control" required placeholder="Ingrese nombre y apellido">
                             </div>
                             <div class="col-xs-3 {{ $errors->has('usuario_n')?'has-error':'' }}">
                                 <label for="usuario_n">Usuario</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input name="usuario_n" type="text" class="form-control" placeholder="Ingrese Usuario">
+                                    <input name="usuario_n" type="text" class="form-control" required placeholder="Ingrese Usuario">
                                 </div>
                             </div>
                             <div class="col-xs-6 {{ $errors->has('correo_n')?'has-error':'' }}">
                                 <label for="correo_n">Correo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                                    <input name="correo_n" type="email" class="form-control" placeholder="Ingrese correo">
+                                    <input name="correo_n" type="email" class="form-control" required placeholder="Ingrese correo">
                                 </div>
                             </div>
                         </div><br>
                         <div class="row">
-                            <div class="col-xs-4 {{ $errors->has('contrasena1_n')?'has-error':'' }}">
-                                <label for="contrasena1_n">Contraseña nueva</label>
+                            <div class="col-xs-4 {{ $errors->has('contrasena_n')?'has-error':'' }}">
+                                <label for="contrasena_n">Contraseña nueva</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input name="contrasena1_n" type="password" class="form-control" placeholder="Ingrese contraseña">
+                                    <input name="contrasena_n" type="password" class="form-control" required placeholder="Ingrese contraseña">
                                 </div>
                             </div>
-                            <div class="col-xs-4 {{ $errors->has('contrasena2_n')?'has-error':'' }}">
-                                <label for="contrasena2_n">Confirmar contraseña</label>
+                            <div class="col-xs-4 {{ $errors->has('confirmar_contrasena_n')?'has-error':'' }}">
+                                <label for="confirmar_contrasena_n">Confirmar contraseña</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-repeat"></i></span>
-                                    <input name="contrasena2_n" type="password" class="form-control" placeholder="Confirmar contraseña">
+                                    <input name="confirmar_contrasena_n" type="password" class="form-control" required placeholder="Confirmar contraseña">
                                 </div>
                             </div>
                             <div class="col-xs-4">

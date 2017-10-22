@@ -86,7 +86,7 @@
             <h3><i class="fa fa-vcard-o"></i>&emsp;Información del representante</h3>
             <hr>
             <div class="list-group list-group-card">
-                <a href="#" class="list-group-item">
+                <a href="{{ route('info-rep', ['id' => $nino->representante->id]) }}" class="list-group-item">
                     <h4 class="list-group-item-heading" style="margin-bottom: 12px;"><span>{{ $nino->representante->nombre }} {{ $nino->representante->apellido }} ({{ $nino->relacion_repr }})</span></h4>
                     <br>
                     <p class="list-group-item-text">

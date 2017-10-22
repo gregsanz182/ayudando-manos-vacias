@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Ocidb;
 use App\motorData as MOTOR;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Cancer;
 use App\Categoria_Insumo;
@@ -32,21 +32,16 @@ class AdminController extends Controller
 
     public function actualizar_perfil(Request $request){
 
-        $this->validate($request, [
-            'nombre_p' => 'required',
-            'correo_p' => 'required|email'
-        ]);
-
         $usuario = Auth::user();
 
         $usuario->correo = $request['correo_p'];
 
-        if($request->has('contrasena1_p')){
+        if($request->has('contrasena_p')){
             $this->validate($request, [
-                'contrasena1_p' => 'min:4',
-                'contrasena2_p' => 'required|same:contrasena1_p'
+                'contrasena_p' => 'min:4',
+                'confirmar_contrasena_p' => 'required|same:contrasena_p'
             ]);
-            $usuario->contrasena = bcrypt($request['contrasena1_p']);
+            $usuario->contrasena = bcrypt($request['contrasena_p']);
         }
 
         $usuario->rol->nombre = $request['nombre_p'];
@@ -64,10 +59,6 @@ class AdminController extends Controller
 
     public function guardar_tipo_cancer(Request $request){
 
-        $this->validate($request, [
-            'tipo_c' => 'required',
-            'desc_c' => 'required'
-        ]);
         $cancer = new Cancer;
 
         $cancer->nombre = $request['tipo_c'];
@@ -222,11 +213,9 @@ class AdminController extends Controller
     public function guardar_admin(Request $request){
 
         $this->validate($request, [
-            'nombre_n' => 'required',
-            'usuario_n' => 'required|unique:usuario,usuario',
-            'correo_n' => 'required|email',
-            'contrasena1_n' => 'required|min:4',
-            'contrasena2_n' => 'required|same:contrasena1_n'
+            'usuario_n' => 'unique:usuario,usuario',
+            'contrasena_n' => 'min:4',
+            'confirmar_contrasena_n' => 'same:contrasena_n'
         ]);
 
         $usuario = new Usuario;
@@ -238,7 +227,7 @@ class AdminController extends Controller
 
         $usuario->usuario = $request['usuario_n'];
         $usuario->correo = $request['correo_n'];
-        $usuario->contrasena = bcrypt($request['contrasena1_n']);
+        $usuario->contrasena = bcrypt($request['contrasena_n']);
         $usuario->rol_id = $admin->id;
         $usuario->rol_type = 'App\Admin';
         

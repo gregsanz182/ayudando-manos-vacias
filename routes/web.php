@@ -21,6 +21,8 @@ Route::post('/ingresar', 'UsuarioController@ingresarUsuario')->name('ingresar');
 
 Route::get('/info_nino/{id}', 'NinoController@infoNino')->name('info_nino');
 
+Route::get('/info_rep/{id}', 'RepresentanteController@info_rep')->name('info-rep');
+
 Route::get('/salir', 'UsuarioController@salirUsuario')->name('salir');
 
 Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
@@ -30,10 +32,6 @@ Route::get('/ayuda', function () {
 });
 
 Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
-
-Route::get('/perfil_rep', function () {
-    return view('perfil_representante');
-});
 
 Route::middleware(['es_admin'])->group(function(){
 
@@ -62,13 +60,14 @@ Route::middleware(['es_admin'])->group(function(){
 });
 
 Route::middleware(['es_representante'])->group(function(){
+
+    Route::get('/ver_perfil', 'RepresentanteController@datos')->name('ver-perfil');
+
+    Route::post('/actualizar_perfil', 'RepresentanteController@actualizar')->name('actualizar-perfil');
+    
     Route::get('/registro_nino', 'NinoController@registroNino')->name('registro_nino');
 
     Route::post('/registro_nino', 'NinoController@registrarNino')->name('registrar_nino');
-
-    Route::get('/actualizar_datos', function () {
-        return view('actualizar_datos');
-    });
 
     Route::get('/gestion_requerimientos/{nino_id}',[
         'uses' => 'RequerimientoController@gestionRequerimientos',
