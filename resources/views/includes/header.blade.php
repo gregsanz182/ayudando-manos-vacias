@@ -21,7 +21,7 @@
                                     <a href="{{ route('registro_nino') }}" class={{ Route::currentRouteName()=="registro_nino"?"active":"" }}><i class="fa fa-users"></i> Registrar niño</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-inbox"></i> Buzon de mensajes</a>
+                                    <a href="{{ route('bandeja', ['id' => Auth::user()->rol_id]) }}"><i class="fa fa-inbox"></i> Buzon de mensajes</a>
                                 </li>
                             @endif
                         @endif

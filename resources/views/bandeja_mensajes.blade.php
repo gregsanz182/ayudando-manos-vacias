@@ -21,7 +21,7 @@
                         <dd>{{ $mensaje->nombre_apellido_remitente }}</dd>
                         <dt>Correo: </dt>
                         <dd>{{ $mensaje->correo_remitente }}</dd>
-                        @if({{ $mensaje->has('telefono_remitente') }})
+                        @if( $mensaje->telefono_remitente )
                             <dt>Teléfono: </dt>
                             <dd>{{ $mensaje->telefono_remitente }}</dd>
                         @endif
