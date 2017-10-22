@@ -118,10 +118,8 @@
     </div>
     <div class="row reg-desc">
         <h3>¿Tienes medicamentos o insumos que no usarás? !Donalos!... ¡Sé una mano amiga!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
-            nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
-            laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
-            Suspendisse potenti.</p>
+        <p>Con tu aprote ayudaras a {{ $nino->nombre }} {{ $nino->apellido }} y a su representante {{ $nino->representante->nombre }} {{ $nino->representante->apellido }} a conllevar esta enfermedad de una manera más tranquila.</p>
+        <p>Si no posees los medicamentos o insumos que {{ $nino->nombre }} {{ $nino->apellido }} necesita, pero conoces de una persona que si los tenga y esté dispuesto a ayudar, pasale la información de contacto de su representante.</p>
     </div>
     <div class="row">
         <form action="{{ route('enviar_mensaje') }}" method='post'>

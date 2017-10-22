@@ -13,18 +13,11 @@
         <div class="row">
             <div class="col-xs-4 reg-desc">
                 <h3>Registra a tu hijo o representado.</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
-                    nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
-                    laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
-                    Suspendisse potenti.</p>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi
-                    purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit
-                    tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui,
-                    eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi
-                    purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit
-                    tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui,
-                    eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                <p>Registrando tu hijo o representado, podrás recibir mensajes de las personas o instituciones interesados en 
+                donar.</p>
+                <p>Puedes modificar los insumos o requerimientos que tu niño necesita, marcarlos como donados, o eliminarlos
+                si es lo que deseas</p>
+                <p>Si ya no necesitas el servicio para tu niño, puedes eliminarlo.</p>
             </div>
             <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar_nino') }}">
                 @include('includes.error_box')

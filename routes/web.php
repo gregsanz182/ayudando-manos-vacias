@@ -29,10 +29,6 @@ Route::post('/desactivar', 'UsuarioController@desactivarUsuario')->name('desacti
 
 Route::post('/enviar_mensaje', 'MensajeController@guardarMensaje')->name('enviar_mensaje');
 
-Route::get('/ayuda', function () {
-    return view('ayuda');
-});
-
 Route::get('/buscar', 'NinoController@buscarNinos')->name('buscar');
 
 Route::middleware(['es_admin'])->group(function(){
@@ -140,8 +136,3 @@ Route::middleware(['es_invitado'])->group(function(){
     
     Route::post('/registrar_rep', 'RegistroController@registrar')->name('registrar');
 });
-
-
-Route::get('/probar', ['uses' => 'Prueba@test', 'middleware' => 'es_representante']);
-
-

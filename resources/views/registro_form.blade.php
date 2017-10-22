@@ -13,14 +13,17 @@
         <div class="row">
             <div class="col-xs-4 reg-desc">
                 <h3>Registrandote, tu hijo o representado puede recibir ayuda.</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh
-                    nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin
-                    laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo.
-                    Suspendisse potenti.</p>
-                <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi
-                    purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit
-                    tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui,
-                    eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                <p>Si no posee los recursos necesarios, o no no encuentras por tus propios medios los insumos o medicamentos 
+                que requiere tu hijo o familiar cercano a tu cargo, puedes registrarte, esta página esta hecha con la finalidad 
+                de ser un puente de comunicación entre familias afectadas por esta enfermedad y personas dispuestas a ayudar 
+                a niño con cancer.</p>
+                <p>El servicio que se presta es exclusivo para medicamentos e insumos, <strong>NO</strong> para efectos 
+                lucrativos.</p>
+                <p>El registro es totalmente <strong>gratis</strong>.</p>
+                <p>Poseeras un buzón de mensajes para las personas que se quieran comunicar contigo.</p>
+                <p>Tienes la posibilidad de agregar medicamnetos o insumos por niño, que necesites, y marcarlos como donados.</p>
+                <p>Si tu niño ya no necesita de los servicios que esta página ofrece, puedes eliminarlo.</p>
+                <p>Si tú, como representante no necesitas de los servicios de esta página puedes eliminar tu cuenta.</p>
             </div>
             <form class="col-xs-7 col-xs-offset-1 form-custom" method='post' action="{{ route('registrar') }}">
                 @include('includes.error_box')
@@ -30,14 +33,14 @@
                         <label for="usuario">Usuario</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                            <input type="text" name="usuario" class="form-control" value="{{ $errors->has('usuario')?'':Request::old('usuario') }}">
+                            <input type="text" name="usuario" class="form-control" placeholder="Ingresa un usuario" value="{{ $errors->has('usuario')?'':Request::old('usuario') }}">
                         </div>
                     </div>
                     <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
                         <label for="correo">Correo electronico</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope-open-o"></i></span>
-                            <input type="text" name="correo" class="form-control" value="{{ $errors->has('correo')?'':Request::old('correo') }}">
+                            <input type="email" name="correo" class="form-control" placeholder="Ingresa tu correo" value="{{ $errors->has('correo')?'':Request::old('correo') }}">
                         </div>
                     </div>
                 </div>
@@ -46,7 +49,7 @@
                         <label for="contrasena">Contraseña</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input type="password" name="contrasena" class="form-control">
+                            <input type="password" name="contrasena" placeholder="Mínimo 4 caracteres" class="form-control">
                         </div>
                     </div>
                     <div class="col-xs-6 {{ $errors->has('confirmar_contrasena')?'has-error':'' }}">
