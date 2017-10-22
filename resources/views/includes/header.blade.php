@@ -10,21 +10,26 @@
                 <div class="row header-row">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ route('inicio') }}" class="active">Inicio</a>
+                            <a href="{{ route('inicio') }}" class={{ Route::currentRouteName()=="inicio"?"active":"" }}><i class="fa fa-home"></i> Inicio</a>
                         </li>
                         <li>
-                            <a href="{{ route('buscar') }}">Buscar</a>
+                            <a href="{{ route('buscar') }}" class={{ Route::currentRouteName()=="buscar"?"active":"" }}><i class="fa fa-search"></i> Buscar</a>
                         </li>
-                        @if (Auth::user()->rol_type == "App\Representante")
-                            <li>
-                                <a href="{{ route('registro_nino') }}">Registrar niño</a>
-                            </li>
+                        @if(Auth::check())
+                            @if (Auth::user()->rol_type == "App\Representante")
+                                <li>
+                                    <a href="{{ route('registro_nino') }}" class={{ Route::currentRouteName()=="registro_nino"?"active":"" }}><i class="fa fa-users"></i> Registrar niño</a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-inbox"></i> Buzon de mensajes</a>
+                                </li>
+                            @endif
                         @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::check())
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->rol->nombre}} <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i> {{Auth::user()->rol->nombre}} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('info-rep', ['id' => Auth::user()->rol->id]) }}"><i class="fa fa-user"></i> Ver perfil</a></li>
                                     <li><a href="{{ route('ver-perfil') }}"><i class="fa fa-id-badge"></i> Editar perfil</a></li>

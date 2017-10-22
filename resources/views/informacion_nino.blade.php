@@ -13,7 +13,7 @@
             <h3><i class="fa fa-user-o"></i>&emsp;Información del niño</h3>
             <hr>
             <div class="list-group list-group-card">
-                <a href="#" class="list-group-item">
+                <a {{ Auth::check()?(Auth::user()->rol_id==$nino->representante_id?"href=".route('modificacion_nino', ['nino_id' => $nino->id]):""):"" }} class="list-group-item">
                     <h4 class="list-group-item-heading" style="margin-bottom: 12px;">{{ $nino->nombre }} {{ $nino->apellido }}</h4>
                     <br>
                     @if($nino->identificacion != '')
@@ -51,8 +51,8 @@
                             @endif
                         @endforeach
                     </p>
+                    <br>
                     <p class="list-group-item-text">
-                        <br>
                         <strong>Medicamentos e insumos que requiere:</strong>
                         <?php $conteo = count($nino->medicamentos) + count($nino->insumos); ?>
                         @foreach($nino->medicamentos as $medicamento)
