@@ -13,7 +13,7 @@
         <h3><i class="fa fa-pencil"></i>&emsp;Modificar perfil</h3>
         <div class="col-xs-12 text-right">
             <a href="#" data-toggle="modal" data-target="#eliminar_cuenta">
-                Desactivar cuenta
+                Eliminar cuenta
             </a>
         </div>
         <form action="{{ route('actualizar-perfil') }}" method="post">
@@ -135,13 +135,13 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="gridSystemModalLabel">Desactivar cuenta</h4>
+                <h4 class="modal-title" id="gridSystemModalLabel">Eliminar cuenta</h4>
             </div>
             <form action="{{ route('desactivar_cuenta') }}" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-1">
-                            ¿Esta Seguro que desea desactivar su cuenta?
+                            ¿Esta Seguro que desea eliminar su cuenta?
                         </div>
                     </div>
                 </div>

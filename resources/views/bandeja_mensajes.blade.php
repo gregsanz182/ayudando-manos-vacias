@@ -21,8 +21,10 @@
                         <dd>{{ $mensaje->nombre_apellido_remitente }}</dd>
                         <dt>Correo: </dt>
                         <dd>{{ $mensaje->correo_remitente }}</dd>
-                        <dt>Teléfono: </dt>
-                        <dd>{{ $mensaje->telefono_remitente }}</dd>
+                        @if({{ $mensaje->has('telefono_remitente') }})
+                            <dt>Teléfono: </dt>
+                            <dd>{{ $mensaje->telefono_remitente }}</dd>
+                        @endif
                         <dt>Fecha: </dt>
                         <dd>{{ $mensaje->fecha }}</dd>
                         <dt>Destinatario (niño): </dt>
