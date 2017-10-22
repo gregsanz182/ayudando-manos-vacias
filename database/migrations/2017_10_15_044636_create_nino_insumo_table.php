@@ -25,7 +25,7 @@ class CreateNinoInsumoTable extends Migration
         });
 
         Schema::table('nino_insumo', function(Blueprint $table) {
-            $table->foreign('nino_id')->references('id')->on('nino');
+            $table->foreign('nino_id')->references('id')->on('nino')->onDelete('cascade');
             $table->foreign('categoria_insumo_id')->references('id')->on('categoria_insumo');
             $table->primary(["id", "nino_id", "categoria_insumo_id"]);
         });

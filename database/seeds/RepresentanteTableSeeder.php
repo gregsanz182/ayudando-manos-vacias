@@ -33,11 +33,10 @@ class RepresentanteTableSeeder extends Seeder
 
             Usuario::create([
                 'usuario' => $name.'_'.$l_name.'_'.rand(1, 2000),
-                'contrasena' => bcrypt('12345'),
+                'contrasena' => bcrypt(123456),
                 'rol_type' => 'App\Representante',
                 'correo' => $faker->freeEmail,
-                'rol_id' => $i+1,
-                'estado_cuenta' => rand(1, 5)==1?0:1
+                'rol_id' => $i+1
             ]);
         }
     }

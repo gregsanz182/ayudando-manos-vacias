@@ -14,6 +14,6 @@ class AdminTableSeeder extends Seeder
     public function run()
     {
         Admin::create(['nombre' => 'Gregory Sánchez']);
-        Usuario::create(['usuario' => 'admin', 'contrasena' => bcrypt('admin'), 'correo' => 'admin@admin.com', 'rol_type' => 'App\Admin', 'rol_id' => 1, 'estado_cuenta' => 1]);
+        Usuario::create(['usuario' => 'admin', 'contrasena' => bcrypt('admin'), 'correo' => 'admin@admin.com', 'rol_type' => 'App\Admin', 'rol_id' => 1]);
     }
 }

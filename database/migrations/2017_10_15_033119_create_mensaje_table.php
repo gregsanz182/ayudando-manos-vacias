@@ -25,7 +25,7 @@ class CreateMensajeTable extends Migration
         });
 
         Schema::table('mensaje', function(Blueprint $table) {
-            $table->foreign('nino_id')->references('id')->on('nino');
+            $table->foreign('nino_id')->references('id')->on('nino')->onDelete('cascade');
         });
     }
 

@@ -22,7 +22,7 @@ class CreateBitacoraTable extends Migration
         });
 
         Schema::table('bitacora', function (Blueprint $table) {
-            $table->foreign('usuario_id')->references('id')->on('usuario');
+            $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
         });
     }
 

@@ -25,9 +25,9 @@ class CreateNinoMedicamentoTable extends Migration
         });
 
         Schema::table('nino_medicamento', function(Blueprint $table) {
-            $table->foreign('nino_id')->references('id')->on('nino');
+            $table->foreign('nino_id')->references('id')->on('nino')->onDelete('cascade');
             $table->foreign('medicamento_id')->references('id')->on('medicamento');
-            $table->primary(["id", "nino_id"]);
+            $table->primary(["id", "nino_id", "medicamento_id"]);
         });
     }
 

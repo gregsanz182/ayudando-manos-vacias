@@ -27,7 +27,7 @@ class CreateNinoTable extends Migration
         });
 
         Schema::table('nino', function(Blueprint $table) {
-            $table->foreign('representante_id')->references('id')->on('representante');
+            $table->foreign('representante_id')->references('id')->on('representante')->onDelete('cascade');
         });
     }
 
