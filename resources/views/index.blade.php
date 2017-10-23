@@ -23,7 +23,7 @@
 <div class="container" id="cuerpo">
     <div class="row">
         <div class="col-md-6 col-sm-8 col-xs-12">
-            <h4>Registrate si necesitas de la ayuda que otras personas puedan darte.</h4>
+            <h4><a href="{{ route('registro') }}">Registrate</a> si necesitas de la ayuda que otras personas puedan darte.</h4>
             <img src="img/sonreir.fw.png" class="img-responsive" alt="Día internacional del cáncer infantil">
         </div>
         <div class="col-md-6 col-sm-8 col-xs-12">
