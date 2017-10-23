@@ -216,4 +216,11 @@ class NinoController extends Controller
         return redirect()->back();
     }
 
+    public function eliminarNino(Request $request)
+    {   
+        if(!Nino::find($request['nino_id']))
+            return redirect()->route('inicio');
+        Nino::where('id', $request['nino_id'])->delete();
+        return redirect()->route('ver-perfil');
+    }
 }

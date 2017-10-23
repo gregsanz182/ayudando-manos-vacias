@@ -9,8 +9,14 @@
 
 <div class="container" id="cuerpo">
     <div class='row'>
+        <h3><i class="fa fa-pencil"></i>&emsp;Modificar Niño</h3>
+        <div class="col-xs-12 text-right">
+            <a href="#" data-toggle="modal" data-target="#eliminar_nino">
+                Eliminar niño
+            </a>
+        </div>
         <div class="col-xs-12">
-            <h3>Tipos de cáncer que padece</h3>
+            <h4>Tipos de cáncer que padece</h4>
             <hr>
             <div class="row">
                 <div class="col-xs-12 text-right paginacion-meds-ins">
@@ -206,6 +212,33 @@
                     <button type="submit" class="btn btn-success">Modificar</button>
                 </div>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="eliminar_nino" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Eliminar niño</h4>
+            </div>
+            <form action="{{ route('desactivar_nino', ['nino_id' => $nino->id]) }}" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            ¿Esta Seguro que desea dejar de representar a este niño?
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-on">Aceptar</button>
+                </div>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="hidden" name="nino_id" value="{{$nino->id}}">
             </form>
         </div>
     </div>
