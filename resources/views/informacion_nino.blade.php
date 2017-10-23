@@ -73,10 +73,10 @@
                             &emsp;&emsp;&emsp;
                             <span><i class="fa fa-plus-square-o"></i></span>
                             <span>{{$insumo->nombre}}</span>
-                            @if($medicamento->motivo != '')
-                                <span>("{{$medicamento->motivo}}")</span>
+                            @if($insumo->motivo != '')
+                                <span>("{{$insumo->motivo}}")</span>
                             @endif
-                            <span>({{$medicamento->fecha}})</span>
+                            <span>({{$insumo->fecha}})</span>
                         @endforeach
                     </p>
                 </a>
