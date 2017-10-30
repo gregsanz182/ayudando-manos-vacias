@@ -55,7 +55,7 @@
                                     <input name="usuario_p" type="text" class="form-control" required value="{{ Auth::user()->usuario }}">
                                 </div>
                             </div>
-                            <div class="col-xs-6 {{ $errors->has('correo')?'has-error':'' }}">
+                            <div class="col-xs-6 {{ $errors->has('correo_p')?'has-error':'' }}">
                                 <label for="correo_p">Correo</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">
@@ -144,6 +144,7 @@
                 </div>
                 <!-- **********************  MEDICAMENTO  ********************** -->
                 <div id="menu2" class="tab-pane fade">
+                    <!-- **********************  GUARDAR MEDICAMENTO  ********************** -->
                     <div class="row">
                         <h3>Agregar medicamento</h3>
                         <form action="{{ route('guardar-medicamento') }}" method="post">
@@ -193,6 +194,7 @@
                 </div>
                 <!-- **********************  CATEGORIA INSUMO  ********************** -->
                 <div id="menu3" class="tab-pane fade">
+                    <!-- **********************  GUARDAR INSUMO  ********************** -->
                     <div class="row">
                         <h3>Agregar categoria de insumo</h3>
                         <form action="{{ route('guardar-categoria-insumo') }}" method="post">
@@ -234,6 +236,7 @@
                 </div>
                 <!-- **********************  LOCALIDAD  ********************** -->
                 <div id="menu4" class="tab-pane fade">
+                    <!-- **********************  GUARDAR LOCALIDAD  ********************** -->
                     <div class="row">
                         <h3>Agregar localidad</h3>
                         <form action="{{ route('guardar-localidad') }}" method="post">
@@ -264,7 +267,6 @@
                             <div class="col-xs-3">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Agregar</button>
                             </div>
-                            <input type="hidden" id="localidad_id" name="localidad_id">
                             <input type="hidden" name="_token" value="{{ Session::token() }}">
                         </form>
                     </div>
@@ -312,7 +314,7 @@
                         </form>
                     </div>
                 </div>
-                <!-- **********************  ADMINISTRADOR  ********************** -->
+                <!-- **********************  AGREGAR ADMINISTRADOR  ********************** -->
                 <div id="menu5" class="tab-pane fade">
                     <form action="{{ route('guardar-admin') }}" method="post" class="row">
                         <h3>Agregar Administrador</h3>

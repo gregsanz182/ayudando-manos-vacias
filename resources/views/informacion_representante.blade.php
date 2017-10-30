@@ -60,12 +60,10 @@
             </div>
         @endforeach
     </div>
-    @if($ban)
     <div class="row reg-desc">
         <h3>¿Tienes medicamentos o insumos que no usarás? !Donalos y ayúdame, dame una mano amiga!</h3>
         <p>Con tu aporte me ayudaras con está díficil situación en que me encuentro junto con mi hijo.</p>
         <p>Otra manera de ayudarnos es compartiendo la información de esta página, así el alcance de la misma será más amplio y personas o instituciones con recursos podrán brindar una mano amiga cuando más se necesita.</p>
     </div>
-    @endif
 </div>
 @endsection

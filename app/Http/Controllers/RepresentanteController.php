@@ -36,7 +36,12 @@ class RepresentanteController extends Controller
         $representante->cedula = $request['cedula'];
         $representante->fecha_nacimiento = $request['fecha_nacimiento'];
         $representante->genero = $request['genero']==1?'M':'F';
-        $representante->telefono = $request['telefono'];
+        if($request->has('telefono')){
+            $this->validate($request, [
+                'telefono' => 'min:11|max:11'
+            ]);
+            $representante->telefono = $request['telefono'];
+        }
         $representante->direccion = $request['direccion'];
         $representante->localidad_id = $request['municipio'];
         $representante->save();
@@ -49,11 +54,7 @@ class RepresentanteController extends Controller
         if(!$rep){
             return redirect()->back();
         }
-        $ban = true;
-        if($id == Auth::user()->rol_id && Auth::user()->rol_type == 'App\Representante'){
-            $ban = false;
-        }
-        return view('informacion_representante', ['rep' => $rep, 'ban' => $ban]);
+        return view('informacion_representante', ['rep' => $rep]);
     }
 
     public function mensajes($rep_id){
