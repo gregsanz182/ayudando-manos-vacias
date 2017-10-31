@@ -32,23 +32,30 @@ class UsuarioController extends Controller
         $bitacora = new Bitacora;
         $bitacora->accion = "eliminar";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = Auth::user()->rol->id;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
-
+        
         Auth::logout();
         Usuario::where('id',$user->id)->delete();
         if($user->rol_type == 'App\Admin'){
+            $bitacora->tabla = "usuario";
+            $bit = new Bitacora;
+            $bit->accion = "eliminar";
+            $bit->usuario_id = $user->id;
+            $bit->fecha = Carbon::now('America/Caracas');
+            $bit->tabla = "admin";
             Admin::where('id',$user->rol_id)->delete();
-            $bitacora->tabla = "admin";
-            $bitacora->usuario_representante_id = null;
         }else{
-            Representante::where('id',$user->rol_id)->delete();
             $bitacora->tabla = "representante";
-            $bitacora->usuario_admin_id = null;
+            $bit = new Bitacora;
+            $bit->accion = "eliminar";
+            $bit->usuario_id = $user->id;
+            $bit->fecha = Carbon::now('America/Caracas');
+            $bit->tabla = "representante";
+            Representante::where('id',$user->rol_id)->delete();
         }
         
         $bitacora->save();
+        $bit->save();
 
         return redirect()->route('inicio');
     }

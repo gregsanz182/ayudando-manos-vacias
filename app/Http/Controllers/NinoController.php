@@ -102,8 +102,6 @@ class NinoController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "nino";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -127,8 +125,6 @@ class NinoController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "nino_cancer";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -193,8 +189,6 @@ class NinoController extends Controller
         $bitacora->accion = "actualizar";
         $bitacora->tabla = "nino";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -223,8 +217,6 @@ class NinoController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "nino_cancer";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -250,8 +242,6 @@ class NinoController extends Controller
         $bitacora->accion = "actualizar";
         $bitacora->tabla = "nino_cancer";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -269,8 +259,6 @@ class NinoController extends Controller
         $bitacora->accion = "eliminar";
         $bitacora->tabla = "nino_cancer";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -287,8 +275,6 @@ class NinoController extends Controller
         $bitacora->accion = "eliminar";
         $bitacora->tabla = "nino";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 

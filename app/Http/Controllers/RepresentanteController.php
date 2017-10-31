@@ -31,8 +31,6 @@ class RepresentanteController extends Controller
             $bitacora->accion = "actualizar";
             $bitacora->tabla = "usuario";
             $bitacora->usuario_id = Auth::user()->id;
-            $bitacora->usuario_admin_id = null;
-            $bitacora->usuario_representante_id = Auth::user()->rol->id;
             $bitacora->fecha = Carbon::now('America/Caracas');
             $bitacora->save();
         }
@@ -60,8 +58,6 @@ class RepresentanteController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "representante";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 

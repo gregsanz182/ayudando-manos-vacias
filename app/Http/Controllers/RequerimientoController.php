@@ -48,8 +48,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "medicamento";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -76,8 +74,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "categoria_insumo";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -106,8 +102,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "actualizar";
         $bitacora->tabla = "medicamento";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -135,8 +129,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "actualizar";
         $bitacora->tabla = "categoria_insumo";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
@@ -154,8 +146,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "eliminar";
         $bitacora->tabla = "medicamento";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
         
@@ -173,8 +163,6 @@ class RequerimientoController extends Controller
         $bitacora->accion = "eliminar";
         $bitacora->tabla = "categoria_insumo";
         $bitacora->usuario_id = Auth::user()->id;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = Auth::user()->rol->id;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
         

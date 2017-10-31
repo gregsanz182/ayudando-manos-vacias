@@ -61,8 +61,6 @@ class RegistroController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "usuario";
         $bitacora->usuario_id = null;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = null;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
         
@@ -70,8 +68,6 @@ class RegistroController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "representante";
         $bitacora->usuario_id = null;
-        $bitacora->usuario_admin_id = null;
-        $bitacora->usuario_representante_id = null;
         $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 

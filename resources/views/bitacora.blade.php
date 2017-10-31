@@ -16,8 +16,6 @@
                     <tr>
                         <th>Fecha</th>
                         <th>Id Usuario</th>
-                        <th>Id Admin</th>
-                        <th>Id Representante</th>
                         <th>Tabla</th>
                         <th>Acción</th>
                     </tr>
@@ -28,13 +26,6 @@
                                 <td>---</td>
                             @else
                                 <td>{{ $bit->usuario_id }}</td>
-                            @endif
-                            @if( $bit->usuario_admin_id == null )
-                                <td>---</td>
-                                <td>{{ $bit->usuario_representante_id }}</td>
-                            @else
-                                <td>{{ $bit->usuario_admin_id }}</td>
-                                <td>---</td>
                             @endif
                             <td>{{ $bit->tabla }}</td>
                             <td>{{ $bit->accion }}</td>
