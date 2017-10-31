@@ -19,7 +19,7 @@ class MensajeController extends Controller
         $mensaje->mensaje = $request['mensaje'];
         $mensaje->correo_remitente = $request['correo'];
         $mensaje->nombre_apellido_remitente = $request['nombre'];
-        $mensaje->fecha = Carbon::now()->toDateString();
+        $mensaje->fecha = Carbon::now('America/Caracas');
         if($request->has('telefono'))
             $mensaje->telefono_remitente = $request['telefono'];
         $mensaje->nino_id = $request['nino_id'];
