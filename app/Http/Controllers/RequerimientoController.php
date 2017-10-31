@@ -9,6 +9,7 @@ use App\Nino_Medicamento;
 use App\Nino_Insumo;
 use App\Medicamento;
 use App\Categoria_Insumo;
+use Carbon\Carbon;
 
 class RequerimientoController extends Controller
 {
@@ -43,6 +44,15 @@ class RequerimientoController extends Controller
         $nino_medicamento->nino_id = $nino_id;
 
         $nino_medicamento->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "medicamento";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
 
         return redirect()->back();
     }
@@ -61,6 +71,15 @@ class RequerimientoController extends Controller
         $nino_insumo->nino_id = $nino_id;
 
         $nino_insumo->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "categoria_insumo";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
 
         return redirect()->back();
     }
@@ -82,6 +101,15 @@ class RequerimientoController extends Controller
                         ->where('id', $id)
                         ->update($insert);
 
+        $bitacora = new Bitacora;
+        $bitacora->accion = "actualizar";
+        $bitacora->tabla = "medicamento";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
+
         return redirect()->back();
     }
 
@@ -100,6 +128,15 @@ class RequerimientoController extends Controller
                         ->where('categoria_insumo_id', $categoria_insumo_id)
                         ->where('id', $id)
                         ->update($insert);
+                        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "actualizar";
+        $bitacora->tabla = "categoria_insumo";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
 
         return redirect()->back();
     }
@@ -110,6 +147,15 @@ class RequerimientoController extends Controller
                         ->where('medicamento_id', $medicamento_id)
                         ->where('id', $id)
                         ->delete();
+                        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "eliminar";
+        $bitacora->tabla = "medicamento";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
         
         return redirect()->back();
     }
@@ -120,6 +166,15 @@ class RequerimientoController extends Controller
                         ->where('categoria_insumo_id', $categoria_insumo_id)
                         ->where('id', $id)
                         ->delete();
+                        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "eliminar";
+        $bitacora->tabla = "categoria_insumo";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
         
         return redirect()->back();
     }

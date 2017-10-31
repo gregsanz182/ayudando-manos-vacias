@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Usuario;
 use App\Localidad;
 use App\Representante;
+use Carbon\Carbon;
 
 class RegistroController extends Controller
 {
@@ -55,6 +56,24 @@ class RegistroController extends Controller
         $usuario->estado_cuenta = 1;
 
         $usuario->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "usuario";
+        $bitacora->usuario_id = null;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "representante";
+        $bitacora->usuario_id = null;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
 
         Auth::login($usuario);
 

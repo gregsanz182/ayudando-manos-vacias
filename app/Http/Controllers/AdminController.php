@@ -12,6 +12,7 @@ use App\Localidad;
 use App\Usuario;
 use App\Admin;
 use App\Bitacora;
+use Carbon\Carbon;
 
 
 class AdminController extends Controller
@@ -51,7 +52,10 @@ class AdminController extends Controller
         $bitacora = new Bitacora;
         $bitacora->accion = "actualizar";
         $bitacora->tabla = "usuario";
-        $bitacora->usuario_id = $usuario->id;
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
         return redirect()->route('admin');
@@ -70,6 +74,9 @@ class AdminController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "cancer";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
         return redirect()->route('admin');
@@ -83,6 +90,15 @@ class AdminController extends Controller
             $cancer->nombre = $request['tipo_c_a'];
             $cancer->descripcion = $request['desc_c_a'];
             $cancer->save();
+            
+            $bitacora = new Bitacora;
+            $bitacora->accion = "actualizar";
+            $bitacora->tabla = "cancer";
+            $bitacora->usuario_id = Auth::user()->id;
+            $bitacora->usuario_admin_id = Auth::user()->rol->id;
+            $bitacora->usuario_representante_id = null;
+            $bitacora->fecha = Carbon::now('America/Caracas');
+            $bitacora->save();
         }
 
         return redirect()->route('admin');
@@ -101,9 +117,12 @@ class AdminController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "medicamento";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
-        return redirect()->view('admin');
+        return redirect()->route('admin');
     }
 
     public function actualizar_medicamento(Request $request){
@@ -114,6 +133,15 @@ class AdminController extends Controller
             $medicamento->nombre = $request['nombre_m_a'];
             $medicamento->descripcion = $request['desc_m_a'];
             $medicamento->save();
+            
+            $bitacora = new Bitacora;
+            $bitacora->accion = "actualizar";
+            $bitacora->tabla = "medicamento";
+            $bitacora->usuario_id = Auth::user()->id;
+            $bitacora->usuario_admin_id = Auth::user()->rol->id;
+            $bitacora->usuario_representante_id = null;
+            $bitacora->fecha = Carbon::now('America/Caracas');
+            $bitacora->save();
         }
 
         return redirect()->route('admin');
@@ -135,6 +163,9 @@ class AdminController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "categoria_insumo";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
         return redirect()->route('admin');
@@ -149,6 +180,15 @@ class AdminController extends Controller
                 $insumo->nombre = $request['nombre_i_a'];
             }
             $insumo->save();
+            
+            $bitacora = new Bitacora;
+            $bitacora->accion = "actualizar";
+            $bitacora->tabla = "categoria_insumo";
+            $bitacora->usuario_id = Auth::user()->id;
+            $bitacora->usuario_admin_id = Auth::user()->rol->id;
+            $bitacora->usuario_representante_id = null;
+            $bitacora->fecha = Carbon::now('America/Caracas');
+            $bitacora->save();
         }
 
         return redirect()->route('admin');
@@ -172,6 +212,9 @@ class AdminController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "localidad";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
         return redirect()->route('admin');
@@ -188,6 +231,15 @@ class AdminController extends Controller
                 $localidad->localidad_id = null;
             }
             $localidad->save();
+            
+            $bitacora = new Bitacora;
+            $bitacora->accion = "actualizar";
+            $bitacora->tabla = "localidad";
+            $bitacora->usuario_id = Auth::user()->id;
+            $bitacora->usuario_admin_id = Auth::user()->rol->id;
+            $bitacora->usuario_representante_id = null;
+            $bitacora->fecha = Carbon::now('America/Caracas');
+            $bitacora->save();
         }
 
         return redirect()->route('admin');
@@ -213,7 +265,6 @@ class AdminController extends Controller
         $usuario->contrasena = bcrypt($request['contrasena_n']);
         $usuario->rol_id = $admin->id;
         $usuario->rol_type = 'App\Admin';
-        $usuario->estado_cuenta = 1;
         
         $usuario->save();
 
@@ -221,14 +272,25 @@ class AdminController extends Controller
         $bitacora->accion = "insertar";
         $bitacora->tabla = "admin";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
         
         $bitacora = new Bitacora;
         $bitacora->accion = "insertar";
         $bitacora->tabla = "usuario";
         $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = Auth::user()->rol->id;
+        $bitacora->usuario_representante_id = null;
+        $bitacora->fecha = Carbon::now('America/Caracas');
         $bitacora->save();
 
         return redirect()->route('admin');
+    }
+
+    public function bitacora(){
+        $bitacora = Bitacora::orderBy('fecha')->get();
+        return view('bitacora',['bitacora' => $bitacora]);
     }
 }

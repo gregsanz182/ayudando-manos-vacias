@@ -55,6 +55,8 @@ Route::middleware(['es_admin'])->group(function(){
 
     Route::post('/admin/guardar-admin', 'AdminController@guardar_admin')->name('guardar-admin');
 
+    Route::get('/bitacora','AdminController@bitacora')->name('bitacora');
+
 });
 
 Route::middleware(['es_representante'])->group(function(){

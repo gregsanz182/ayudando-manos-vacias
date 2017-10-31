@@ -26,7 +26,7 @@
                             @endif
                             @if (Auth::user()->rol_type == "App\Admin")
                                 <li>
-                                    <a href="{{ route('bitacora') }}" class={{ Route::currentRouteName()=="bitacora"?"active":"" }}><i class="fa fa-users"></i> Bitacora</a>
+                                    <a href="{{ route('bitacora') }}" class={{ Route::currentRouteName()=="bitacora"?"active":"" }}><i class="fa fa-archive"></i> Bitacora</a>
                                 </li>
                             @endif
                         @endif

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Localidad;
 use App\Representante;
 use App\Mensaje;
+use Carbon\Carbon;
 
 class RepresentanteController extends Controller
 {
@@ -25,6 +26,15 @@ class RepresentanteController extends Controller
                 'confirmar_contrasena' => 'same:contrasena'
             ]);
             $usuario->contrasena = bcrypt($request['contrasena']);
+            
+            $bitacora = new Bitacora;
+            $bitacora->accion = "actualizar";
+            $bitacora->tabla = "usuario";
+            $bitacora->usuario_id = Auth::user()->id;
+            $bitacora->usuario_admin_id = null;
+            $bitacora->usuario_representante_id = Auth::user()->rol->id;
+            $bitacora->fecha = Carbon::now('America/Caracas');
+            $bitacora->save();
         }
         $usuario->usuario = $request['usuario'];
         $usuario->correo = $request['correo'];
@@ -45,6 +55,15 @@ class RepresentanteController extends Controller
         $representante->direccion = $request['direccion'];
         $representante->localidad_id = $request['municipio'];
         $representante->save();
+        
+        $bitacora = new Bitacora;
+        $bitacora->accion = "insertar";
+        $bitacora->tabla = "representante";
+        $bitacora->usuario_id = Auth::user()->id;
+        $bitacora->usuario_admin_id = null;
+        $bitacora->usuario_representante_id = Auth::user()->rol->id;
+        $bitacora->fecha = Carbon::now('America/Caracas');
+        $bitacora->save();
 
         return redirect()->route('ver-perfil');
     }
