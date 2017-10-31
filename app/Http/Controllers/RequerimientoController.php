@@ -35,8 +35,7 @@ class RequerimientoController extends Controller
         $nino_medicamento->id = Nino_Medicamento::getNextId();
         $nino_medicamento->fecha = $request['fecha'];
         $nino_medicamento->medicamento_id = $request['medicamento'];
-        if($request->has('dosis'))
-            $nino_medicamento->dosis = $request['dosis'];
+        $nino_medicamento->cantidad = $request['cantidad'];
         if($request->has('otro_medicamento'))
             $nino_medicamento->nombre_otro = $request['otro_medicamento'];
         $nino_medicamento->estado_requerimiento = 'Requerido';
@@ -55,6 +54,7 @@ class RequerimientoController extends Controller
         $nino_insumo->nombre = $request['insumo'];
         $nino_insumo->fecha = $request->fecha;
         $nino_insumo->categoria_insumo_id = $request['categoria_insumo'];
+        $nino_insumo->cantidad = $request['cantidad'];
         if($request->has('motivo'))
             $nino_insumo->motivo = $request['motivo'];
         $nino_insumo->estado_requerimiento = 'Requerido';
@@ -69,7 +69,8 @@ class RequerimientoController extends Controller
     {
         $insert = [
             'fecha' => $request['fecha'],
-            'medicamento_id' => $request['medicamento']
+            'medicamento_id' => $request['medicamento'],
+            'cantidad' => $request['cantidad']
         ];
         if($request->has('dosis'))
             $insert['dosis'] = $request['dosis'];
@@ -90,7 +91,8 @@ class RequerimientoController extends Controller
         $insert = [
             'fecha' => $request['fecha'],
             'categoria_insumo_id' => $request['categoria_insumo'],
-            'nombre' => $request['insumo']
+            'nombre' => $request['insumo'],
+            'cantidad' => $request['cantidad']
         ];
         if($request->has('motivo'))
             $insert['motivo'] = $request['motivo'];

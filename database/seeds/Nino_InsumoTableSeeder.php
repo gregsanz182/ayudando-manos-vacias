@@ -43,7 +43,7 @@ class Nino_InsumoTableSeeder extends Seeder
                     'nombre' => $nombre[$randCatInsumo][0],
                     'fecha' => $faker->dateTimeBetween($startDate = $nino->created_at, $endDate = '1 years'),
                     'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
-                    'cantidad' => rand(0, 20),
+                    'cantidad' => rand(1, 20),
                     'nino_id' => $nino->id,
                     'categoria_insumo_id' => $nombre[$randCatInsumo][1]
             ));

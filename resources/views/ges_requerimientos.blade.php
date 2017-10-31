@@ -71,6 +71,7 @@
                             <th>Categoria</th>
                             <th>Fecha limite</th>
                             <th>Motivo</th>
+                            <th>Cantidad</th>
                             <th>Estado</th>
                             <th>Editar</th>
                         </tr>
@@ -82,10 +83,11 @@
                             <th>{{ $insumo->categoria_insumo->nombre }}</th>
                             <th>{{ $insumo->fecha }}</th>
                             <th>{{ $insumo->motivo }}</th>
+                            <th>{{ $insumo->cantidad }}</th>
                             <th>{{ $insumo->estado_requerimiento }}</th>
                             <th>
                                 @if($insumo->estado_requerimiento == 'Requerido')
-                                <button type="button" class="btn btn-link" onclick="modInsumoModal('{{$insumo->id}}', '{{$insumo->categoria_insumo_id}}', '{{$insumo->nombre}}', '{{$insumo->fecha}}', '{{$insumo->motivo}}')">
+                                <button type="button" class="btn btn-link" onclick="modInsumoModal('{{$insumo->id}}', '{{$insumo->categoria_insumo_id}}', '{{$insumo->nombre}}', '{{$insumo->fecha}}', '{{$insumo->cantidad}}', '{{$insumo->motivo}}')">
                                     <i class="fa fa-edit"></i>
                                 </button>
                                 @endif
@@ -136,19 +138,7 @@
                         </div>
                         <div class="col-xs-6 form-group">
                             <label for='cantidad'>Cantidad</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" data-value="-1" data-target="#spinner2" data-toggle="spinner">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" data-ride="spinner" name='cantidad' id="spinner2" class="form-control input-number" value="1" data-min="0" data-max="100">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" data-value="2" data-target="#spinner2" data-toggle="spinner" data-on="mousehold">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                </span>
-                            </div>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                 </div>
@@ -199,19 +189,7 @@
                         </div>
                         <div class="col-xs-6 form-group">
                             <label for='cantidad'>Cantidad</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" data-value="-1" data-target="#spinner2" data-toggle="spinner">
-                                        <span class="glyphicon glyphicon-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" data-ride="spinner" name='cantidad' id="spinner2" class="form-control input-number" value="" data-min="0" data-max="100">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" data-value="2" data-target="#spinner2" data-toggle="spinner" data-on="mousehold">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                </span>
-                            </div>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                     <div class="row">
@@ -270,9 +248,9 @@
                                 <input placeholder='AAAA-MM-DD' type="date" name='fecha' class="form-control" required>
                             </div>
                         </div>
-                        <div class="col-xs-6 form-group">
-                            <label for='motivo'>Motivo (Opcional)</label>
-                            <input id='motivo' type="text" class="form-control" name='dosis' placeholder="Motivo">
+                        <div class="col-xs-4 form-group">
+                            <label for='cantidad'>Cantidad</label>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                 </div>
@@ -322,7 +300,7 @@
                         </div>
                         <div class="col-xs-4 form-group">
                             <label for='cantidad'>Cantidad</label>
-                            <input name='cantidad' type="number" min="10" max="20" step="2" value="16" class='form-control' required>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="" class='form-control' required>
                         </div>
                     </div>
                     <div class="row">

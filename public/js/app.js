@@ -51,11 +51,12 @@ function modMedicamentoModal(id, medicamento_id, fecha, cantidad, nombre_otro){
     $('#mod-medicamento-modal').modal('show');
 }
 
-function modInsumoModal(id, categoria_insumo_id, nombre, fecha, motivo){
+function modInsumoModal(id, categoria_insumo_id, nombre, fecha, cantidad, motivo){
     $("#mod-insumo-modal select[name='categoria_insumo']").val(categoria_insumo_id).change();
     $("#mod-insumo-modal input[name='insumo']").val(nombre).change();
     $("#mod-insumo-modal input[name='fecha']").val(fecha).change();
     $("#mod-insumo-modal input[name='motivo']").val(motivo).change();
+    $("#mod-insumo-modal input[name='cantidad']").val(cantidad).change();
     $("#mod-insumo-modal form").attr('action', mod_insumo_url+id+'/'+categoria_insumo_id).change();
     $("#mod-insumo-modal .modal-footer a").attr('href', del_insumo_url+id+'/'+categoria_insumo_id).change();
     $('#mod-insumo-modal').modal('show');
