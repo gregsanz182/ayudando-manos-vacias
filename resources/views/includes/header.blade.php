@@ -24,6 +24,11 @@
                                     <a href="{{ route('bandeja', ['id' => Auth::user()->rol_id]) }}"><i class="fa fa-inbox"></i> Buzon de mensajes</a>
                                 </li>
                             @endif
+                            @if (Auth::user()->rol_type == "App\Admin")
+                                <li>
+                                    <a href="{{ route('bitacora') }}" class={{ Route::currentRouteName()=="bitacora"?"active":"" }}><i class="fa fa-users"></i> Bitacora</a>
+                                </li>
+                            @endif
                         @endif
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

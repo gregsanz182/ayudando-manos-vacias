@@ -38,7 +38,7 @@ class RepresentanteController extends Controller
         $representante->genero = $request['genero']==1?'M':'F';
         if($request->has('telefono')){
             $this->validate($request, [
-                'telefono' => 'min:11|max:11'
+                'telefono' => 'size:11'
             ]);
             $representante->telefono = $request['telefono'];
         }

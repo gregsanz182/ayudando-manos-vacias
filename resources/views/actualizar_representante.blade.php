@@ -71,7 +71,7 @@
                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-calendar-plus-o"></i></span>
-                        <input type="datetime" placeholder="AAAA-MM-DD" required name="fecha_nacimiento" class="form-control" value="{{ $repre->rol->fecha_nacimiento }}">
+                        <input type="date" placeholder="AAAA-MM-DD" required name="fecha_nacimiento" class="form-control" value="{{ $repre->rol->fecha_nacimiento }}">
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <label for="telefono">Teléfono</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                        <input type="number" min="11" max="11" name="telefono" class="form-control" required placeholder="Teléfono" value="{{ $repre->rol->telefono }}">
+                        <input type="number" name="telefono" class="form-control" required placeholder="Teléfono" value="{{ $repre->rol->telefono }}">
                     </div>
                 </div>
                 <div class="col-xs-6">
