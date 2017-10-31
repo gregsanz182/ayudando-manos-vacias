@@ -14,6 +14,8 @@
             <a href="#" data-toggle="modal" data-target="#eliminar_nino">
                 Eliminar niño
             </a>
+            <button type="button" class="btn btn-success">
+                        <i class="fa fa-medkit"></i> Modificar requerimientos</button>
         </div>
         <div class="col-xs-12">
             <h4>Tipos de cáncer que padece</h4>
