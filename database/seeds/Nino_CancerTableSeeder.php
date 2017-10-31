@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Nino_Cancer;
 use Faker\Factory as Faker;
+use App\Nino;
 
 class Nino_CancerTableSeeder extends Seeder
 {
@@ -23,9 +24,10 @@ class Nino_CancerTableSeeder extends Seeder
         ];
         for ($i=0; $i<60; $i++)
         {
+            $nino = Nino::find($i+1);
             Nino_Cancer::create(array(
                 'id' => Nino_Cancer::getNextId(),
-                'fecha_desde' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                'fecha_desde' => $faker->dateTimeBetween($startDate = $nino->fecha_nacimiento, $endDate = 'now'),
                 'estado_actual' => $estadoActual[array_rand($estadoActual)],
                 'nino_id' => $i+1,
                 'cancer_id' => rand(1, 12)

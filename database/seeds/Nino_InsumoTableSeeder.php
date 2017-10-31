@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Nino_Insumo;
+use App\Nino;
 
 class Nino_InsumoTableSeeder extends Seeder
 {
@@ -36,12 +37,14 @@ class Nino_InsumoTableSeeder extends Seeder
         for ($i=0; $i<100; $i++)
         {
             $randCatInsumo = array_rand($nombre);
+            $nino = Nino::find(rand(1, 60));
             Nino_Insumo::create(array(
                     'id' => Nino_Insumo::getNextId(),
                     'nombre' => $nombre[$randCatInsumo][0],
-                    'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'fecha' => $faker->dateTimeBetween($startDate = $nino->created_at, $endDate = '1 years'),
                     'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
-                    'nino_id' => rand(1, 60),
+                    'cantidad' => rand(0, 20),
+                    'nino_id' => $nino->id,
                     'categoria_insumo_id' => $nombre[$randCatInsumo][1]
             ));
         }

@@ -18,7 +18,7 @@ class CreateNinoMedicamentoTable extends Migration
             $table->date('fecha');
             $table->string('estado_requerimiento');
             $table->string('nombre_otro')->nullable();
-            $table->string('dosis')->nullable();
+            $table->integer('cantidad');
             $table->integer('nino_id')->unsigned();
             $table->integer('medicamento_id')->unsigned();
             $table->timestamps();

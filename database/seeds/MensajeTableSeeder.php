@@ -18,7 +18,7 @@ class MensajeTableSeeder extends Seeder
         {
             Mensaje::create(array(
                 'mensaje' => $faker->text($maxNbChars = 280),
-                'fecha' => $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
+                'fecha' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
                 'correo_remitente' => $faker->freeEmail,
                 'nombre_apellido_remitente' => $faker->name,
                 'telefono_remitente' => $faker->optional()->e164PhoneNumber,

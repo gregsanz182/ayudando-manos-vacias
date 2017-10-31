@@ -4,3 +4,5 @@
 <script src="{{ URL::to('bootstrap-checkbox/js/bootstrap-toggle.min.js') }}"></script>
 <script src="{{ URL::to('js/app.js') }}"></script>
 <script src="{{ URL::to('bootstrap-select-1.12.4/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ URL::to('bootstrap-spinner/bootstrap-spinner.min.js') }}"></script>
+<script src="{{ URL::to('bootstrap-spinner/mousehold.min.js') }}"></script>
