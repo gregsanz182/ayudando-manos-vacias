@@ -11,9 +11,10 @@
     <div class='row'>
         <h3><i class="fa fa-pencil"></i>&emsp;Modificar Niño</h3>
         <div class="col-xs-12 text-right">
-            <a href="#" data-toggle="modal" data-target="#eliminar_nino">
-                Eliminar niño
-            </a>
+            <button type="button" class="btn btn-warning" onclick='window.location.href="{{ route('gestion_requerimientos', ['nino_id' => $nino->id]) }}"'>
+                        <i class="fa fa-medkit"></i> Modificar requerimientos</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar_nino">
+                        <i class="fa fa-medkit"></i> Eliminar niño</button>
         </div>
         <div class="col-xs-12">
             <h4>Tipos de cáncer que padece</h4>
@@ -235,7 +236,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-on">Aceptar</button>
+                    <button type="submit" class="btn btn-danger">Aceptar</button>
                 </div>
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <input type="hidden" name="nino_id" value="{{$nino->id}}">

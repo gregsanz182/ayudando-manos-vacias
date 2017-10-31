@@ -16,9 +16,10 @@ class CreateNinoInsumoTable extends Migration
         Schema::create('nino_insumo', function(Blueprint $table) {
             $table->integer('id');
             $table->string('nombre');
-            $table->string('fecha');
+            $table->date('fecha');
             $table->string('estado_requerimiento')->nullable();
             $table->string('motivo')->nullable();
+            $table->integer('cantidad');
             $table->integer('nino_id')->unsigned();
             $table->integer('categoria_insumo_id')->unsigned();
             $table->timestamps();

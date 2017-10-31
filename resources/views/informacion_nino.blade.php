@@ -63,9 +63,7 @@
                             @if($medicamento->nombre_otro != '')
                                 <span>("{{$medicamento->nombre_otro}}")</span>
                             @endif
-                            @if($medicamento->dosis != '')
-                                <span>({{$medicamento->dosis}})</span>
-                            @endif
+                            <span>({{$medicamento->cantidad}})</span>
                             <span>({{$medicamento->fecha}})</span>
                         @endforeach
                         @foreach($nino->insumos as $insumo)
@@ -76,6 +74,7 @@
                             @if($insumo->motivo != '')
                                 <span>("{{$insumo->motivo}}")</span>
                             @endif
+                            <span>({{$insumo->cantidad}})</span>
                             <span>({{$insumo->fecha}})</span>
                         @endforeach
                     </p>

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Nino_Medicamento;
+use App\Nino;
 
 class Nino_MedicamentoTableSeeder extends Seeder
 {
@@ -20,11 +21,13 @@ class Nino_MedicamentoTableSeeder extends Seeder
         ];
         for ($i=0; $i<200; $i++)
         {
+            $nino = Nino::find(rand(1, 60));
             Nino_Medicamento::create(array(
                     'id' => Nino_Medicamento::getNextId(),
-                    'fecha' => $faker->date($format = 'Y-m-d', $max = 'now'),
+                    'fecha' => $faker->dateTimeBetween($startDate = $nino->created_at, $endDate = '1 years'),
                     'estado_requerimiento' => $estadoActual[array_rand($estadoActual)],
-                    'nino_id' => rand(1, 60),
+                    'nino_id' => $nino->id,
+                    'cantidad' => rand(1, 20),
                     'medicamento_id' => rand(1, 13)
             ));
         }

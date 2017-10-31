@@ -9,6 +9,11 @@
 
 });*/
 
+$('.spinner').spinner({
+    min: 0,
+    max: 100
+});
+
 $('#estado_select').on('change', function() {
     $.ajax({
         method: 'POST',
@@ -36,21 +41,22 @@ function otroSelect(sel, sel2){
     }
 }
 
-function modMedicamentoModal(id, medicamento_id, fecha, dosis, nombre_otro){
+function modMedicamentoModal(id, medicamento_id, fecha, cantidad, nombre_otro){
     $("#mod-medicamento-modal select[name='medicamento']").val(medicamento_id).change();
     $("#mod-medicamento-modal input[name='otro_medicamento']").val(nombre_otro).change();
     $("#mod-medicamento-modal input[name='fecha']").val(fecha).change();
-    $("#mod-medicamento-modal input[name='dosis']").val(dosis).change();
+    $("#mod-medicamento-modal input[name='cantidad']").val(cantidad).change();
     $("#mod-medicamento-modal form").attr('action', mod_medicamento_url+id+'/'+medicamento_id).change();
     $("#mod-medicamento-modal .modal-footer a").attr('href', del_medicamento_url+id+'/'+medicamento_id).change();
     $('#mod-medicamento-modal').modal('show');
 }
 
-function modInsumoModal(id, categoria_insumo_id, nombre, fecha, motivo){
+function modInsumoModal(id, categoria_insumo_id, nombre, fecha, cantidad, motivo){
     $("#mod-insumo-modal select[name='categoria_insumo']").val(categoria_insumo_id).change();
     $("#mod-insumo-modal input[name='insumo']").val(nombre).change();
     $("#mod-insumo-modal input[name='fecha']").val(fecha).change();
     $("#mod-insumo-modal input[name='motivo']").val(motivo).change();
+    $("#mod-insumo-modal input[name='cantidad']").val(cantidad).change();
     $("#mod-insumo-modal form").attr('action', mod_insumo_url+id+'/'+categoria_insumo_id).change();
     $("#mod-insumo-modal .modal-footer a").attr('href', del_insumo_url+id+'/'+categoria_insumo_id).change();
     $('#mod-insumo-modal').modal('show');

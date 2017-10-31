@@ -18,14 +18,14 @@ class NinoController extends Controller
     {
         $ninos = Nino::with([
             'medicamentos' => function($query){
-                $query->where('estado_requerimiento', 'Requerido');
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
             },
             'insumos' => function($query){
-                $query->where('estado_requerimiento', 'Requerido');
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
             }])->whereHas('medicamentos', function($query){
-                $query->where('estado_requerimiento', 'Requerido');
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
             })->whereHas('insumos', function($query){
-                $query->where('estado_requerimiento', 'Requerido');
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
             })->whereHas('canceres', function($query) use ($request){
                 if($request->exists('cancer') && $request['cancer'])
                     $query->where('cancer_id', $request['cancer']);
@@ -137,7 +137,13 @@ class NinoController extends Controller
 
     public function infoNino($id)
     {
-        $nino = Nino::find($id);
+        $nino = Nino::with([
+            'medicamentos' => function($query){
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
+            },
+            'insumos' => function($query){
+                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
+            }])->find($id);
         if(!$nino){
             return redirect()->back();
         }

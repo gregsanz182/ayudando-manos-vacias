@@ -25,7 +25,7 @@ class RepresentanteTableSeeder extends Seeder
                 'nombre' => $name,
                 'apellido' => $l_name,
                 'genero' => ( $genderRand==1 ? 'F' : 'M'),
-                'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = '1999-01-01'),
+                'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = '-16 years'),
                 'telefono' => $faker->e164PhoneNumber,
                 'direccion' => $faker->address,
                 'localidad_id' => $faker->numberBetween($min = 26, $max=56)

@@ -25,7 +25,7 @@
                             <th>Nombre</th>
                             <th>Otro nombre</th>
                             <th>Fecha limite</th>
-                            <th>Dosis</th>
+                            <th>Cantidad</th>
                             <th>Estado</th>
                             <th>Editar</th>
                         </tr>
@@ -36,11 +36,11 @@
                             <th>{{ $medicamento->medicamento->nombre }}</th>
                             <th>{{ $medicamento->nombre_otro }}</th>
                             <th>{{ $medicamento->fecha }}</th>
-                            <th>{{ $medicamento->dosis }}</th>
+                            <th>{{ $medicamento->cantidad }}</th>
                             <th>{{ $medicamento->estado_requerimiento }}</th>
                             <th>
                                 @if($medicamento->estado_requerimiento == 'Requerido')
-                                <button type="button" class="btn btn-link" onclick="modMedicamentoModal('{{$medicamento->id}}', '{{$medicamento->medicamento_id}}', '{{$medicamento->fecha}}', '{{$medicamento->dosis}}', '{{$medicamento->nombre_otro}}')">
+                                <button type="button" class="btn btn-link" onclick="modMedicamentoModal('{{$medicamento->id}}', '{{$medicamento->medicamento_id}}', '{{$medicamento->fecha}}', '{{$medicamento->cantidad}}', '{{$medicamento->nombre_otro}}')">
                                     <i class="fa fa-edit"></i>
                                 </button>
                                 @endif
@@ -71,6 +71,7 @@
                             <th>Categoria</th>
                             <th>Fecha limite</th>
                             <th>Motivo</th>
+                            <th>Cantidad</th>
                             <th>Estado</th>
                             <th>Editar</th>
                         </tr>
@@ -82,10 +83,11 @@
                             <th>{{ $insumo->categoria_insumo->nombre }}</th>
                             <th>{{ $insumo->fecha }}</th>
                             <th>{{ $insumo->motivo }}</th>
+                            <th>{{ $insumo->cantidad }}</th>
                             <th>{{ $insumo->estado_requerimiento }}</th>
                             <th>
                                 @if($insumo->estado_requerimiento == 'Requerido')
-                                <button type="button" class="btn btn-link" onclick="modInsumoModal('{{$insumo->id}}', '{{$insumo->categoria_insumo_id}}', '{{$insumo->nombre}}', '{{$insumo->fecha}}', '{{$insumo->motivo}}')">
+                                <button type="button" class="btn btn-link" onclick="modInsumoModal('{{$insumo->id}}', '{{$insumo->categoria_insumo_id}}', '{{$insumo->nombre}}', '{{$insumo->fecha}}', '{{$insumo->cantidad}}', '{{$insumo->motivo}}')">
                                     <i class="fa fa-edit"></i>
                                 </button>
                                 @endif
@@ -135,8 +137,8 @@
                             </div>
                         </div>
                         <div class="col-xs-6 form-group">
-                            <label for='dosis'>Dosis (Opcional)</label>
-                            <input id='nombre_otro' type="text" class="form-control" name='dosis' placeholder="Dosis">
+                            <label for='cantidad'>Cantidad</label>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                 </div>
@@ -186,8 +188,8 @@
                             </div>
                         </div>
                         <div class="col-xs-6 form-group">
-                            <label for='dosis'>Dosis (Opcional)</label>
-                            <input id='nombre_otro' type="text" class="form-control" name='dosis' placeholder="Dosis">
+                            <label for='cantidad'>Cantidad</label>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                     <div class="row">
@@ -246,9 +248,9 @@
                                 <input placeholder='AAAA-MM-DD' type="date" name='fecha' class="form-control" required>
                             </div>
                         </div>
-                        <div class="col-xs-6 form-group">
-                            <label for='motivo'>Motivo (Opcional)</label>
-                            <input id='motivo' type="text" class="form-control" name='dosis' placeholder="Motivo">
+                        <div class="col-xs-4 form-group">
+                            <label for='cantidad'>Cantidad</label>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="1" class='form-control' required>
                         </div>
                     </div>
                 </div>
@@ -288,18 +290,17 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 form-group">
+                        <div class="col-xs-4 form-group">
                             <label for="fecha">Fecha limite</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-calendar-plus-o"></i>
-                                </span>
-                                <input placeholder='AAAA-MM-DD' type="date" name='fecha' class="form-control" required>
-                            </div>
+                            <input placeholder='AAAA-MM-DD' type="date" name='fecha' class="form-control" required>
                         </div>
-                        <div class="col-xs-6 form-group">
+                        <div class="col-xs-4 form-group">
                             <label for='motivo'>Motivo (Opcional)</label>
                             <input id='motivo' type="text" class="form-control" name='dosis' placeholder="Motivo">
+                        </div>
+                        <div class="col-xs-4 form-group">
+                            <label for='cantidad'>Cantidad</label>
+                            <input name='cantidad' type="number" min="1" max="100" step="1" value="" class='form-control' required>
                         </div>
                     </div>
                     <div class="row">
