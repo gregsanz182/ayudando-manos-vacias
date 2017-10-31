@@ -10,6 +10,7 @@ use App\Nino_Insumo;
 use App\Medicamento;
 use App\Categoria_Insumo;
 use Carbon\Carbon;
+use App\Bitacora;
 
 class RequerimientoController extends Controller
 {

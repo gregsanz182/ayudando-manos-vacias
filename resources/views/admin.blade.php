@@ -129,11 +129,11 @@
                             </div>
                             <div class="col-xs-4">
                                 <label for="tipo_c_a">Tipo</label>
-                                <input name="tipo_c_a" id="tipo_c_a" type="text" class="form-control" required disabled>
+                                <input name="tipo_c_a" id="tipo_c_a" type="text" class="form-control" required>
                             </div>
                             <div class="col-xs-4">
                                 <label for="desc_c_a">Descripción</label>
-                                <input name="desc_c_a" id="desc_c_a" type="text" class="form-control" required disabled>
+                                <input name="desc_c_a" id="desc_c_a" type="text" class="form-control" required>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
@@ -179,11 +179,11 @@
                             </div>
                             <div class="col-xs-4">
                                 <label for="nombre_m_a">Nombre</label>
-                                <input name="nombre_m_a" id="nombre_m_a" type="text" class="form-control" required disabled>
+                                <input name="nombre_m_a" id="nombre_m_a" type="text" class="form-control" required>
                             </div>
                             <div class="col-xs-4">
                                 <label for="desc_m_a">Descripción</label>
-                                <input name="desc_m_a" id="desc_m_a" type="text" class="form-control" required disabled>
+                                <input name="desc_m_a" id="desc_m_a" type="text" class="form-control" required>
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
@@ -225,7 +225,7 @@
                             </div>
                             <div class="col-xs-4">
                                 <label for="nombre_i_a">Categoria</label>
-                                <input name="nombre_i_a" id="nombre_i_a" type="text" class="form-control" disabled>
+                                <input name="nombre_i_a" id="nombre_i_a" type="text" class="form-control">
                             </div>
                             <div class="col-xs-4">
                                 <button type="submit" class="btn btn-deafult btn-block btn-md button-reg abajo">Actualizar</button>
@@ -286,21 +286,21 @@
                             </div>
                             <div class="col-xs-3">
                                 <label for="nombre_l_a">Nombre</label>
-                                <input name="nombre_l_a" id="nombre_l_a" type="text" class="form-control" disabled>
+                                <input name="nombre_l_a" id="nombre_l_a" type="text" class="form-control">
                             </div>
                             <div class="col-xs-3">
                                 <label for="radio">Tipo</label>
                                 <br>
                                 <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1_a" value="1" checked="checked" disabled> Ciudad
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1_a" value="1" checked="checked"> Ciudad
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2_a" value="2" disabled> Estado
+                                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2_a" value="2"> Estado
                                 </label>
                             </div>
                             <div class="col-xs-3">
                                 <label for="estado_l_a">Estado</label>
-                                <select name="estado_l_a" required class="form-control" id="estado_l_a" disabled>
+                                <select name="estado_l_a" required class="form-control" id="estado_l_a">
                                     <option value="0" selected>Selecciona un Estado</option>
                                     @foreach($estados as $estado)
                                     <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>

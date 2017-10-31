@@ -71,7 +71,7 @@ function modCancerModal(id, cancer_id, nombre_otro, fecha_desde, estado_actual){
     $("#mod-cancer-modal .modal-footer a").attr('href', del_cancer_url+id+'/'+cancer_id).change();
     $('#mod-cancer-modal').modal('show');
 }
-
+/*
 $('#select_tipo').on('change', function() {
     if(this.value != '0'){
         $('#tipo_c_a').removeAttr('disabled');
@@ -140,3 +140,4 @@ $('#inlineRadio1').click( function(){
 $('#inlineRadio2').click( function(){
     $("#estado").attr("disabled", "disabled");
 });
+*/
