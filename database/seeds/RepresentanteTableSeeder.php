@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Representante;
 use App\Usuario;
+use App\Localidad;
 use Faker\Factory as Faker;
 
 class RepresentanteTableSeeder extends Seeder
@@ -15,12 +16,13 @@ class RepresentanteTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('es_ES');
+        $localidades = Localidad::whereNotNull('localidad_id')->get()->toArray();
         for ($i=0; $i<=25; $i++)
         {
             $genderRand = rand(0, 1);
             $name = $faker->firstName($gender = ($genderRand==1?'female':'male'));
             $l_name = $faker->lastName;
-            Representante::create(array(
+            $representate = Representante::create(array(
                 'cedula' => $faker->unique()->numberBetween($min = 9000000, $max=24000000),
                 'nombre' => $name,
                 'apellido' => $l_name,
@@ -28,7 +30,7 @@ class RepresentanteTableSeeder extends Seeder
                 'fecha_nacimiento' => $faker->date($format = 'Y-m-d', $max = '-16 years'),
                 'telefono' => $faker->e164PhoneNumber,
                 'direccion' => $faker->address,
-                'localidad_id' => $faker->numberBetween($min = 26, $max=56)
+                'localidad_id' => $localidades[array_rand($localidades)]['id']
             ));
 
             Usuario::create([
@@ -36,7 +38,7 @@ class RepresentanteTableSeeder extends Seeder
                 'contrasena' => bcrypt(123456),
                 'rol_type' => 'App\Representante',
                 'correo' => $faker->freeEmail,
-                'rol_id' => $i+1
+                'rol_id' => $representate->id
             ]);
         }
     }

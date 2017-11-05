@@ -8,12 +8,6 @@
     }
 
 });*/
-
-$('.spinner').spinner({
-    min: 0,
-    max: 100
-});
-
 $('#estado_select').on('change', function() {
     $.ajax({
         method: 'POST',
