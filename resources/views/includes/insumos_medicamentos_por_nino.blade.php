@@ -1,7 +1,7 @@
-<?php $conteo = count($nino->medicamentos) + count($nino->insumos) ?>
-@foreach($nino->medicamentos as $med)
+<?php $conteo = count($nino->medicamentosRequeridos) + count($nino->insumosRequeridos) ?>
+@foreach($nino->medicamentosRequeridos as $med)
     {{ $med->medicamento->nombre }} ({{$med->cantidad}})@if($conteo-- > 1),@endif 
 @endforeach
-@foreach($nino->insumos as $ins)
+@foreach($nino->insumosRequeridos as $ins)
     {{ $ins->nombre }} ({{$ins->cantidad}})@if($conteo-- > 1),@endif 
 @endforeach

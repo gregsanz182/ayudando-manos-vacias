@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Nino extends Model
 {
@@ -35,7 +36,15 @@ class Nino extends Model
         return $this->hasMany('App\Nino_Insumo');
     }
 
+    public function insumosRequeridos() {
+        return $this->hasMany('App\Nino_Insumo')->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
+    }
+
     public function medicamentos () {
         return $this->hasMany('App\Nino_Medicamento');
+    }
+    
+    public function medicamentosRequeridos () {
+        return $this->hasMany('App\Nino_Medicamento')->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
     }
 }

@@ -16,31 +16,40 @@ class NinoController extends Controller
 {
     public function buscarNinos(Request $request)
     {
-        $ninos = Nino::with([
-            'medicamentos' => function($query){
-                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
-            },
-            'insumos' => function($query){
-                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
-            }])->whereHas('medicamentos', function($query){
-                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
-            })->whereHas('insumos', function($query){
-                $query->where('estado_requerimiento', 'Requerido')->where('cantidad', '>', 0)->where('fecha', '>=', Carbon::now('America/Caracas'));
-            })->whereHas('canceres', function($query) use ($request){
-                if($request->exists('cancer') && $request['cancer'])
-                    $query->where('cancer_id', $request['cancer']);
-            })->whereHas('medicamentos', function($query) use ($request){
-                if($request->exists('medicamentos') && $request['medicamentos'])
-                    $query->where('medicamento_id', $request['medicamentos'])->where('estado_requerimiento', 'Requerido');
-            })->whereHas('insumos', function($query) use ($request){
-                if($request->exists('insumos') && $request['insumos'])
-                    $query->where('categoria_insumo_id', $request['insumos'])->where('estado_requerimiento', 'Requerido');
-            })->whereHas('representante.localidad', function($query) use ($request){
-                if($request->exists('estado') && $request['estado'] != 'Estado')
-                    $query->where('localidad_id', $request['estado']);
-                if($request->exists('municipio') && $request['municipio'] != 'Municipio')
-                    $query->where('id', $request['municipio']);
-            })->paginate(10);
+        $ninos = Nino::where(function ($query){
+            $query->has('medicamentosRequeridos')->orHas('insumosRequeridos');
+        })->where(function($query) use ($request){
+            //filtrar por cancer
+            if($request->exists('cancer') && $request['cancer']){
+                $query->whereHas('canceres', function($q) use ($request){
+                    $q->where('cancer_id', $request['cancer']);
+                });
+            }
+            //filtrar por medicamento
+            if($request->exists('medicamentos') && $request['medicamentos']){
+                $query->whereHas('medicamentosRequeridos', function($q) use ($request){
+                    $q->where('medicamento_id', $request['medicamentos']);
+                });
+            }
+            //filtrar por categoria de insumo
+            if($request->exists('insumos') && $request['insumos']){
+                $query->whereHas('insumosRequeridos', function($q) use ($request){
+                    $q->where('categoria_insumo_id', $request['insumos']);
+                });
+            }
+            //filtrar por estado
+            if($request->exists('estado') && $request['estado'] != 'Estado'){
+                $query->whereHas('representante.localidad', function($q) use ($request){
+                    $q->where('localidad_id', $request['estado']);
+                });
+            }
+            //filtrar por municipio
+            if($request->exists('municipio') && $request['municipio'] != 'Municipio'){
+                $query->whereHas('representante', function($q) use ($request){
+                    $q->where('localidad_id', $request['municipio']);
+                });
+            }
+        })->paginate(10);
 
         $estados = Localidad::whereNull('localidad_id')->orderBy('nombre')->get();
         $municipios = [];
