@@ -2,16 +2,16 @@
   <img src="unetLogo.png"/>
 </p>
 
-## Sistema de gestión de requerimientos para las donaciones en la organización Ayudando Manos Vacias (Ficticio)
+## Sistema de gestión de requerimientos para las donaciones en la organización Ayudando Manos Vacias
 ### Proyecto de Sistemas de Información I
 
-Sistema para la gestíon de las requerimientos de insumos y medicamentos para la organización ficticia "Ayudando Manos Amigas", encargada de aportar una ayuda a los niños con cancer del país.
+Sistema para la gestión de requerimientos de insumos y medicamentos para la organización ficticia "Ayudando Manos Amigas", encargada de aportar una ayuda a los niños con cáncer del país.
 
-El sistema permite a los representantes de los niños registrarse e ingresar la información de sus representados y los insumos o medicinas que estos puedan requerir. Cada representante debe poseer una cuenta de usuario, con la cual manejara toda la informacion de perfil y los requerimientos de cada niño.
+El sistema permite a los representantes de los niños registrarse e ingresar la información de sus representados y los insumos o medicinas que estos puedan requerir. Cada representante debe poseer una cuenta de usuario, con la cual manejará toda la información de perfil y los requerimientos de cada niño.
 
-La pagina web aporta todos los requerimientos de cada niño, permitiendo a los donantes filtrar por ubicación, medicina, insumo o tipo de cancer. Caulquier persona puede ver esta información sin necesidad de registrarse, y puede enviar un mensaje de conacto al representante si desea realizar una aportación. 
+La página web aporta todos los requerimientos de cada niño, permitiendo a los donantes filtrar por ubicación, medicina, insumo o tipo de cáncer. Cualquier persona puede ver esta información sin necesidad de registrarse, y puede enviar un mensaje de contacto al representante si desea realizar una aportación. 
 
-Cabe destacar que la información personal de cada niño se verá limitada a su nombre, edad, tipo de cancer y requerimientos, sin mostrar fotos o una ubicación exacta.
+Cabe destacar que la información personal de cada niño se verá limitada a su nombre, edad, tipo de cáncer y requerimientos, sin mostrar fotos o una ubicación exacta.
 
 Este sistema consta con una base de datos relacional en MySql y aprovecha las funcionalidades que aporta el framework de PHP Laravel.
 
