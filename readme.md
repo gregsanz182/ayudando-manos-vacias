@@ -16,7 +16,7 @@ Cabe destacar que la información personal de cada niño se verá limitada a su 
 Este sistema consta con una base de datos relacional en MySql y aprovecha las funcionalidades que aporta el framework de PHP Laravel.
 
 ### Desarrolladores
-* [Anny Chacón (@AnnyEsme27)](https://github.com/AnnyEsme27)
+* [Anny Chacón (@AnnyChacon)](https://github.com/AnnyChacon)
 * [Gregory Sánchez (@gregsanz182)](https://github.com/gregsanz182)
 
 ### Desarrollado con Laravel
